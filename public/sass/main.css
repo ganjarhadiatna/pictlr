@@ -838,7 +838,7 @@
   @media (max-width: 768px) {
     .frame-sign {
       width: calc(100% - 20px);
-      margin: 10px; } }
+      margin: 25px 10px 10px 10px; } }
   .frame-sign .top {
     margin-bottom: 20px; }
     .frame-sign .top img {
