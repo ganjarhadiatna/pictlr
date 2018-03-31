@@ -418,9 +418,9 @@
       font-size: 14px;
       font-weight: 600; }
       .frame-follow .ff-mid .fl-ttl a {
-        color: rgba(0, 0, 0, 0.54); }
+        color: rgba(0, 0, 0, 0.84); }
         .frame-follow .ff-mid .fl-ttl a:hover {
-          color: rgba(0, 0, 0, 0.84); }
+          color: #144753; }
   .frame-follow .ff-bot {
     grid-column: 3;
     -ms-grid-column: 3; }
