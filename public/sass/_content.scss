@@ -1,0 +1,452 @@
+/*content popup*/
+.content-popup {
+	@include post_fixed();
+	display: none;
+	.place-popup {
+		@include post_center();
+		width: 300px;
+		margin: auto;
+		background-color: $sek-color;
+		border-radius: 5px;
+		ul {
+			li {
+				list-style: none;
+				text-align: center;
+				padding: 15px 0;
+				font-size: $txt-size-small;
+				cursor: pointer;
+				color: $txt-sek-color;
+				&:hover {
+					color: $txt-min-color;
+				}
+			}
+			li.btm {
+				border-top: 1px #ededed solid;
+				color: $txt-min-color;
+			}
+		}
+	}
+	.question-popup {
+		color: $txt-min-color;
+		.pos {
+			padding: 15px 2.5%;
+			text-align: center;
+		}
+		.top {
+			border-bottom: 1px #ededed solid;
+			font-weight: 900;
+		}
+		.mid {
+			border-bottom: 1px #ededed solid;
+		}
+		.bot {
+			.btn {
+				width: 80px;
+				margin: 0 5px;
+				padding: 0 0;
+			}
+		}
+
+	}
+}
+
+.more-menu {
+	position: absolute;
+	top: 55px;
+	right: 15px;
+	width: 400px;
+	background-color: $sek-color;
+	border-radius: 5px;
+	border: 1px rgba(0,0,0,0.1) solid;
+	z-index: 100;
+	display: none;
+	@media (max-width: $max-width) {
+		position: fixed;
+		top: 60px;
+		width: calc(100% - 20px);
+		margin: 0 10px;
+		right: 0;
+	}
+	.ttl-ctr {
+		position: relative;
+		text-align: left;
+		padding-bottom: 5px;
+		padding-left: 10px;
+
+		font-size: 14px;
+		font-weight: 600;
+		color: $txt-min-color;
+	}
+	.place-collect {
+		margin-bottom: 15px;
+		height: calc(100vh - 350px);
+		overflow-y: auto;
+		@media (max-width: $max-width) {
+			height: calc(100vh - 250px);
+		}
+	}
+	li.icn-mobile {
+		width: 90%;
+		padding: 0 5%;
+		display: block;
+		text-align: left;
+	}
+	.column {
+		@include col_masonry(4);
+	}
+	.column-2 {
+		@include col_masonry(2);
+	}
+	.mn {
+		li {
+			width: calc(100% - 20px);
+			padding: 0 10px;
+			margin-bottom: 5px;
+			display: inline-block;
+			vertical-align: top;
+			zoom: 1; /* Fix for IE7 */
+			*display: inline; /* Fix for IE7 */
+			list-style: none;
+		}
+		li {
+			a {
+				color: $txt-sek-color;
+				font-size: 14px;
+				font-weight: 600;
+				&:hover {
+					color: $min-color;
+				}
+			}
+		}
+	}
+}
+
+.notifications {
+	position: absolute;
+	top: 55px;
+	right: 15px;
+	width: 400px;
+	z-index: 100;
+	display: none;
+	@media (max-width: $max-width) {
+		position: fixed;
+		top: 60px;
+		width: calc(100% - 20px);
+		margin: 0 10px;
+		right: 0;
+	}
+	.main {
+		position: relative;
+		padding: 15px 0;
+		background-color: $sek-color;
+		border: 1px rgba(0,0,0,0.1) solid;
+		border-radius: 5px;
+		#notif-nav {
+			width: 95%;
+			margin-bottom: 15px;
+		}
+		.put {
+			position: relative;
+			width: 100%;
+			height: calc(100vh - 250px);
+			overflow-y: auto;
+			@media (max-width: $max-width) {
+				height: calc(100vh - 170px);
+			}
+			.val {
+				display: none;
+			}
+		}
+	}
+}
+
+.notif-icn {
+	font-size: 12px;
+	color: $pos-color;
+	display: none;
+	&.absolute {
+		position: absolute;
+		top: 5px;
+		right: 5px;
+	}
+}
+
+//story
+//
+//compose
+.compose {
+	.main {
+		position: relative;
+		@include col_set(600px);
+		padding: 20px;
+		border-radius: 5px;
+		overflow: hidden;
+		background-color: $sek-color;
+		@media (max-width: $max-width) {
+			padding: 20px 10px;
+			border-radius: 0;
+		}
+		&.no-margin {
+			margin-top: 0px;
+			margin-bottom: 0px;
+		}
+		&.width-all {
+			width: 100%;
+		}
+		.create-body {
+			position: relative;
+			.create-block {
+				position: relative;
+				width: calc(100% - 4px);
+				background-color: $sek-color;
+				padding: 15px 2px;
+				border-radius: 3px;
+				margin-bottom: 15px;
+				&.no-pad {
+					padding: 0px 2px;
+				}
+				.mrg-bottom {
+					margin-bottom: 15px;
+				}
+				p {
+					font-size: $txt-size-small;
+					color: $txt-sek-color;
+					margin-bottom: 5px;
+				}
+				.ttl-head {
+					font-size: 14px;
+					color: $txt-sek-color;
+					font-weight: 900;
+				}
+				.toggle {
+					float: right;
+				}
+				.cover-icon {
+					width: calc(100% - 4px);
+					min-height: 200px;
+					height: auto;
+					text-align: center;
+					color: $txt-sek-color;
+					border: 2px $txt-sek-color dashed;
+					cursor: pointer;
+					overflow: hidden;
+				}
+				.cover-icon .icn {
+					display: block;
+					line-height: 200px;
+				}
+				.cover-icon .img {
+					position: relative;
+					width: 100%;
+					display: none;
+				}
+				.cover-icon .img .change-cover {
+					position: absolute;
+					top: calc(55% - 40px);
+					width: 100%;
+					line-height: 40px;
+					z-index: 1;
+					background-color: rgba(0,0,0,0.8);
+					color: #fff;
+				}
+				.alert {
+					color: $txt-sek-color;
+					font-size: 13px;
+					margin-top: 5px;
+				}
+				.cover-icon img {
+					position: relative;
+					width: 100%;
+					margin: 0 auto;
+				}
+				.cover-icon:hover {
+					color: $txt-min-color;
+				}
+				.txt-main-color:focus {
+					border: 1px $txt-sek-color solid;
+				}
+				#cover {
+					display: none;
+				}
+				#write-story {
+					min-height: 30px;
+				}
+				.loading {
+					display: none;
+				}
+				.block-field {
+					position: relative;
+				}
+				.block-field .pan {
+					position: relative;
+					width: 100%;
+					height: 30px;
+					padding-bottom: 10px;
+					@include grid_2x(1fr, 30px);
+				}
+				.block-field .pan .left {
+					@include column_1();
+				}
+				.block-field .pan .right {
+					@include column_2();
+					
+					text-align: right;
+				}
+				.block-field .left .ttl {
+					@include post_top();
+					font-weight: 600;
+				}
+				.block-field .btn-circle {
+					width: 30px;
+					height: 30px;
+					line-height: 30px;
+					font-size: 12px;
+				}
+				.block-field .btn-circle.active {
+					border: 1px $txt-sek-color  solid;
+					color: $txt-min-color;
+				}
+			}
+		}
+		.create-bot {
+			text-align: right;
+			.btn {
+				margin-left: 15px;
+			}
+		}
+		.create-mn {
+			position: relative;
+			overflow: hidden;
+			border-radius: 3px;
+			.tool {
+				position: absolute;
+				z-index: 10;
+				cursor: default;
+				display: none;
+				ul {
+					li {
+						position: relative;
+						width: 30px;
+						height: 30px;
+						line-height: 30px;
+						text-align: center;
+						list-style: none;
+
+						display: inline-block;
+
+						border-radius: 100%;
+						border: 1px rgba(0,0,0,0.1)  solid;
+
+						background-color: $sek-color;
+						color: $txt-sek-color;
+
+						font-size: 12px;
+						cursor: pointer;
+						&:hover {
+							border: 1px $txt-sek-color  solid;
+							color: $txt-min-color;
+							transition: 0.3s;
+						}
+						label {
+							cursor: pointer;
+						}
+					}
+					.get {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+	.create-dialog {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background-color: $txt-sek-color;
+		z-index: 100;
+		display: none;
+		.place-dialog {
+			@include post_center();
+			width: 400px;
+			margin: auto;
+			background-color: $sek-color;
+			border-radius: 5px;
+		}
+		.place-dialog .top {
+			width: 100%;
+			height: 50px;
+			line-height: 50px;
+			text-align: center;
+			font-size: 14px;
+			font-weight: 900;
+			color: $txt-sek-color;
+		}
+		.place-dialog .mid {
+			width: 95%;
+			padding: 0px 2.5%;
+		}
+		.place-dialog .mid .txt {
+			padding: 5px 2.5%;
+		}
+		.place-dialog .bot {
+			width: 95%;
+			padding: 10px 2.5%;
+			text-align: right;
+			.btn {
+				margin-left: 15px;
+			}
+		}
+	}
+}
+
+.block {
+	padding: 12.5px 0 0 0;
+	color: $txt-min-color;
+	&.center {
+		text-align: center;
+	}
+	.logo {
+		position: relative;
+		width: 500px;
+		height: 300px;
+		background-size: 100%;
+		background-position: center;
+		background-repeat: no-repeat;
+		margin: auto;
+	}
+	.ttl {
+		text-align: center;
+		color: $sek-color;
+	}
+	.ctn-up {
+		padding: 0 0;
+		font-size: 16pt;
+		color: $sek-color;
+	}
+	.need-mrg-left {
+		margin-left: 10px;
+	}
+}
+
+.place-follow {
+	position: relative;
+	width: 600px;
+	margin: auto;
+	padding: 15px;
+	background-color: #fff;
+	border-radius: 5px;
+	@media (max-width: $max-width) {
+		width: calc(100% - 20px);
+		padding: 15px 10px;
+		border-radius: 0;
+	}
+}
+
+.padding-bottom {
+	text-align: center;
+	padding: 5px 0;
+	color: $txt-sek-color;
+	font-size: 10px;
+}

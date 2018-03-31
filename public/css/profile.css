@@ -1,0 +1,317 @@
+.frame-profile {
+	position: relative;
+	width: 100%;
+}
+.frame-profile .pp-top {
+	padding: 30px 0;
+	display: grid;
+	display: -ms-grid;
+}
+.frame-profile .pp-top .profile {
+	width: 700px;
+	margin: auto;
+	grid-template-columns: 240px 1fr;
+}
+.frame-profile .pp-top .profile .foto {
+	width: 180px;
+	height: 180px;
+	overflow: hidden;
+	grid-column: 1;
+}
+.frame-profile .pp-top .profile .info {
+	line-height: 1.5;
+	color: #fff;
+	grid-column: 2;
+}
+.frame-profile .pp-top .profile .info .info-active {
+	background-color: #f0f0f0;
+	padding: 5px 2.5%;
+	border-radius: 3px;
+	margin-bottom: 10px;
+}
+.frame-profile .pp-top .profile .info h1 {
+	margin: 0;
+	text-align: left;
+	color: #fff;
+	text-transform: none;
+}
+.frame-profile .pp-top .profile .info p {
+	font-size: 14px;
+}
+.frame-profile .pp-top .profile .info p.visited {
+	font-size: 14px;
+	margin-bottom: 10px;
+}
+.frame-profile .pp-top .profile .info .other .link {
+	width: 30px;
+	text-align: center;
+}
+.frame-profile .pp-top .profile .info .other a {
+	font-weight: 900;
+	color: #fff;
+}
+.frame-profile .pp-top .profile .info .other a .val {
+	font-size: 18px;
+	color: #fff;
+}
+.frame-profile .pp-top .profile .info .other a .ttl {
+	font-size: 14px;
+	color: #999;
+}
+.frame-profile .pp-top .profile .info p .fa {
+	position: relative;
+	top: -4px;
+	font-size: 8px;
+}
+.frame-profile .pp-top .profile .other.mrg-bottom {
+	margin-bottom: 15px;
+}
+.frame-profile .pp-top .profile .other ul {
+	width: 100%;
+	height: 40px;
+}
+.frame-profile .pp-top .profile .other ul li {
+	width: 33.33%;
+	list-style: none;
+	float: left;
+	font-size: 14px;
+	text-align: center;
+}
+.frame-profile .pp-top .profile .other ul li .val {
+	font-weight: 900;
+}
+.frame-profile .pp-top .profile .other ul li .ttl {
+	font-weight: 900;
+}
+.frame-profile .pp-top .profile .other .btn {
+	width: 100%;
+}
+.frame-profile .pp-top .profile .other .btn-1 {
+	width: calc(100% - 70px);
+}
+.frame-profile .pp-top .profile .other .btn-2 {
+	float: right;
+	width: 50px;
+}
+.frame-profile .pp-top .profile .other #btn-save-edit {
+	margin-bottom: 10px;
+	display: none;
+}
+.frame-profile .pp-top .profile #change {
+	display: none;
+}
+.frame-profile .pp-top .profile #btn-save-foto {
+	position: absolute;
+	width: 100%;
+	line-height: 35px;
+	padding: 0;
+	bottom: 0;
+	text-align: center;
+}
+.frame-profile .pp-top .profile #change-picture {
+	display: none;
+}
+
+.frame-edit .create-head {
+	border-bottom: 1px #ededed solid;
+}
+.frame-edit .edit-body {
+	padding: 0px 2.5% 30px 2.5%;
+	background-color: #fff;
+}
+.frame-edit .edit-body .edit-block p {
+	font-weight: 900;
+	padding: 15px 0;
+	color: rgba(0,0,0,0.54);
+	border-bottom: 1px #ededed solid;
+}
+.frame-edit .edit-body .edit-block ul li {
+	list-style: none;
+	width: 100%;
+	padding: 15px 0;
+	border-bottom: 1px #ededed solid;
+	font-size: 14px;
+	cursor: pointer;
+	color: rgba(0,0,0,0.54);
+
+	display: grid;
+	grid-template-columns: 1fr 50px;
+
+	display: -ms-grid;
+	-ms-grid-columns: 1fr 50px;
+}
+.frame-edit .edit-body .edit-block ul li:hover {
+	color: rgba(0,0,0,0.84);
+}
+.frame-edit .edit-body .edit-block ul li .ed-1 {
+	grid-column: 1;
+	-ms-grid-column: 1;
+}
+.frame-edit .edit-body .edit-block ul li .ed-2 {
+	grid-column: 2;
+	-ms-grid-column: 2;
+	text-align: center;
+	float: right;
+}
+.frame-edit .edit-body .edit-block .place-edit {
+	padding-top: 25px;
+	color: rgba(0,0,0,0.54);
+	font-size: 11pt;
+
+	display: grid;
+	grid-template-columns: 40px 1fr;
+
+	display: -ms-grid;
+	-ms-grid-columns: 40px 1fr;
+}
+.frame-edit .edit-body .edit-block .place-edit .pe-1 {
+	grid-column: 1;
+	-ms-grid-column: 1;
+	line-height: 40px;
+}
+.frame-edit .edit-body .edit-block .place-edit .pe-2 {
+	grid-column: 2;
+	-ms-grid-column: 2;
+}
+.frame-edit .edit-body .edit-block .place-edit .pe-btn {
+	text-align: right;
+}
+.frame-edit .edit-body .edit-block .place-edit .pe-btn .btn {
+	margin-left: 15px;
+	margin-bottom: 15px;
+}
+.frame-edit .edit-body .edit-block .change {
+	position: relative;
+	width: 100%;
+	padding-top: 25px;
+}
+.frame-edit .edit-body .edit-block .foto {
+	position: relative;
+	width: 200px;
+	height: 200px;
+	margin: auto;
+	border-radius: 100%;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	margin-bottom: 25px;
+}
+.frame-edit .edit-body .edit-block .change #change-picture {
+	display: none;
+}
+.frame-edit .edit-body .edit-block .change #btn-save-foto {
+	width: 70px;
+	margin: auto;
+	text-align: center;
+	line-height: 40px;
+}
+
+.place-follow {
+	position: relative;
+	width: 600px;
+	margin: auto;
+	padding: 15px;
+	background-color: #fff;
+	border-radius: 5px;
+}
+
+.frame-follow {
+	position: relative;
+	width: calc(100% - 20px);
+	padding: 10px 0;
+}
+.frame-follow .top .foto {
+	position: relative;
+	margin: 0 auto;
+	width: 80%;
+	padding-bottom: 80%;
+	border-radius: 100%;
+	background-size: 100%;
+}
+.frame-follow .mid {
+	padding: 15px 0;
+	line-height: 1.5;
+	text-align: center;
+	font-size: 20px;
+	font-weight: 600;
+	color: #fff;
+}
+.frame-follow .bot .btn {
+	width: 100%;
+	height: 35px;
+	font-size: 10pt;
+	padding: 0 0;
+}
+.frame-follow.ff-list {
+	width: 100%;
+	
+	display: grid;
+	grid-template-columns: 45px 1fr 80px;
+
+	display: -ms-grid;
+	-ms-grid-columns: 45px 1fr 80px;
+}
+.frame-follow.ff-list .ff-top {
+	grid-column: 1;
+	-ms-grid-column: 1;
+}
+.frame-follow.ff-list .ff-mid {
+	grid-column: 2;
+	-ms-grid-column: 2;
+}
+.frame-follow.ff-list .ff-bot {
+	grid-column: 3;
+	-ms-grid-column: 3;
+}
+.frame-follow.ff-list .top .foto {
+	width: 35px;
+	padding-bottom: 35px;
+	margin: 0;
+}
+.frame-follow.ff-list .mid {
+	text-align: left;
+	padding: 0;
+	line-height: 0;
+}
+.frame-follow.ff-list .mid .ttl {
+	position: absolute;
+	top: 50%;
+	transform: translate(0, -50%);
+	font-size: 10pt;
+	font-weight: 600;
+}
+.frame-follow.ff-list .mid .ttl a {
+	color: rgba(0,0,0,0.54);
+}
+.frame-follow.ff-list .mid .ttl a:hover {
+	color: rgba(0,0,0,0.84);
+}
+.frame-follow.ff-list .ff-bot .btn {
+	width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+	.frame-profile .pp-top {
+		display: block;
+	}
+	.frame-profile .pp-top .profile {
+		width: 95%;
+		margin-bottom: 15px;
+		margin-top: 20px;
+		display: block;
+	}
+	.frame-profile .pp-top .profile .foto {
+		margin: auto;
+		margin-bottom: 25px;
+	}
+	.frame-edit .edit-body {
+		padding: 0 2.5%;
+	}
+
+	.place-follow {
+		width: calc(100% - 20px);
+		padding: 10px;
+		border-radius: 0;
+		display: block;
+	}
+}

@@ -1,0 +1,58 @@
+//variable
+
+$max-width : 768px;
+
+//color
+$min-color : #144753;
+$sek-color : #fff;
+$pos-color : #529ecc;
+$del-color : #9a0000;
+$txt-min-color: rgba(0,0,0,0.84);
+$txt-sek-color: rgba(0,0,0,0.54);
+$txt-size-title: 22px;
+$txt-size-desc: 14px;
+$txt-size-big: 32px;
+$txt-size-small: 14px;
+
+//method
+@mixin rgba_black($val, $col) {
+	background-color: rgba(0,0,0,$val);
+	color: $col;
+}
+@mixin post_top() {
+	position: absolute;
+	top: 50%;
+	-webkit-transform: translate(0, -50%);
+	   -moz-transform: translate(0, -50%);
+		    -ms-transform: translate(0, -50%);
+		     -o-transform: translate(0, -50%);
+		        transform: translate(0, -50%);
+}
+@mixin post_center() {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+@mixin post_fixed() {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: $txt-sek-color;
+	z-index: 300;
+}
+@mixin bdr_top() {
+	border-top: 1px rgba(0,0,0,0.1) solid;
+}
+@mixin bdr_bottom() {
+	border-bottom: 1px rgba(0,0,0,0.1) solid;
+}
+@mixin bdr_top_bottom() {
+	border-top: 1px rgba(0,0,0,0.1) solid;
+	border-bottom: 1px rgba(0,0,0,0.1) solid;
+}
+@mixin bdr_all() {
+	border: 1px rgba(0,0,0,0.1) solid;
+}

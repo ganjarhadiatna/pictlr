@@ -1,0 +1,48 @@
+.txt {
+	width: calc(100% - 30px);
+	height: 40px;
+	font-size: 14px;
+	font-weight: 900;
+	padding: 0 15px;
+	border-radius: 3px;
+	&.txt-radius {
+		border-radius: 40px;
+	}
+	&.txt-main-color {
+		background-color: #fff;
+		color: rgba(0,0,0,0.84);
+	}
+	&.txt-primary-color {
+		background-color: #f0f0f0;
+		color: rgba(0,0,0,0.84);
+	}
+	&.txt-box-shadow {
+		border: 1px rgba(0,0,0,0.1) solid;
+	}
+	&.txt-sekunder-color {
+		height: 38px;
+		background-color: #fff;
+		color: rgba(0,0,0,0.84);
+		border: 1px rgba(0,0,0,0.1) solid;
+	}
+	&.txt-sekunder-color:focus {
+		border: 1px rgba(0,0,0,0.84) solid;
+	}
+	&.txt-unbox {
+		box-shadow: 0 0 0 #fff;
+	}
+	&.txt-small {
+		width: 100%;
+		padding: 0;
+	}
+	&.edit-text {
+		height: auto;
+		max-height: 400px;
+		overflow-y: auto;
+		padding: 15px;
+		border-radius: 3px;
+		img {
+			width: 100%;
+		}
+	}
+}

@@ -1,0 +1,45 @@
+.image {
+	position: relative;
+	background-size: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-color: #000;
+}
+.image.image-30px {
+	width: 30px;
+	height: 30px;
+}
+.image.image-35px {
+	width: 35px;
+	height: 35px;
+}
+.image.image-40px {
+	width: 40px;
+	height: 40px;
+}
+.image.image-45px {
+	width: 45px;
+	height: 45px;
+}
+.image.image-50px {
+	width: 50px;
+	height: 50px;
+}
+.image.image-100px {
+	width: 100px;
+	height: 100px;
+}
+.image.image-150px {
+	width: 150px;
+	height: 150px;
+}
+.image.image-200px {
+	width: 200px;
+	height: 200px;
+}
+.image.image-radius {
+	border-radius: 3px;
+}
+.image.image-circle {
+	border-radius: 100%;
+}

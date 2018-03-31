@@ -1,0 +1,789 @@
+/*frame post*/
+.frame-post {
+	position: relative;
+	width: calc(100% - 35px);
+	padding: 10px 7.5px;
+	margin: 0 10px 15px 10px;
+	display: inline-block;
+	background-color: $sek-color;
+	border-radius: 5px;
+	@media (max-width: $max-width) {
+		width: calc(100% - 15px);
+		margin: 0 0 15px 0;
+	}
+	.grid {
+		@include grid_3x(45px, 1fr, 45px);
+		.grid-1 {
+			position: relative;
+			@include column_1();
+		}
+		.grid-2 {
+			position: relative;
+			@include column_2();
+		}
+		.grid-3 {
+			position: relative;
+			text-align: right;
+			@include column_3();
+		}
+	}
+	.mid {
+		.top-tool {
+			position: relative;
+			.main-ttl {
+				@include post_top();
+				font-size: $txt-size-desc;
+				font-weight: 600;
+				color: $txt-min-color;
+				&:hover {
+					color: $min-color;
+				}
+			}
+			.ttl-story a {
+				@include post_top();
+				font-size: $txt-size-desc;
+				font-weight: 600;
+				color: $txt-min-color;
+				&:hover {
+					color: $min-color;
+				}
+			}
+			.icn {
+				width: 35px;
+				height: 35px;
+				line-height: 0;
+				font-size: 12px;
+			}
+		}
+		.mid-tool {
+			position: relative;
+			.cover {
+				position: absolute;
+				top: 0;
+				width: 100%;
+				height: 100%;
+			}
+			img {
+				width: 100%;
+				border-radius: 5px;
+			}
+		}
+	}
+	.desc {
+		padding: 5px 0;
+		font-size: $txt-size-small;
+		font-weight: 500;
+		line-height: 1.5;
+		color: $txt-min-color;
+	}
+	.bot-tool {
+		position: relative;
+		width: 100%;
+		height: 35px;
+		.icn {
+			width: 33.33%;
+			padding: 10px 0;
+			text-align: center;
+			float: left;
+			line-height: 0;
+			font-size: 12px;
+			color: $txt-min-color;
+		}
+	}
+}
+
+.frame-guess {
+	position: relative;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+	.block {
+		position: relative;
+		padding: 50px 0;
+		text-align: center;
+		&.theme-1 {
+			background-color: rgba(0,0,0,0.1);
+		}
+		&.theme-2 {
+			background-color: $sek-color;
+		}
+		.logo {
+			width: 500px;
+			@media (max-width: $max-width) {
+				width: 90%;
+			}
+		}
+	}
+	.ttl {
+		color: $sek-color;
+	}
+	.banner {
+		position: relative;
+		width: 100%;
+		padding: 50px 0;
+		background-size: 100%;
+		background-repeat: no-repeat;
+		text-align: center;
+	}
+	.cover {
+		position: relative;
+		background-color: $sek-color;
+		width: 500px;
+		margin: auto;
+		padding: 30px 30px 50px 30px;
+		border-radius: 5px;
+		@media (max-width: $max-width) {
+			width: calc(100% - 40px);
+			padding: 30px 20px 50px 20px;
+			border-radius: 0;
+		}
+		.ttl {
+			text-align: center;
+			color: $sek-color;
+			.mn-title {
+				position: relative;
+				line-height: 1.5;
+				font-size: 28pt;
+			}
+			.sb-title {
+				position: relative;
+				font-size: 22pt;
+				font-weight: 900;
+			}
+		}
+	}
+}
+
+.frame-info {
+	position: relative;
+	width: calc(300px - 60px);
+	padding: 0 30px;
+	display: inline-block;
+	vertical-align: top;
+	&.width-all {
+		width: 100%;
+		padding: 0 0;
+	}
+	.pos {
+		position: relative;
+		padding: 30px 0;
+		.icn {
+			position: relative;
+			width: 70px;
+			height: 70px;
+			line-height: 70px;
+			text-align: center;
+			border: 2px $sek-color solid;
+			color: $sek-color;
+			border-radius: 100%;
+		}
+	}
+	.btn {
+		position: relative;
+		width: 100%;
+	}
+	.mrg-bottom {
+		margin-bottom: 20px;
+	}
+	.mid {
+		padding-bottom: 30px;
+		font-weight: 900;
+		color: $sek-color;
+	}
+}
+
+.frame-empty {
+	position: relative;
+	width: 100%;
+	padding: 100px 0;
+	text-align: center;
+	.icn {
+		width: 120px;
+		height: 120px;
+		line-height: 120px;
+		font-size: 48pt;
+		border-radius: 100%;
+		background-color: $pos-color;
+		color: $sek-color;
+	}
+	.ttl {
+		font-size: $txt-size-big;
+		font-weight: 600;
+		color: $sek-color;
+	}
+}
+
+.frame-other {
+	position: relative;
+	background-color: $sek-color;
+	width: calc(100% - 20px);
+	padding: 10px;
+	border-radius: 5px;
+	margin-bottom: 15px;
+	.ttl {
+		color: $txt-min-color;
+		line-height: 1.5;
+	}
+	p {
+		color: $txt-min-color;
+		font-size: 14px;
+		line-height: 1.5;
+	}
+	.create {
+		width: 100%;
+	}
+}
+
+.frame-follow {
+	position: relative;
+	width: calc(100%);
+	height: 35px;
+	padding: 10px 0;
+	@include grid_3x(45px, 1fr, 80px);
+	.ff-top {
+		@include column_1();
+	}
+	.ff-mid {
+		position: relative;
+		@include column_2();
+		.fl-ttl {
+			@include post-top;
+			font-size: 14px;
+			font-weight: 600;
+			a {
+				color: $txt-sek-color;
+				&:hover {
+					color: $txt-min-color;
+				}
+			}
+		}
+	}
+	.ff-bot {
+		@include column_3();
+		.btn {
+			width: 100%;
+			height: 35px;
+			font-size: 12px;
+			padding: 0 0;
+		}
+	}
+}
+
+.frame-trending {
+	position: relative;
+	width: calc(100%);
+	padding: 5px 0;
+	.ttl-head {
+		position: relative;
+		width: 100%;
+		a {
+			font-size: 14px;
+			font-weight: 600;
+			color: $min-color;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+	.ttl-ctn {
+		font-size: 14px;
+		color: $txt-sek-color;
+	}
+}
+
+.frame-progress {
+	@include post_fixed();
+	display: none;
+	.place-progress {
+		@include post_center();
+		width: 300px;
+		margin: auto;
+		background-color: $sek-color;
+		padding: 20px;
+		border-radius: 5px;
+		.title {
+			line-height: 1.5;
+		}
+	}
+}
+.frame-progress .place-progress .title {
+	line-height: 1.5;
+}
+
+.frame-more-menu {
+	position: relative;
+	width: calc(100% - 30px);
+	padding: 5px 15px;
+	text-align: center;
+	display: inline-block;
+	color: $txt-min-color;
+	.fm-side {
+		.icn {
+			font-size: 12px;
+			margin: auto;
+		}
+	}
+	.fm-main {
+		.ttl {
+			font-weight: 600;
+			font-size: 12px;
+			line-height: 1.5;
+			padding: 5px 0;
+			color: $txt-sek-color;
+		}
+	}
+}
+
+.frame-notif {
+	position: relative;
+	width: calc(100% - 30px);
+	padding: 15px;
+
+	@include grid_2x(50px, 1fr);
+
+	&:hover {
+		background-color: rgba(0,0,0,0.1);
+		cursor: pointer;
+	}
+	a {
+		color: $txt-min-color;
+	}
+	.notif-sid {
+		@include column_1();
+	}
+	.notif-mid {
+		@include column_2();
+		.desc {
+			font-size: 14px;
+			color: $txt-min-color;
+			&.date {
+				font-size: 12px;
+				color: $txt-sek-color;
+			}
+		}
+	}
+}
+
+.frame-story {
+	position: relative;
+	@include col_set(680px);
+	background-color: $sek-color;
+	padding: 10px;
+	border-radius: 5px;
+	z-index: 1;
+	@media (max-width: $max-width) {
+		border-radius: 0;
+	}
+	img {
+		width: 100%;
+	}
+	&[width] {
+		width: 100%;
+	}
+	.pos {
+		padding: 10px 10px;
+		@media (max-width: $max-width) {
+			padding: 10px 0;
+		}
+		.date {
+			font-size: $txt-size-small;
+			color: $txt-sek-color;
+		}
+		.grid {
+			padding-top: 15px;
+			@include bdr_top();
+			@include grid_2x(1fr, 1fr);
+			.grid-1 {
+				@include column_1();
+				.icn {
+					padding: 0 5px;
+				}
+			}
+			.grid-2 {
+				@include column_2();
+				text-align: right;
+			}
+		}
+	}
+	.top {
+		padding: 10px 10px 5px 10px;
+	}
+	.mid {
+		.pict {
+			img {
+				border-radius: 5px;
+			}
+		}
+		.content {
+			color: $txt-min-color;
+		}
+		.place-cover {
+			margin: 10px 0 25px 0;
+		}
+		.title {
+			line-height: 1.5;
+			font-weight: 600;
+			color: $txt-min-color;
+			font-size: $txt-size-title;
+		}
+		.desc {
+			line-height: 1.5;
+			font-weight: 500;
+			color: $txt-min-color;
+			font-size: $txt-size-desc;
+		}
+	}
+	.bot {
+		color: $txt-min-color;
+		.loved {
+			margin: 15px 0;
+		}
+		.top-comment {
+			.comment-head {
+				@include bdr_top_bottom();
+				padding: 20px 0;
+				.comment-text {
+					min-width: calc(100% - 30px);
+					max-width: calc(100% - 30px);
+					height: 50px;
+					min-height: 50px;
+					max-height: 300px;
+					padding: 15px;
+					color: $txt-sek-color;
+					margin-bottom: 15px;
+					&:focus {
+						color: $txt-min-color;
+						border: 1px $txt-min-color solid;
+					}
+				}
+				.place-btn {
+					position: relative;
+					width: 100%;
+					text-align: right;
+				}
+				.btn {
+					width: 80px;
+					padding: 0 0;
+				}
+			}
+		}
+		.profile {
+			padding: 15px 0;
+			@include bdr_top_bottom();
+			@include grid_3x(45px, 1fr, 90px);
+			.foto {
+				@include column_1();
+			}
+			.info {
+				position: relative;
+				@include column_2();
+				.name {
+					@include post_top();
+					font-weight: 600;
+					font-size: $txt-size-desc;
+					a {
+						color: $txt-min-color;
+						&:hover {
+							color: $min-color;
+						}
+					}
+				}
+			}
+			.tool {
+				@include column_3();
+				.btn {
+					width: 100%;
+					padding: 0 0;
+					font-size: 14px;
+					height: 35px;
+				}
+			}
+		}
+	}
+}
+
+/*start frame-comment*/
+.frame-comment {
+	position: relative;
+	width: 100%;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	@include grid_2x(45px, 1fr);
+	.dt-1 {
+		@include column_1();
+	}
+	.dt-2 {
+		@include column_2();
+	}
+	.tgl {
+		line-height: 1.5;
+		font-weight: 500;
+		color: $txt-sek-color;
+		font-size: $txt-size-small;
+		.fa {
+			position: relative;
+			top: -3px;
+			font-size: 5px;
+			color: $txt-sek-color;
+		}
+		.del {
+			font-weight: 500;
+			color: $del-color;
+			cursor: pointer;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+	.desk {
+		color: $txt-min-color;
+		font-size: $txt-size-small;
+		font-weight: 500;
+		line-height: 1.5;
+		a {
+			color: $txt-min-color;
+			font-size: $txt-size-small;
+			&:hover {
+				color: $min-color;
+			}
+		}
+	}
+}
+
+.frame-profile {
+	position: relative;
+	padding: 20px 0;
+	.profile {
+		position: relative;
+		@include col_set(680px);
+		@include grid_2x(200px, 1fr);
+		@media (max-width: $max-width) {
+			@include grid_none();
+		}
+		.foto {
+			@include column_1();
+			margin-bottom: 20px;
+		}
+		.info {
+			position: relative;
+			color: $sek-color;
+			@include column_2();
+			.user-name {
+				color: $sek-color;
+			}
+			.other {
+				a {
+					color: $sek-color;
+					font-weight: 600;
+				}
+				.link {
+					color: $pos-color;
+					font-weight: 600;
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+				ul {
+					position: relative;
+					width: 100%;
+					height: 40px;
+					padding: 20px 0;
+					li {
+						width: 33.33%;
+						list-style: none;
+						float: left;
+						text-align: left;
+						.val {
+							font-size: $txt-size-desc;
+						}
+						.ttl {
+							color: #f0f0f0;
+							font-weight: 500;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.frame-edit {
+	.create-head {
+		@include bdr_bottom();
+	}
+	.edit-body {
+		padding: 0px 2.5% 30px 2.5%;
+		background-color: $sek-color;
+		.edit-block {
+			p {
+				font-weight: 900;
+				padding: 15px 0;
+				color: $txt-sek-color;
+				@include bdr_bottom();
+			}
+			ul {
+				li {
+					list-style: none;
+					width: 100%;
+					padding: 15px 0;
+					cursor: pointer;
+					font-size: $txt-size-small;
+					color: $txt-sek-color;
+					@include bdr_bottom();
+					@include grid_2x(1fr, 50px);
+					&:hover {
+						color: $txt-min-color;
+					}
+					.ed-1 {
+						@include column_1();
+					}
+					.ed-2 {
+						@include column_2();
+						text-align: center;
+						float: right;
+					}
+				}
+			}
+			.place-edit {
+				position: relative;
+				width: 100%;
+				padding-top: 25px;
+				color: $txt-sek-color;
+				font-size: $txt-size-small;
+				@include grid_2x(40px, 1fr);
+				.pe-1 {
+					@include column_1();
+					line-height: 40px;
+				}
+				.pe-2 {
+					@include column_2();
+				}
+				.pe-btn {
+					text-align: right;
+					.btn {
+						margin-left: 15px;
+						margin-bottom: 15px;
+					}
+				}
+				.edit-text {
+					width: calc(100% - 30px);
+					min-width: calc(100% - 30px);
+					max-width: calc(100% - 30px);
+					height: 80px;
+					min-height: 80px;
+					max-height: 80px;
+				}
+			}
+			.change {
+				position: relative;
+				width: 100%;
+				padding-top: 25px;
+				#change-picture {
+					display: none;
+				}
+				#btn-save-foto {
+					width: 70px;
+					margin: auto;
+					text-align: center;
+					line-height: 40px;
+				}
+			}
+			.foto {
+				position: relative;
+				margin: auto;
+				margin-bottom: 25px;
+			}
+		}
+	}
+}
+
+.frame-top-tag {
+	position: relative;
+
+	padding: 0 15px;
+	height: 40px;
+	line-height: 40px;
+	margin: 2.5px;
+	display: inline-block;
+
+	background-color: #f0f0f0;
+	color: $txt-sek-color;
+	font-size: $txt-size-small;
+
+	font-weight: 600;
+	border-radius: 3px;
+	&:hover {
+		color: $txt-min-color;
+	}
+}
+
+.frame-sign {
+	position: relative;
+	width: 500px;
+	background-color: $sek-color;
+	border-radius: 5px;
+	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	@media (max-width: $max-width) {
+		width: calc(100% - 20px);
+		margin: 10px;
+	}
+	.top {
+		margin-bottom: 20px;
+		img {
+			width: 100%;
+		}
+	}
+	.mid {
+		.block {
+			width: 90%;
+			margin: auto;
+			color: $txt-min-color;
+			&.center {
+				text-align: center;
+			}
+			.ttl {
+				font-weight: 600;
+			}
+			.logo {
+				position: relative;
+				width: 100%;
+				height: 150px;
+				line-height: 150px;
+				overflow: hidden;
+				img {
+					position: relative;
+					margin: auto;
+					width: 200px;
+				}
+			}
+			h1 {
+				text-align: center;
+				color: $txt-min-color;
+				padding: 15px 0;
+			}
+			p {
+				font-size: 14px;
+				color: $txt-sek-color;
+			}
+			.btn {
+				width: 100%;
+				margin-bottom: 15px;
+			}
+			a {
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+.frame-more {
+	text-align: center;
+	display: none;
+}
+.frame-more .btn {
+	width: 150px;
+	padding: 0 0;
+}

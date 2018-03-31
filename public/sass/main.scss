@@ -1,0 +1,271 @@
+//files
+@import "assets";
+@import "fonts";
+@import "padding";
+@import "grid";
+@import "column";
+@import "button";
+@import "field";
+@import "image";
+@import "frame";
+@import "content";
+@import "navigator";
+
+//variable
+* {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	outline: none;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+html {
+	background-color: $min-color;
+}
+
+a {
+	text-decoration: none;
+}
+
+.col-small {
+	@include col_set(700px);
+}
+
+.ctn-main-font {
+	font-family: "FontFirst", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 600;
+	&.ctn-big {
+		font-size: 54px;
+	}
+	&.ctn-standar {
+		font-size: 44px;
+	}
+	&.ctn-small {
+		font-size: 34px;
+	}
+	&.ctn-mikro {
+		font-size: 24px;
+	}
+	&.ctn-upp {
+		text-transform: uppercase;
+	}
+	&.ctn-normal {
+		text-transform: normal;
+	}
+	&.ctn-center {
+		text-align: center;
+	}
+}
+
+/*header*/
+#header {
+	position: relative;
+	width: 100%;
+	height: 60px;
+	background-color: $sek-color;
+	@media (max-width: $max-width) {
+		height: 100px;
+	}
+	.place {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		z-index: 100;;
+		background-color: $min-color;
+		@include bdr_bottom();
+		.menu {
+			position: relative;
+			padding: 10px 0;
+			cursor: default;
+			@include grid_3x(120px, 1fr, 1fr);
+			@include col_all();
+			@media (max-width: $max-width) {
+				@include grid_2x(120px, 1fr);
+			}
+			#main-search {
+				&.hide {
+					@media (max-width: $max-width) {
+						display: none;
+					}
+				}
+			}
+			.pos {
+				.btn.active {
+					@include rgba_black(0.2, #fff);
+				}
+			}
+			.lef {
+				@include column_1();
+				.logo {
+					position: relative;
+					width: 120px;
+					height: 40px;
+					overflow: hidden;
+					img {
+						@include post_top();
+						width: calc(100% - 20px);
+					}
+				}
+			}
+			.mid {
+				@include column_2();
+				text-align: left;
+				@media (max-width: $max-width) {
+					position: fixed;
+					top: 60px;
+					left: 0;
+					width: calc(100% - 20px);
+					padding: 7.5px 10px;
+					background-color: $min-color;
+				}
+				.main-search {
+					width: 450px;
+					height: 40px;
+					overflow: hidden;
+					background-color: $sek-color;
+					border-radius: 3px;
+					@media (max-width: $max-width) {
+						width: 100%;
+					}
+					.txt {
+						width: calc(100% - 90px);
+						float: left;
+					}
+					.btn {
+						width: 60px;
+						padding: 0 0;
+						float: right;
+					}
+				}
+			}
+			.rig {
+				@include column_3();
+				text-align: right;
+				@media (max-width: $max-width) {
+					@include column_2();
+				}
+				.mobile {
+					@media (max-width: $max-width) {
+						display: none;
+					}
+				}
+				.btn {
+					margin-left: 5px;
+					.notif-icn {
+						display: none;
+					}
+				}
+				.create {
+					width: 50px;
+					padding: 0 0;
+					@media (max-width: $max-width) {
+						position: fixed;
+						bottom: 10px;
+						right: 10px;
+						z-index: inherit;
+						width: 50px;
+						height: 50px;
+						border-radius: 100%;
+						box-shadow: 0 0 10px rgba(0,0,0,0.54);
+					}
+				}
+				.pp {
+					vertical-align: top;
+					text-align: center;
+					.image {
+						margin: 0 auto;
+					}
+				}
+			}
+		}
+	}
+}
+
+/*body*/
+#body {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	.post-home {
+		@include col_set(900px);
+		.side-fixed {
+			position: fixed;
+			width: 350px;
+			bottom: 0;
+			@media (max-width: $max-width) {
+				position: relative;
+				width: 100%;
+			}
+		}
+		.side-absolute {
+			position: absolute;
+			right: 0;
+			width: 350px;
+			bottom: 0;
+			@media (max-width: $max-width) {
+				position: relative;
+				width: 100%;
+			}
+		}
+	}
+	.post-grid {
+		@include grid_2x(1fr, 350px);
+		@media (max-width: $max-width) {
+			@include grid_none();
+		}
+		.post-grid-1 {
+			position: relative;
+			width: calc(100% - 5px);
+			@include column_1();
+			@media (max-width: $max-width) {
+				width: calc(100%);
+			}
+		}
+		.post-grid-2 {
+			position: relative;
+			@include column_2();
+			@media (max-width: $max-width) {
+				display: none;
+			}
+		}
+	}
+	.post {
+		@include col_full();
+		@include col_masonry(4);
+		@media (max-width: $max-width) {
+			@include col_masonry(1);
+		}
+	}
+}
+
+/*footer*/
+#footer {
+	position: relative;
+	width: calc(100% - 20px);
+	padding: 30px 10px 30px 10px;
+	text-align: center;
+	cursor: default;
+	@include bdr_top();
+	ul {
+		li {
+			list-style: none;
+			display: inline-block;
+			padding: 0 5px;
+			a {
+				color: $sek-color;
+				font-size: 14px;
+				font-weight: 600;
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+			.icn {
+				position: relative;
+				top: -2.5px;
+				font-size: 5px;
+				color: rgba(225,225,225,0.54);
+			}
+		}
+	}
+}

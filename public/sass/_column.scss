@@ -1,0 +1,25 @@
+//variable
+
+//method
+@mixin col_full() {
+	width: 1250px;
+	margin: 0 auto;
+	@media (max-width: $max-width) {
+		width: calc(100% - 20px);
+	}
+}
+@mixin col_all() {
+	width: calc(100% - 30px);
+	margin: 0 auto;
+}
+@mixin col_set($width) {
+	width: $width;
+	margin: 0 auto;
+	@media (max-width: $max-width) {
+		width: calc(100% - 20px);
+	}
+}
+@mixin col_masonry($val) {
+	column-count: $val;
+	column-gap: 0;
+}

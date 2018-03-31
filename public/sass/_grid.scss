@@ -1,0 +1,43 @@
+@mixin grid_4x($col1, $col2, $col3, $col4) {
+	display: grid;
+	display: -ms-grid;
+
+	grid-template-columns: $col1 $col2 $col3 $col4;
+	-ms-grid-columns: $col1 $col2 $col3 $col4;
+}
+@mixin grid_3x($col1, $col2, $col3) {
+	display: grid;
+	display: -ms-grid;
+
+	grid-template-columns: $col1 $col2 $col3;
+	-ms-grid-columns: $col1 $col2 $col3;
+}
+@mixin grid_2x($col1, $col2) {
+	display: grid;
+	display: -ms-grid;
+
+	grid-template-columns: $col1 $col2;
+	-ms-grid-columns: $col1 $col2;
+}
+@mixin grid_1x($col1) {
+	display: grid;
+	display: -ms-grid;
+
+	grid-template-columns: $col1;
+	-ms-grid-columns: $col1;
+}
+@mixin grid_none() {
+	display: block;
+}
+@mixin column_1() {
+	grid-column: 1;
+	-ms-grid-column: 1;
+}
+@mixin column_2() {
+	grid-column: 2;
+	-ms-grid-column: 2;
+}
+@mixin column_3() {
+	grid-column: 3;
+	-ms-grid-column: 3;
+}

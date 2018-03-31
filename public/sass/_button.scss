@@ -1,0 +1,81 @@
+/*button normal*/
+.btn {
+	position: relative;
+	width: auto;
+	height: 40px;
+	padding: 0 15px;
+	border-radius: 3px;
+	font-size: 14px;
+	font-weight: 600;
+	cursor: pointer;
+	&.btn-upp {
+		text-transform: uppercase;
+	}
+	&.btn-radius {
+		border-radius: 40px;
+	}
+	&.btn-circle {
+		width: 40px;
+		height: 40px;
+		line-height: 40px;;
+		padding: 0 0;
+		border-radius: 100%;
+		text-align: center;
+	}
+	&.btn-main-color {
+		background-color: $min-color;
+		color: $sek-color;
+	}
+	&.btn-main2-color {
+		background-color: rgba(0,0,0,0);
+		color: $sek-color;
+		&:hover {
+			background-color: rgba(0,0,0,0.2);
+			color: $sek-color;
+		}
+	}
+	&.btn-main3-color {
+		background-color: $pos-color;
+		color: $sek-color;
+	}
+	&.btn-main4-color {
+		background-color: $sek-color;
+		color: $min-color;
+	}
+	&.btn-sekunder-color {
+		background-color: $sek-color;
+		color: $txt-sek-color;
+		border: 1px rgba(0,0,0,0.1) solid;
+		&:hover {
+			color: $txt-min-color;
+			border: 1px $txt-sek-color solid;
+		}
+	}
+	&.btn-primary-color {
+		@include rgba_black(0, #999);
+	}
+	&.btn-primary-color:hover {
+		@include rgba_black(0.1, #555);
+	}
+	&.btn-color-fb {
+		background-color: #44749d;
+		color: #fff;
+	}
+	&.btn-color-gg {
+		background-color: #9a0000;
+		color: #fff;
+	}
+	&.btn-color-gg-2 {
+		background-color: #fff;
+		color: #9a0000;
+		border: 1px #9a0000 solid;
+	}
+	&.btn-color-gg-3 {
+		background-color: #fff;
+		color: #9a0000;
+	}
+	&.btn-color-tw {
+		background-color: #60d3f5;
+		color: #fff;
+	}
+}

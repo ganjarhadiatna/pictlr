@@ -1,0 +1,75 @@
+#search {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 150;
+	background-color: #fff;
+	display: none;
+}
+#search .close {
+	color: rgba(0,0,0,0.54);
+	padding: 20px;
+	font-size: 28px;
+	cursor: pointer;
+	float: right;
+}
+#search #place-search {
+	position: absolute;
+	top: 50%;
+	transform: translate(0, -50%);
+	width: 100%;
+}
+#search .txt-search {
+	width: 95%;
+	padding: 20px 2.5%;
+	font-size: 35px;
+	text-align: center;
+	background-color: #fff;
+	color: rgba(0,0,0,0.84);
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	box-shadow: 0 0 0 0;
+	font-weight: 900;
+}
+.search-people {
+	text-align: center;
+}
+.search-tag {
+	text-align: center;
+	margin: 20px 0;
+}
+
+.place-search-tag {
+	position: relative;
+	text-align: center;
+
+	display: grid;
+	display: -ms-grid;
+	grid-template-columns: 40px 1fr 40px;
+	-ms-grid-columns: 40px 1fr 40px;
+}
+.place-search-tag .st-lef {
+	grid-column: 1;
+	-ms-grid-column: 1;
+}
+.place-search-tag .st-mid {
+	grid-column: 2;
+	-ms-grid-column: 2;
+
+	white-space: nowrap;
+	overflow: hidden;
+}
+.place-search-tag .st-rig {
+	grid-column: 3;
+	-ms-grid-column: 3;
+}
+.place-search-tag .btn-circle {
+	position: relative;
+	width: 40px;
+	height: 45px;
+	line-height: 45px;
+	border-radius: 0;
+
+	font-size: 20px;
+}

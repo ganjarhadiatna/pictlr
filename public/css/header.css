@@ -1,0 +1,443 @@
+#header {
+	position: relative;
+	width: 100%;
+	height: 60px;
+}
+#header .place {
+	position: fixed;
+	width: 100%;
+	padding: 10px 0;
+	background-color: #144753;
+	z-index: 100;
+}
+#header .place.relative {
+	position: relative;
+}
+#header .place .menu {
+	display: grid;
+	grid-template-columns: 120px 1fr 1fr;
+}
+#header .place .menu .lef {
+	grid-column: 1;
+}
+#header .place .menu .mid {
+	grid-column: 2;
+}
+#header .place .menu .rig {
+	position: relative;
+	grid-column: 3;
+	text-align: right;
+}
+#header .place .menu .rig .btn-icn {
+	position: relative;
+	text-transform: uppercase;
+}
+#header .place .menu .rig .btn-icn .icn {
+	display: none;
+}
+#header .place .menu .pos .main-search {
+	width: 450px;
+	height: 40px;
+	overflow: hidden;
+	border-radius: 5px;
+}
+#header .place .menu .pos .main-search .txt {
+	width: calc(100% - 80px);
+	padding: 0 15px;
+	border-radius: 0;
+	box-shadow: 0 0 0;
+	float: left;
+}
+#header .place .menu .pos .main-search .btn {
+	width: 50px;
+	border-radius: 0;
+	flex: right;
+	font-size: 12px;
+	background-color: #fff;
+}
+#header .place .menu .pos .main-search .btn:hover {
+	color: #144753;
+}
+#header .place .menu .pos {
+	width: 100%;
+}
+#header .place .menu .pos .pp {
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 15px;
+	text-align: center;
+}
+#header .place .menu .pos .pp .image {
+	margin: auto;
+}
+#header .place .menu .pos a {
+	text-decoration: none;
+}
+#header .place .menu .pos .logo {
+	position: relative;
+	width: 100px;
+	height: 40px;
+	overflow: hidden;
+}
+#header .place .menu .pos .logo img {
+	position: absolute;
+	top: 50%;
+	transform: translate(0, -50%);
+	width: 100%;
+}
+#header .place .menu .pos .main-menu {
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+}
+#header .place .menu .pos .create {
+	width: 60px;
+	margin-left: 5px;
+	padding: 0 0;
+}
+#header .place .menu .pos .create.active {
+	color: #fff;
+}
+#header .place .menu .pos .btn-icn {
+	margin-left: 5px;
+	color: #fff;
+}
+#header .place .menu .pos .btn-icn:hover {
+	background-color: rgba(0,0,0,0.2);
+	color: #fff;
+}
+#header .place .menu .pos .btn-icn.active {
+	background-color: rgba(0,0,0,0.1);
+	color: #fff;
+}
+
+.sc-header {
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 60px;
+	cursor: default;
+}
+.sc-header .sc-place {
+	width: 100%;
+	height: 40px;
+	padding: 10px 0;
+	background-color: #144753;
+}
+.sc-header .sc-place.relative {
+	position: relative;
+}
+.sc-header .sc-place.pos-fix {
+	position: fixed;
+	top: 60px;
+	z-index: 50;
+}
+.sc-header .sc-place .sc-grid {
+	display: grid;
+	display: -ms-grid;
+}
+.sc-header .sc-place .sc-grid-3x {
+	grid-template-columns: 1fr 200px 1;
+	-ms-grid-columns: 1fr 200px 1;
+}
+.sc-header .sc-place .sc-grid-2x {
+	grid-template-columns: 1fr 100px;
+	-ms-grid-columns: 1fr 100px;
+}
+.sc-header .sc-place .sc-grid-1x {
+	grid-template-columns: 1fr;
+	-ms-grid-columns: 1fr;
+}
+.sc-header .sc-place .sc-grid .sc-col-1 {
+	grid-column: 1;
+	-ms-grid-column: 1;
+}
+.sc-header .sc-place .sc-grid .sc-col-2 {
+	grid-column: 2;
+	-ms-grid-column: 2;
+}
+.sc-header .sc-place .sc-grid .icn {
+	padding: 0 5px;
+}
+.sc-header .sc-place .sc-grid .sc-col-2 {
+	text-align: center;
+}
+.sc-header .sc-place .sc-grid .txt-right {
+	text-align: right;
+}
+.sc-header .sc-place .sc-grid .txt-right .btn {
+	width: 90px;
+	padding: 0 0;
+	float: right;
+}
+.sc-header .sc-place .sc-grid .txt-right .btn-main2-color {
+	background-color: #144753;
+	color: #fff;
+}
+.sc-header .sc-place .sc-grid .ttl-head {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: #fff;
+}
+.sc-header .sc-place .sc-grid .ttl-head-2 {
+	position: relative;
+	top: 50%;
+	left: 0;
+	transform: translate(0, -50%);
+	color: #fff;
+}
+
+#more-menu {
+	display: none;
+}
+.more-menu {
+	position: absolute;
+	top: 55px;
+	right: 15px;
+	width: 400px;
+	padding: 0 0;
+	background-color: #fff;
+	border-radius: 5px;
+	border: 1px rgba(0,0,0,0.1) solid;
+	z-index: 100;
+}
+.more-menu .block .ttl-ctr {
+	position: relative;
+	text-align: left;
+	padding-left: 10px;
+	padding-bottom: 10px;
+	font-size: 14px;
+	font-weight: 600;
+	color: rgba(0,0,0,0.54);
+}
+.more-menu .place-collect {
+	margin-bottom: 15px;
+	height: calc(100vh - 350px);
+	overflow-y: auto;
+}
+.more-menu li.icn-mobile {
+	width: 90%;
+	padding: 0 5%;
+	display: block;
+	text-align: left;
+}
+.more-menu .column {
+	column-count: 4;
+	column-gap: 0;
+}
+.more-menu .column-2 {
+	column-count: 2;
+	column-gap: 0;
+}
+.more-menu .mn li {
+	position: relative;
+	list-style: none;
+	width: calc(100% - 20px);
+	padding: 5px 10px;
+	display: inline-block;
+}
+.more-menu .mn li a {
+	font-size: 14px;
+	color: rgba(0,0,0,0.54);
+	font-weight: 600;
+}
+.more-menu .mn li a:hover {
+	color: rgba(0,0,0,0.84);
+}
+.frame-more-menu {
+	position: relative;
+	width: calc(100% - 30px);
+	padding: 5px 15px;
+	text-align: center;
+	display: inline-block;
+}
+.frame-more-menu .fm-side .icn {
+	font-size: 12px;
+	margin: auto;
+}
+.frame-more-menu .fm-main .ttl {
+	font-weight: 600;
+	font-size: 12px;
+	line-height: 1.5;
+	color: rgba(0,0,0,0.84);
+	padding: 5px 0;
+}
+
+#footer {
+	position: relative;
+	width: calc(100% - 20px);
+	padding: 20px 10px 30px 10px;
+	text-align: center;
+	cursor: default;
+}
+#footer ul li {
+	list-style: none;
+	display: inline-block;
+	padding: 0 5px;
+}
+#footer ul li a {
+	color: #fff;
+	font-size: 14px;
+	font-weight: 600;
+}
+#footer ul li .icn {
+	position: relative;
+	top: -2.5px;
+	font-size: 5px;
+	color: rgba(225,225,225,0.54);
+
+}
+
+
+/*content popup*/
+.content-popup {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 200;
+	background-color: rgba(0,0,0,0.5);
+	display: none;
+}
+.content-popup .place-popup {
+	position: relative;
+	top: 30%;
+	width: 300px;
+	background-color: #fff;
+	margin: auto;
+	border-radius: 5px;
+}
+.content-popup .place-popup ul li {
+	list-style: none;
+	text-align: center;
+	padding: 15px 0;
+	font-size: 14px;
+	cursor: pointer;
+	color: rgba(0,0,0,0.54);
+}
+.content-popup .place-popup ul li:hover {
+	color: rgba(0,0,0,0.84);
+}
+.content-popup .place-popup ul li.btm {
+	border-top: 1px #ededed solid;
+	color: rgba(0,0,0,0.84);
+}
+.content-popup .question-popup {
+	color: rgba(0,0,0,0.84);
+}
+.content-popup .question-popup .pos {
+	padding: 15px 2.5%;
+	text-align: center;
+}
+.content-popup .question-popup .top {
+	border-bottom: 1px #ededed solid;
+	font-weight: 900;
+}
+.content-popup .question-popup .mid {
+	border-bottom: 1px #ededed solid;
+}
+.content-popup .question-popup .bot .btn {
+	width: 80px;
+	margin: 0 5px;
+	padding: 0 0;
+}
+
+@media only screen and (max-width: 768px) {
+	#header {
+		height: 100px;
+	}
+	#header .place {
+		position: fixed;
+		padding: 7.5px 0;
+	}
+	#header .place .menu {
+		width: calc(100% - 20px);
+		margin: auto;
+
+		display: grid;
+		grid-template-columns: 120px 1fr;
+
+		display: -ms-grid;
+		-ms-grid-columns: 120px 1fr;
+	}
+	#header .place .menu .lef {
+		grid-column: 1;
+		-ms-grid-column: 1;
+	}
+	#header .place .menu .mid {
+		position: absolute;
+		top: 53px;
+		background-color: #144753;
+		padding-bottom: 7.5px;
+		border-bottom: 1px rgba(0,0,0,0.1) solid;
+		left: 0;
+	}
+	#header .place .menu .rig {
+		grid-column: 2;
+		-ms-grid-column: 2;
+	}
+	#header .place .menu .pos .logo {
+		width: 90px;
+	}
+	#header .place .menu .rig #main-menu {
+		display: none;
+	}
+
+	#header .place .menu .rig .btn-icn {
+		vertical-align: top;
+	}
+
+	#header .place .menu .pos .main-search {
+		position: relative;
+		width: 95%;
+		margin: auto;
+	}
+	#header .place .menu .pos.hide {
+		display: none;
+	}
+
+	#header .place .menu .pos .create {
+		position: fixed;
+		bottom: 10px;
+		right: 10px;
+		z-index: 100;
+		width: 45px;
+		height: 45px;
+		border-radius: 100%;
+		box-shadow: 0 0 10px rgba(0,0,0,0.54);
+	}
+	#header .place .menu .pos .create .ttl-post {
+		display: none;
+	}
+
+	.sc-header .sc-place.pos-fix {
+		position: relative;
+		top: 0;
+		z-index: 0;
+		border-bottom: 1px rgba(0,0,0,0.1) solid;
+	}
+
+	.more-menu {
+		top: 50px;
+		right: 0;
+		width: calc(100% - 15px);
+		margin: 0 7.5px;
+	}
+	.more-menu .place-collect {
+		height: calc(100vh - 230px);
+	}
+
+	#footer .footer-place {
+		width: 95%;
+		padding: 15px 2.5%;
+		display: block;
+	}
+	#footer .footer-place .fo-pos {
+		position: relative;
+		width: 100%;
+	}
+}
