@@ -1466,6 +1466,9 @@
 
 html {
   background-color: #144753; }
+  @media (max-width: 768px) {
+    html.set-scroll-mobile {
+      overflow-y: hidden; } }
 
 a {
   text-decoration: none; }
