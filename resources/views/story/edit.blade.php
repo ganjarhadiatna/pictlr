@@ -197,7 +197,7 @@
 			<div class="create-body">
 				<div class="create-mn">
 
-					<!--tool content-->
+					<!--tool content
 					<div class="tool" id="toolStory">
 						<ul>
 							<form id="form-image" method="post" action="javascript:void(0)" enctype="multipart/form-data" onchange="getImage()">
@@ -219,6 +219,7 @@
 							</li>
 						</ul>
 					</div>
+					-->
 
 					<form id="form-publish" method="post" action="javascript:void(0)" enctype="multipart/form-data" onsubmit="publish()">
 						<div class="create-block no-pad">
@@ -243,9 +244,11 @@
 										<p class="ttl">Edit your Story Here</p>
 									</div>
 									<div class="right">
+										<!--
 										<div class="btn btn-circle btn-sekunder-color btn-focus" id="btnToolStory" title="Add Something" key="hidden">
 											<span id="tool-icn" class="fa fa-lg fa-plus"></span>
 										</div>
+										-->
 									</div>
 								</div>
 								<div class="txt edit-text txt-main-color txt-box-shadow ctn ctn-main ctn-sans-serif" id="write-story" contenteditable="true">
