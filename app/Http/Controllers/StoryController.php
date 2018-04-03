@@ -108,14 +108,14 @@ class StoryController extends Controller
 	    $filename = $id.time().str_replace($chrc, '', $image->getClientOriginalName());
 
 	    //create thumbnail
-	    $destination = 'story/thumbnails/'.$filename;
+	    $destination = public_path('story/thumbnails/'.$filename);
 	    $img = Image::make($image->getRealPath());
 	    $img->resize(400, 400, function ($constraint) {
 	    	$constraint->aspectRatio();
 	    })->save($destination);
 
 	    //create image real
-	    $destination = 'story/covers/';
+	    $destination = public_path('story/covers/');
 	    $image->move($destination, $filename);
 
     	$data = array(

@@ -133,14 +133,14 @@ class ProfileController extends Controller
 		    $filename = $id.time().str_replace($chrc, '', $image->getClientOriginalName());
 
 		    //create thumbnail
-		    $destination = 'profile/thumbnails/'.$filename;
+		    $destination = public_path('profile/thumbnails/'.$filename);
 		    $img = Image::make($image->getRealPath());
 		    $img->resize(200, 200, function ($constraint) {
 		    	$constraint->aspectRatio();
 		    })->save($destination);
 
 		    //create image real
-		    $destination = 'profile/photos/';
+		    $destination = public_path('profile/photos/');
 		    $image->move($destination, $filename);	
 
 		    //set array data

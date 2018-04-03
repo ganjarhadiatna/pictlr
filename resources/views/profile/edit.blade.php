@@ -46,7 +46,7 @@
 			close_progress();
 		})
 		.fail(function(data) {
-			alert("there is an error, please try again.");
+			opAlert('open', "there is an error, please try again.");
 			close_progress();
 		})
 		.always(function() {

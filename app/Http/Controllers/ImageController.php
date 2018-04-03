@@ -26,7 +26,7 @@ class ImageController extends Controller
 	    ImageModel::AddImage($data);
 
 	    //saving image to server
-	    $destination = 'story/images/';
+	    $destination = public_path('story/images/');
 	    $image->move($destination, $filename);
 
 	    echo $filename;
