@@ -1703,6 +1703,9 @@ a {
     @media (max-width: 768px) {
       #body .post-home {
         width: calc(100% - 20px); } }
+    @media (max-width: 768px) {
+      #body .post-home {
+        padding: 10px 0; } }
     #body .post-home .side-fixed {
       position: fixed;
       width: 350px;

@@ -194,6 +194,9 @@ a {
 	margin-bottom: 15px;
 	.post-home {
 		@include col_set(900px);
+		@media (max-width: $max-width) {
+			padding: 10px 0;
+		}
 		.side-fixed {
 			position: fixed;
 			width: 350px;
