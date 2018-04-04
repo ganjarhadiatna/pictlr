@@ -1551,6 +1551,8 @@
 
 html {
   background-color: #144753; }
+  html.set-scroll {
+    overflow-y: hidden; }
   @media (max-width: 768px) {
     html.set-scroll-mobile {
       overflow-y: hidden; } }

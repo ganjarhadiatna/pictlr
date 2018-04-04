@@ -104,6 +104,7 @@
 			var dt = '<img src="'+str+'" alt="pict">';
 			$('#zoom-pict').show();
 			$('#zoom-pict .zp-main').html(dt);
+			setScroll('hide');
 		}
 		function toLink(path) {
 			window.location = path;
@@ -166,6 +167,7 @@
 
 			$('#close-zoom, #zoom-pict').on('click',function () {
 				$('#zoom-pict').hide();
+				setScroll('show');
 			});
 			
 			$('#header .place .menu .pos .btn-circle').each(function(index, el) {

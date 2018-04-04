@@ -22,6 +22,9 @@
 
 html {
 	background-color: $min-color;
+	&.set-scroll {
+		overflow-y: hidden;
+	}
 	&.set-scroll-mobile {
 		@media (max-width: $max-width) {
 			overflow-y: hidden;
