@@ -1696,8 +1696,7 @@ a {
               width: 50px;
               height: 50px;
               border-radius: 100%;
-              box-shadow: 0 0 10px rgba(0, 0, 0, 0.54);
-              display: none; } }
+              box-shadow: 0 0 10px rgba(0, 0, 0, 0.54); } }
         #header .place .menu .rig .pp {
           vertical-align: top;
           text-align: center; }
