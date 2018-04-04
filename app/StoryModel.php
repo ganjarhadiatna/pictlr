@@ -184,13 +184,12 @@ class StoryModel extends Model
             DB::raw('(select bookmark.idbookmark from bookmark where bookmark.idstory = story.idstory and bookmark.id = '.$id.') as is_save')
         )
         ->join('users','users.id', '=', 'story.id')
-        ->Where('story.title','like',"%$ctr%")
-        ->orWhere('story.description','like',"%$ctr%")
+        ->where('story.description','like',"%$ctr%")
         ->orWhere('users.name','like',"%$ctr%")
         ->orWhere(function ($q) use ($searchValues)
         {
             foreach ($searchValues as $value) {
-                $q->orWhere('story.title','like',"%$value%")->orWhere('story.description','like',"%$value%");
+                $q->orWhere('story.description','like',"%$value%");
             }
         })
         ->paginate($limit);
