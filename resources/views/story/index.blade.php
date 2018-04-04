@@ -191,9 +191,6 @@
 						<img src="{{ asset('/story/covers/'.$story->cover) }}" alt="pict">
 					</div>
 					<div class="content ctn ctn-main ctn-sans-serif">
-						@if ($story->title != '')
-							<div class="padding-bottom-10px title">{{ $story->title }}</div>
-						@endif
 						@if ($story->description != "<br>")
 							<div class="padding-bottom-10px desc">
 								<?php echo $story->description; ?>
@@ -219,6 +216,11 @@
 						<div class="col-auto">
 							<div class="grid grid-2x">
 								<div class="grid-1">
+									<button class="btn btn-sekunder-color btn-no-border btn-no-pad">
+										<span id="ttl-view">{{ ($story->views + $story->ttl_comment) }} Notes</span>
+									</button>
+								</div>
+								<div class="grid-2 text-right crs-default">
 									<button class="btn btn-main4-color">
 										<span class="fas fa-lg fa-align-center"></span>
 										<span id="ttl-view">{{ $story->views }}</span>
@@ -227,11 +229,9 @@
 										<span class="far fa-lg fa-comment"></span>
 										<span class="ttl-loves">{{ $story->ttl_comment }}</span>
 									</button>
-								</div>
-								<div class="grid-2 text-right crs-default">
-									<button class="love btn btn-pad-5px btn-main-color btn-radius" id="frame-loves">
-										<span class="fas fa-lg fa-heart"></span>
-										<span class="ttl-loves" id="ttl-loves">{{ $story->loves }}</span>
+									<button class="btn btn-main4-color">
+										<span class="fas fa-lg fa-bookmark"></span>
+										<span class="ttl-loves">{{ $story->ttl_save }}</span>
 									</button>
 								</div>
 							</div>

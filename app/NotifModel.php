@@ -83,7 +83,6 @@ class NotifModel extends Model
             'users.name',
             'users.foto',
             'users.about',
-            'story.title as title_story',
             'story.cover'
         )
         ->where('notif_s.iduser', $id)

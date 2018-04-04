@@ -18,23 +18,18 @@ class StoryController extends Controller
 		$dt = StoryModel::AllStory(10);
 		echo json_encode($dt);
 	}
-    function story($id, $title = '')
+    function story($id)
     {
         StoryModel::UpdateViewsStory($id);
         $iduserMe = Auth::id();
         $iduser = StoryModel::GetIduser($id);
         $getStory = StoryModel::GetStory($id);
-        $newStory = StoryModel::pagAllStory(20);
+        $newStory = StoryModel::PagRelatedStory(20, $id);
         $tags = TagModel::GetTags($id);
         $statusFolow = FollowModel::Check($iduser, $iduserMe);
         $check = BookmarkModel::Check($id, $iduserMe);
-        if ($title == '') {
-            $newTitle = 'Story';
-        } else {
-            $newTitle = $title;
-        }
         return view('story.index', [
-            'title' => $newTitle,
+            'title' => 'Story',
             'path' => 'none',
             'getStory' => $getStory,
             'newStory' => $newStory,
@@ -94,7 +89,6 @@ class StoryController extends Controller
     {
     	$id = Auth::id();
     	$cover = $request['cover'];
-    	$title = $request['title'];
     	$content = $request['content'];
     	$adult = 0;
     	$commenting = 0;
@@ -119,7 +113,6 @@ class StoryController extends Controller
 	    $image->move($destination, $filename);
 
     	$data = array(
-    		'title' => $title,
     		'description' => $content,
     		'adult' => $adult,
     		'commenting' => $commenting,
@@ -139,12 +132,10 @@ class StoryController extends Controller
     function saveEditting(Request $request)
     {
         $idstory = $request['idstory'];
-        $title = $request['title'];
         $content = $request['content'];
         $tags = $request['tags'];
 
         $data = array(
-            'title' => $title,
             'description' => $content
         );
 

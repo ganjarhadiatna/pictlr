@@ -98,6 +98,13 @@
 				});
 			}
 		}
+		function pictZoom(idstory) {
+			var img = $('#pict-'+idstory).attr('src');
+			var str = img.replace('/thumbnails/','/covers/');
+			var dt = '<img src="'+str+'" alt="pict">';
+			$('#zoom-pict').show();
+			$('#zoom-pict .zp-main').html(dt);
+		}
 		function toLink(path) {
 			window.location = path;
 		}
@@ -155,6 +162,10 @@
 				} else {
 					$('#main-search').removeClass('hide');
 				}
+			});
+
+			$('#close-zoom, #zoom-pict').on('click',function () {
+				$('#zoom-pict').hide();
 			});
 			
 			$('#header .place .menu .pos .btn-circle').each(function(index, el) {
@@ -230,6 +241,12 @@
 				@include('main.category')
 				@include('main.notifications')
 			</div>
+		</div>
+		<div class="zoom-pict" id="zoom-pict">
+			<button class="close btn btn-circle btn-main2-color" id="close-zoom">
+				<span class="fas fa-lg fa-times"></span>
+			</button>
+			<div class="zp-main"></div>
 		</div>
 	</div>
 	<div id="body">

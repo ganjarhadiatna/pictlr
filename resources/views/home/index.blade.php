@@ -25,7 +25,7 @@
 </script>
 @endif
 
-<div class="col-full padding-10px">
+<div class="col-full">
 	<div class="post-home post-grid post-grid-2x">
 		<div class="lef post-grid-1" id="home-main-object">
 			@foreach (ProfileModel::UserSmallData(Auth::id()) as $dt)
@@ -65,7 +65,7 @@
 			<div id="home-side-object">
 				<div class="frame-other">
 					<strong class="ttl">Create your Story</strong>
-					<p>Let's start to create something, you can create anything in here, such as story, picture, movie streaming, download link, comics, news, magazine etc. That's all free for you...</p>
+					<p>Let's start to posting something, you can post picture and save it to your box. It's easy to use and that's all free for you...</p>
 					<div class="padding-10px">
 						<a href="{{ url('/compose') }}">
 							<button class="create btn btn-main3-color width-all">

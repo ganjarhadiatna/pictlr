@@ -123,12 +123,10 @@
 	function publish() {
 		var fd = new FormData();
 		var cover = $('#cover')[0].files[0];
-		var title = $('#title-story').val();
-		var content = $('#write-story').html();
+		var content = $('#write-story').val();
 		var tags = $('#tags-story').val();
 
 		fd.append('cover', cover);
-		fd.append('title', title);
 		fd.append('content', content);
 		fd.append('tags', tags);
 		$.each($('#form-publish').serializeArray(), function(a, b) {
@@ -150,9 +148,8 @@
 		   		opAlert('open', 'failed to publish story.');
 		   		close_progress();
 		   	} else {
-		   		var cover = $('#cover').val('');
-				var title = $('#title-story').val('');
-				var content = $('#write-story').html('');
+		   		$('#cover').val('');
+				$('#write-story').val('');
 				opCreateStory('close');
 				close_progress();
 				window.location = '{{ url("/story/") }}'+'/'+data;
@@ -172,12 +169,9 @@
 			value: false,
 		});
 		$('#write-story').keyup(function(event) {
-			var code = event.keyCode;
-			var length = $(this).html().length;
-			if (code === 13) {
-				var dt = '<div class="ctn ctn-main ctn-serif ctn-pad" contenteditable="true"></div>';
-				//$('#write-story').append(dt);
-			}
+			var length = $(this).val().length;
+			$('#desc-lg').html(length);
+			
 		});
 		$('#btnToolStory').on('click', function(e) {
 			e.preventDefault();
@@ -216,36 +210,11 @@
 		</div>
 	</div>
 </div>
-<div class="frame-home">
+<div>
 	<div class="compose" id="create">
 		<div class="main">
 			<div class="create-body edit">
 				<div class="create-mn">
-
-					<!--tool content
-					<div class="tool" id="toolStory">
-						<ul>
-							<form id="form-image" method="post" action="javascript:void(0)" enctype="multipart/form-data" onchange="getImage()">
-								<input type="file" name="get-image" id="get-image" class="get">
-							</form>
-							<label for="get-image">
-								<li class="bdr-bottom" title="Insert Image">
-									<span class="icn fa fa-lg fa-image"></span>
-								</li>
-							</label>
-							<li class="bdr-bottom" onclick="opDialog('open', 'image-dialog')" title="Insert Link Image">
-								<span class="icn fa fa-lg fa-globe"></span>
-							</li>
-							<li class="bdr-bottom" onclick="opDialog('open', 'link-dialog')" title="Insert Link">
-								<span class="icn fa fa-lg fa-link"></span>
-							</li>
-							<li class="" onclick="opDialog('open', 'embed-dialog')" title="Insert Embeded Code">
-								<span class="icn fa fa-lg fa-code"></span>
-							</li>
-						</ul>
-					</div>
-					-->
-
 					<form id="form-publish" method="post" action="javascript:void(0)" enctype="multipart/form-data" onsubmit="publish()">
 						<div class="create-block">
 
@@ -262,38 +231,26 @@
 										</div>
 										<div class="img">
 											<div class="change-cover">
-												<span>To change cover just click again.</span>
+												<span>To change Picture just click again.</span>
 											</div>
 											<img src="" alt="image" id="image-preview">
 										</div>
 									</div>
 								</label>
 							</div>
-							
-							<div class="block-field">
-								<div class="pan">
-									<div class="left">
-										<p class="ttl">Story Title</p>
-									</div>
-									<div class="right"></div>
-								</div>
-								<input type="text" name="title" class="mrg-bottom txt txt-main-color txt-box-shadow" id="title-story">
-							</div>
 
 							<div class="block-field">
 								<div class="pan">
 									<div class="left">
-										<p class="ttl">Write your Story</p>
+										<p class="ttl">Description</p>
 									</div>
 									<div class="right">
-										<!--
-										<div class="btn btn-circle btn-sekunder-color btn-focus" id="btnToolStory" title="Add Something" key="hidden">
-											<span id="tool-icn" class="icn fa fa-lg fa-plus"></span>
+										<div class="count">
+											<span id="desc-lg">0</span>/250
 										</div>
-										-->
 									</div>
 								</div>
-								<div class="txt edit-text txt-main-color txt-box-shadow ctn ctn-main ctn-sans-serif" id="write-story" contenteditable="true"></div>
+								<textarea name="write-story" id="write-story" class="txt edit-text txt-main-color txt-box-shadow ctn ctn-main ctn-sans-serif" maxlength="250"></textarea>
 							</div>
 							<div class="padding-5px"></div>
 							<div class="block-field place-tags">
@@ -310,7 +267,7 @@
 						</div>
 						<div class="create-bot">
 							<input type="button" name="edit-save" class="btn btn-primary-color" value="Cancel" onclick="goBack()">
-							<input type="submit" name="save" class="btn btn-main-color" value="Publish" id="btn-publish">
+							<input type="submit" name="save" class="btn btn-main-color" value="Post" id="btn-publish">
 						</div>
 					</form>
 
@@ -319,49 +276,6 @@
 			</div>
 		</div>
 
-		<!--navigator-->
-		<div class="create-dialog" id="image-dialog">
-			<div class="place-dialog">
-				<div class="top">
-					Image URL
-				</div>
-				<div class="mid">
-					<input type="text" name="image-url" class="txt txt-main-color txt-box-shadow" placeholder="http://" id="image-url">
-				</div>
-				<div class="bot">
-					<input type="button" name="put" class="btn btn-primary-color" value="Cancel" onclick="opDialog('hide')">
-					<input type="button" name="put" class="btn btn-main-color" value="Place" onclick="getImageUrl()">
-				</div>
-			</div>
-		</div>
-		<div class="create-dialog" id="link-dialog">
-			<div class="place-dialog">
-				<div class="top">
-					Link URL
-				</div>
-				<div class="mid">
-					<input type="text" name="link-url" class="txt txt-main-color txt-box-shadow" placeholder="http://" id="link-url">
-				</div>
-				<div class="bot">
-					<input type="button" name="put" class="btn btn-primary-color" value="Cancel" onclick="opDialog('hide')">
-					<input type="button" name="put" class="btn btn-main-color" value="Place" onclick="getLinkUrl()">
-				</div>
-			</div>
-		</div>
-		<div class="create-dialog" id="embed-dialog">
-			<div class="place-dialog">
-				<div class="top">
-					Embeded Code
-				</div>
-				<div class="mid">
-					<input type="text" name="embed-code" class="txt txt-main-color txt-box-shadow" placeholder="Code" id="embed-code">
-				</div>
-				<div class="bot">
-					<input type="button" name="put" class="btn btn-primary-color" value="Cancel" onclick="opDialog('hide')">
-					<input type="button" name="put" class="btn btn-main-color" value="Place" onclick="getEmbed()">
-				</div>
-			</div>
-		</div>
 	</div>
 </div>
 @endsection

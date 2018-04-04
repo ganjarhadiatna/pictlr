@@ -8,6 +8,9 @@
 	font-size: 14px;
 	font-weight: 600;
 	cursor: pointer;
+	&.btn-no-pad {
+		padding: 0 0;
+	}
 	&.btn-upp {
 		text-transform: uppercase;
 	}
@@ -49,6 +52,9 @@
 		&:hover {
 			color: $txt-min-color;
 			border: 1px $txt-sek-color solid;
+		}
+		&.btn-no-border {
+			border: 0 #fff solid;
 		}
 	}
 	&.btn-primary-color {
