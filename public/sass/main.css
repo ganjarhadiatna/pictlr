@@ -1610,7 +1610,7 @@ a {
       display: -ms-grid;
       grid-template-columns: 120px 1fr 1fr;
       -ms-grid-columns: 120px 1fr 1fr;
-      width: calc(100% - 30px);
+      width: calc(100% - 20px);
       margin: 0 auto; }
       @media (max-width: 768px) {
         #header .place .menu {

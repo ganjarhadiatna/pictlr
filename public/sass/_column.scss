@@ -9,7 +9,7 @@
 	}
 }
 @mixin col_all() {
-	width: calc(100% - 30px);
+	width: calc(100% - 20px);
 	margin: 0 auto;
 }
 @mixin col_set($width) {
