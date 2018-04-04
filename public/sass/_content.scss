@@ -26,6 +26,13 @@
 	}
 }
 
+.place-info {
+	@include col_masonry(4);
+	@media (max-width: $max-width) {
+		@include col_masonry(2);
+	}
+}
+
 /*content popup*/
 .content-popup {
 	@include post_fixed();

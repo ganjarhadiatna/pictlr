@@ -57,36 +57,38 @@
 	</div>
 	<div class="block bdr-bottom">
 		<div class="ttl ctn-main-font ctn-small ctn-center padding-20px">What would you get?</div>
-		<div class="frame-info">
-			<div class="pos top">
-				<div class="icn fas fa-lg fa-newspaper"></div>
+		<div class="place-info">
+			<div class="frame-info width-all">
+				<div class="pos top">
+					<div class="icn fas fa-lg fa-lightbulb"></div>
+				</div>
+				<div class="mid">
+					Finding Ideas.
+				</div>
 			</div>
-			<div class="mid">
-				Reading News, Magazine, Articles, Comics etc.
+			<div class="frame-info width-all">
+				<div class="pos top">
+					<div class="icn fas fa-lg fa-images"></div>
+				</div>
+				<div class="mid">
+					Collecting Images.
+				</div>
 			</div>
-		</div>
-		<div class="frame-info">
-			<div class="pos top">
-				<div class="icn fas fa-lg fa-images"></div>
+			<div class="frame-info width-all">
+				<div class="pos top">
+					<div class="icn fas fa-lg fa-newspaper"></div>
+				</div>
+				<div class="mid">
+					Geting News Feeds.
+				</div>
 			</div>
-			<div class="mid">
-				Collecting Fafourite Images, Meme, Poster etc.
-			</div>
-		</div>
-		<div class="frame-info">
-			<div class="pos top">
-				<div class="icn fas fa-lg fa-play"></div>
-			</div>
-			<div class="mid">
-				Watching Movies, Dramas and Videos.
-			</div>
-		</div>
-		<div class="frame-info">
-			<div class="pos top">
-				<div class="icn fas fa-lg fa-lightbulb"></div>
-			</div>
-			<div class="mid">
-				Findding and Get Much Ideas from Stories.
+			<div class="frame-info width-all">
+				<div class="pos top">
+					<div class="icn fas fa-lg fa-users"></div>
+				</div>
+				<div class="mid">
+					Create Relations.
+				</div>
 			</div>
 		</div>
 	</div>
@@ -151,36 +153,38 @@
 	</div>
 	<div class="block bdr-top bdr-bottom">
 		<div class="ttl ctn-main-font ctn-small ctn-center padding-20px">Find Us on.</div>
-		<div class="frame-info">
-			<div class="pos top">
-				<div class="icn fab fa-lg fa-facebook-f"></div>
+		<div class="place-info">
+			<div class="frame-info width-all">
+				<div class="pos top">
+					<div class="icn fab fa-lg fa-facebook-f"></div>
+				</div>
+				<div class="mid">
+					Facebook
+				</div>
 			</div>
-			<div class="mid">
-				Facebook
+			<div class="frame-info width-all">
+				<div class="pos top">
+					<div class="icn fab fa-lg fa-instagram"></div>
+				</div>
+				<div class="mid">
+					Instagram
+				</div>
 			</div>
-		</div>
-		<div class="frame-info">
-			<div class="pos top">
-				<div class="icn fab fa-lg fa-instagram"></div>
+			<div class="frame-info width-all">
+				<div class="pos top">
+					<div class="icn fab fa-lg fa-twitter"></div>
+				</div>
+				<div class="mid">
+					Twitter
+				</div>
 			</div>
-			<div class="mid">
-				Instagram
-			</div>
-		</div>
-		<div class="frame-info">
-			<div class="pos top">
-				<div class="icn fab fa-lg fa-twitter"></div>
-			</div>
-			<div class="mid">
-				Twitter
-			</div>
-		</div>
-		<div class="frame-info">
-			<div class="pos top">
-				<div class="icn fab fa-lg fa-google"></div>
-			</div>
-			<div class="mid">
-				Google
+			<div class="frame-info width-all">
+				<div class="pos top">
+					<div class="icn fab fa-lg fa-google"></div>
+				</div>
+				<div class="mid">
+					Google
+				</div>
 			</div>
 		</div>
 	</div>
