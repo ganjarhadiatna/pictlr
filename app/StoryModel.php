@@ -71,7 +71,11 @@ class StoryModel extends Model
     }
     function scopePagAllStory($query, $limit)
     {
-        $id = Auth::id();
+        if (Auth::id()) {
+            $id = Auth::id();
+        } else {
+            $id = 0;
+        }
         return DB::table('story')
         ->select(
             'story.idstory',
@@ -94,7 +98,11 @@ class StoryModel extends Model
     }
     function scopePagRelatedStory($query, $limit, $idstory)
     {
-        $id = Auth::id();
+        if (Auth::id()) {
+            $id = Auth::id();
+        } else {
+            $id = 0;
+        }
         return DB::table('story')
         ->select(
             'story.idstory',
@@ -118,7 +126,11 @@ class StoryModel extends Model
     }
     function scopePagPopularStory($query, $limit)
     {
-        $id = Auth::id();
+        if (Auth::id()) {
+            $id = Auth::id();
+        } else {
+            $id = 0;
+        }
         return DB::table('story')
         ->select(
             'story.idstory',
@@ -142,7 +154,11 @@ class StoryModel extends Model
     /*trending belum benar karena komentar belum ada*/
     function scopePagTrendingStory($query, $limit)
     {
-        $id = Auth::id();
+        if (Auth::id()) {
+            $id = Auth::id();
+        } else {
+            $id = 0;
+        }
         return DB::table('story')
         ->select(
             'story.idstory',
@@ -165,7 +181,11 @@ class StoryModel extends Model
     }
     function scopePagSearchStory($query, $ctr, $limit)
     {
-        $id = Auth::id();
+        if (Auth::id()) {
+            $id = Auth::id();
+        } else {
+            $id = 0;
+        }
         $searchValues = preg_split('/\s+/', $ctr, -1, PREG_SPLIT_NO_EMPTY);
         return DB::table('story')
         ->select(
@@ -196,7 +216,11 @@ class StoryModel extends Model
     }
     function scopePagTagStory($query, $ctr, $limit)
     {
-        $id = Auth::id();
+        if (Auth::id()) {
+            $id = Auth::id();
+        } else {
+            $id = 0;
+        }
         return DB::table('tags')
         ->select(
             'tags.idtags',
@@ -223,7 +247,11 @@ class StoryModel extends Model
     }
     function scopePagCtrStory($query, $ctr, $limit)
     {
-        $id = Auth::id();
+        if (Auth::id()) {
+            $id = Auth::id();
+        } else {
+            $id = 0;
+        }
         return DB::table('category')
         ->select(
             'category.idcategory',
@@ -249,7 +277,11 @@ class StoryModel extends Model
     }
     function scopePagTimelinesStory($query, $limit, $profile, $id)
     {
-        $id = Auth::id();
+        if (Auth::id()) {
+            $id = Auth::id();
+        } else {
+            $id = 0;
+        }
         return DB::table('story')
         ->select(
             'story.idstory',
@@ -279,7 +311,11 @@ class StoryModel extends Model
     }
     function scopePagUserStory($query, $limit, $iduser)
     {
-        $id = Auth::id();
+        if (Auth::id()) {
+            $id = Auth::id();
+        } else {
+            $id = 0;
+        }
         return DB::table('story')
         ->select(
             'story.idstory',
@@ -303,7 +339,11 @@ class StoryModel extends Model
     }
     function scopePagUserBookmark($query, $limit, $iduser)
     {
-        $id = Auth::id();
+        if (Auth::id()) {
+            $id = Auth::id();
+        } else {
+            $id = 0;
+        }
         return DB::table('bookmark')
         ->select(
             'bookmark.idbookmark',
