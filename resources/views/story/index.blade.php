@@ -191,7 +191,7 @@
 						<img src="{{ asset('/story/covers/'.$story->cover) }}" alt="pict">
 					</div>
 					<div class="content ctn ctn-main ctn-sans-serif">
-						@if ($story->description != "<br>")
+						@if ($story->description != "")
 							<div class="padding-bottom-10px desc">
 								<?php echo $story->description; ?>
 							</div>
