@@ -40,7 +40,7 @@
 		</div>
 		<div class="frame-info">
 			<div class="pos top">
-				<div class="icn fas fa-lg fa-bookmark"></div>
+				<div class="icn fas fa-lg fa-box-open"></div>
 			</div>
 			<div class="mid">
 				Save Much Stories on a Box.
