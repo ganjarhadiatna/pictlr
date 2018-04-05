@@ -22,9 +22,11 @@
 			</div>
 		</div>
 		<div class="mid-tool">
+			<!--
 			<button class="zoom btn btn-circle" onclick="pictZoom({{ $story->idstory }})">
 				<span class="fas fa-lg fa-search-plus"></span>
 			</button>
+			-->
 			<a href="{{ url('/story/'.$story->idstory) }}">
 				<div class="cover"></div>
 				<img src="{{ asset('/story/thumbnails/'.$story->cover) }}" alt="pict" id="pict-{{ $story->idstory }}">
@@ -42,6 +44,9 @@
 			</div>
 		</div>
 		<div class="bok">
+			<button class="btn btn-circle btn-sekunder-color btn-no-border" onclick="pictZoom({{ $story->idstory }})">
+				<span class="fas fa-lg fa-search-plus"></span>
+			</button>
 			@if (is_int($story->is_save))
 				<button class="btn btn-circle btn-main4-color btn-no-border" title="Remove from box?" onclick="addBookmark('{{ $story->idstory }}')">
 					<span class="fas fa-lg fa-bookmark" id="bookmark-{{ $story->idstory }}"></span>

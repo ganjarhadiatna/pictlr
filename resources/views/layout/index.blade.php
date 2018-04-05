@@ -14,7 +14,7 @@
     <link href="{{ asset('/img/pictlr-4.png') }}" rel='SHORTCUT ICON'/>
 
 	<!-- SASS -->
-	<link rel="stylesheet" type="text/css" href="{{ asset('css/css/fontawesome-all.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/css/fontawesome-all.min.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/jquery-ui.min.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('sass/main.css') }}">
 

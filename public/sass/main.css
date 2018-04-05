@@ -287,8 +287,8 @@
     height: 40px;
     display: grid;
     display: -ms-grid;
-    grid-template-columns: 1fr 40px;
-    -ms-grid-columns: 1fr 40px; }
+    grid-template-columns: 1fr 90px;
+    -ms-grid-columns: 1fr 90px; }
     .frame-post .bot-tool .nts {
       grid-column: 1;
       -ms-grid-column: 1; }
@@ -305,7 +305,8 @@
         color: rgba(0, 0, 0, 0.84); }
     .frame-post .bot-tool .bok {
       grid-column: 2;
-      -ms-grid-column: 2; }
+      -ms-grid-column: 2;
+      text-align: right; }
 
 .frame-guess {
   position: relative;
@@ -580,8 +581,8 @@
       border-top: 1px rgba(0, 0, 0, 0.1) solid;
       display: grid;
       display: -ms-grid;
-      grid-template-columns: 1fr 1fr;
-      -ms-grid-columns: 1fr 1fr; }
+      grid-template-columns: 80px 1fr;
+      -ms-grid-columns: 80px 1fr; }
       .frame-story .pos .grid .grid-1 {
         grid-column: 1;
         -ms-grid-column: 1; }

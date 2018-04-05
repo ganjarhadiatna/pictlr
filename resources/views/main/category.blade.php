@@ -43,7 +43,7 @@
 				<div class="fm-side">
 					<a href="{{ url('/box') }}">
 						<div class="icn btn btn-circle btn-main-color">
-							<span class="fas fa-lg fa-bookmark"></span>
+							<span class="fas fa-lg fa-box-open"></span>
 						</div>
 					</a>
 				</div>

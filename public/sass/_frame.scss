@@ -98,7 +98,7 @@
 		position: relative;
 		width: 100%;
 		height: 40px;
-		@include grid_2x(1fr, 40px);
+		@include grid_2x(1fr, 90px);
 		.nts {
 			@include column_1();
 			.icn {
@@ -110,6 +110,7 @@
 		}
 		.bok {
 			@include column_2();
+			text-align: right;
 		}
 	}
 }
@@ -415,7 +416,7 @@
 		.grid {
 			padding-top: 15px;
 			@include bdr_top();
-			@include grid_2x(1fr, 1fr);
+			@include grid_2x(80px, 1fr);
 			.grid-1 {
 				@include column_1();
 				.icn {

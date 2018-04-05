@@ -34,7 +34,7 @@
 						</a>
 						<a href="{{ url('/box') }}">
 							<button class="btn btn-main2-color">
-								<span class="fas fa-lg fa-bookmark"></span>
+								<span class="fas fa-lg fa-box-open"></span>
 								<span>{{ $p->ttl_bookmark }}</span>
 							</button>
 						</a>
