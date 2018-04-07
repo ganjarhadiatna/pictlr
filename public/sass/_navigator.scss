@@ -94,6 +94,7 @@
 		position: fixed;
 		top: 60px;
 		z-index: 50;
+		border-bottom: 1px rgba(0,0,0,0.1) solid;
 		@media (max-width: $max-width) {
 			position: relative;
 			top: 0;
