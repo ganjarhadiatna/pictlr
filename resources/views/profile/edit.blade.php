@@ -15,7 +15,7 @@
 		var name = $('#edit-name').val();
 		var username = $('#edit-username').val();
 		var email = $('#edit-email').val();
-		var about = $('#edit-about').text();
+		var about = $('#edit-about').val();
 		var website = $('#edit-website').val();
 		var foto = $('#change-picture')[0].files[0];
 
@@ -43,7 +43,7 @@
 			if (data === 'success') {
 				window.location = '{{ url("/me") }}';
 			} else {
-				alert("failed to Saving, please try again.");
+				opAlert('open', "failed to Saving, please try again.");
 			}
 			close_progress();
 		})
@@ -135,7 +135,7 @@
 								<span class="fa fa-lg fa-info"></span>
 							</div>
 							<div class="pe-2">
-								<textarea class="txt edit-text txt-primary-color" id="edit-about" contenteditable="true" placeholder="About you">{{ $p->about }}</textarea>
+								<textarea class="txt edit-text txt-primary-color" id="edit-about" placeholder="About you">{{ $p->about }}</textarea>
 							</div>
 						</div>
 						<div class="place-edit">
