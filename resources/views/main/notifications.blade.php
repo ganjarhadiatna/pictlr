@@ -30,7 +30,7 @@
 						<div class="notif-mid">\
 							<div class="ntf-mid">\
 								<div class="desc">\
-									<strong onclick="toLink('+"'"+server_user+"'"+')">'+data[i].name+'</strong> '+data[i].title+'\
+									<strong onclick="toLink('+"'"+server_user+"'"+')">'+data[i].username+'</strong> '+data[i].title+'\
 								</div>\
 								<div class="desc date">\
 									'+data[i].created+'\
@@ -82,7 +82,7 @@
 						</div>\
 						<div class="notif-mid">\
 							<div class="desc">\
-								<strong onclick="toLink('+"'"+server_user+"'"+')">'+data[i].name+'</strong> '+data[i].title+'\
+								<strong onclick="toLink('+"'"+server_user+"'"+')">'+data[i].username+'</strong> '+data[i].title+'\
 							</div>\
 							<div class="desc date">\
 								'+data[i].created+'\

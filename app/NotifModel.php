@@ -59,6 +59,7 @@ class NotifModel extends Model
             'notif_f.title',
             'notif_f.created',
             'users.name',
+            'users.username',
             'users.foto',
             'users.about'
         )
@@ -81,6 +82,7 @@ class NotifModel extends Model
             'notif_s.idstory',
             'notif_s.created',
             'users.name',
+            'users.username',
             'users.foto',
             'users.about',
             'story.cover'
