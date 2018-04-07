@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Image;
 
 use App\StoryModel;
@@ -17,14 +18,12 @@ class ProfileController extends Controller
     {
         $id = Auth::id();
         $profile = ProfileModel::UserData($id);
-        $mostViews = StoryModel::UserMostViews(2, 0, $id);
         $userStory = StoryModel::PagUserStory(20, $id);
         return view('profile.index', [
             'title' => 'User Profile',
             'path' => 'profile',
             'nav' => 'story',
             'profile' => $profile,
-            'mostViews' => $mostViews,
             'userStory' => $userStory
         ]);
     }
@@ -112,11 +111,23 @@ class ProfileController extends Controller
             'profile' => $profile
         ]);
     }
+    function savePassword(Request $request)
+    {
+        $id = Auth::id();
+        $old_password = $request['old_password'];
+        $new_password = $request['new_password'];
+        $renew_password = $request['renew_password'];
+        $request->user()->fill([
+            'password' => Hash::make($new_password)
+        ])->save();
+        echo "done";
+    }
     function saveProfile(Request $request)
     {
     	$id = Auth::id();
     	$foto = $request['foto'];
     	$name = $request['name'];
+        $username = $request['username'];
     	$email = $request['email'];
     	$about = $request['about'];
     	$website = $request['website'];
@@ -146,6 +157,7 @@ class ProfileController extends Controller
 		    //set array data
 		    $data = array(
 		    	'name' => $name,
+                'username' => $username,
 		    	'email' => $email,
 		    	'about' => $about,
 		    	'foto' => $filename,
@@ -155,6 +167,7 @@ class ProfileController extends Controller
     		//set array data
 		    $data = array(
 		    	'name' => $name,
+                'username' => $username,
 		    	'email' => $email,
 		    	'about' => $about,
 		    	'website' => $website

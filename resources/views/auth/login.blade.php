@@ -12,7 +12,7 @@
                 {{ csrf_field() }}
                 <div class="block">
                     <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                        <input id="email" type="email" class="txt txt-primary-color" name="email" value="{{ old('email') }}" placeholder="Email" required autofocus>
+                        <input id="email" type="text" class="txt txt-primary-color" name="email" value="{{ old('email') }}" placeholder="Email or Username" required autofocus>
                     </div>
                 </div>
                 <div class="block">

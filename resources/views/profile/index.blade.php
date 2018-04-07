@@ -38,7 +38,9 @@
 							</button>
 						</a>
 					@else
-						<h3 class="ttl-head-2 ttl-sekunder-color">{{ explode(' ', $p->name)[0]."'s Profile" }}</h3>
+						<h3 class="ttl-head-2 ttl-sekunder-color">
+							{{ $p->username }}
+						</h3>
 					@endif
 				</div>
 				<div class="sc-col-2 txt-right">
@@ -73,6 +75,9 @@
 		</div>
 		<div class="info">
 			<div class="user-name ctn-main-font ctn-standar" id="edit-name">{{ $p->name }}</div>
+			<div>
+				<p id="edit-about"><strong>{{ $p->username }}</strong></p>
+			</div>
 			<div>
 				<p id="edit-about">{{ $p->about }}</p>
 			</div>

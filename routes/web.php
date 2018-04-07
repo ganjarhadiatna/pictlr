@@ -53,6 +53,7 @@ Route::middleware('auth')->group(function() {
     Route::get('/timelines', 'MainController@timelines');
     Route::get('/box', 'MainController@box');
     Route::post('/save/profile', 'ProfileController@saveProfile');
+    Route::post('/save/password', 'ProfileController@savePassword');
 
     /*compose*/
     Route::get('/compose', 'MainController@compose');

@@ -10,7 +10,7 @@
 				<div class="grid-2">
 					<div class="ttl-story">
 						<a href="{{ url('/user/'.$story->id) }}">
-							{{ $story->name }}
+							{{ $story->username }}
 						</a>
 					</div>
 				</div>

@@ -249,7 +249,7 @@
 							<div class="name">
 								<div>
 									<a href="{{ url('/user/'.$story->id) }}">
-										{{ $story->name }}
+										{{ $story->username }}
 									</a>
 								</div>
 							</div>

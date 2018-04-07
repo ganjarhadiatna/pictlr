@@ -13,6 +13,7 @@
 	function saveProfile() {
 		var fd = new FormData();
 		var name = $('#edit-name').val();
+		var username = $('#edit-username').val();
 		var email = $('#edit-email').val();
 		var about = $('#edit-about').text();
 		var website = $('#edit-website').val();
@@ -20,6 +21,7 @@
 
 		fd.append('foto', foto);
 		fd.append('name', name);
+		fd.append('username', username);
 		fd.append('email', email);
 		fd.append('about', about);
 		fd.append('website', website);
@@ -109,7 +111,15 @@
 								<span class="fa fa-lg fa-user"></span>
 							</div>
 							<div class="pe-2">
-								<input type="text" name="edit-name" class="txt txt-primary-color" id="edit-name" required="true" value="{{ $p->name }}">
+								<input type="text" name="edit-name" class="txt txt-primary-color" id="edit-name" required="true" value="{{ $p->name }}" placeholder="Full Name">
+							</div>
+						</div>
+						<div class="place-edit">
+							<div class="pe-1">
+								<span class="fa fa-lg fa-user-circle"></span>
+							</div>
+							<div class="pe-2">
+								<input type="text" name="edit-username" class="txt txt-primary-color" id="edit-username" required="true" value="{{ $p->username }}" placeholder="Username">
 							</div>
 						</div>
 						<div class="place-edit">
@@ -117,7 +127,7 @@
 								<span class="fa fa-lg fa-envelope"></span>
 							</div>
 							<div class="pe-2">
-								<input type="text" name="edit-email" class="txt txt-primary-color" id="edit-email" required="true" value="{{ $p->email }}">
+								<input type="text" name="edit-email" class="txt txt-primary-color" id="edit-email" required="true" value="{{ $p->email }}" placeholder="Email">
 							</div>
 						</div>
 						<div class="place-edit">
@@ -125,7 +135,7 @@
 								<span class="fa fa-lg fa-info"></span>
 							</div>
 							<div class="pe-2">
-								<textarea class="txt edit-text txt-primary-color" id="edit-about" contenteditable="true" required="true">{{ $p->about }}</textarea>
+								<textarea class="txt edit-text txt-primary-color" id="edit-about" contenteditable="true" placeholder="About you">{{ $p->about }}</textarea>
 							</div>
 						</div>
 						<div class="place-edit">
@@ -133,7 +143,7 @@
 								<span class="fa fa-lg fa-link"></span>
 							</div>
 							<div class="pe-2">
-								<input type="text" name="edit-website" class="txt txt-primary-color" id="edit-website" value="{{ $p->website }}">
+								<input type="text" name="edit-website" class="txt txt-primary-color" id="edit-website" value="{{ $p->website }}" placeholder="Link">
 							</div>
 						</div>
 						<div class="place-edit">

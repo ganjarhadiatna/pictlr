@@ -27,7 +27,8 @@ class ProfileModel extends Model
         return DB::table('users')
         ->select (
             'users.id',
-            'users.foto'
+            'users.foto',
+            'users.username'
         )
         ->where('users.id', $id)
         ->get();
@@ -39,6 +40,7 @@ class ProfileModel extends Model
     		'users.id',
     		'users.name',
     		'users.email',
+            'users.username',
     		'users.created_at',
     		'users.about',
     		'users.visitor',
@@ -59,6 +61,7 @@ class ProfileModel extends Model
             'users.id',
             'users.name',
             'users.email',
+            'users.username',
             'users.created_at',
             'users.about',
             'users.visitor',
@@ -78,6 +81,7 @@ class ProfileModel extends Model
             'users.id',
             'users.name',
             'users.email',
+            'users.username',
             'users.created_at',
             'users.about',
             'users.visitor',
