@@ -23,12 +23,12 @@ function addFollow(iduser, server) {
 		if (data === 'success') {
 			$('#add-follow-'+iduser).val('Unfollow').attr('class', 'btn btn-main3-color');
 		} else {
-			$('#add-follow-'+iduser).val('Follow').attr('class', 'btn btn-main2-color');
+			$('#add-follow-'+iduser).val('Follow').attr('class', 'btn btn-sekunder-color');
 			opAlert('open', 'Failed to Follow this user.');
 		}
 	})
 	.fail(function() {
-		$('#add-follow-'+iduser).val('Follow').attr('class', 'btn btn-main2-color');
+		$('#add-follow-'+iduser).val('Follow').attr('class', 'btn btn-sekunder-color');
 		opAlert('open', 'There is an error, please try again.');
 	});
 	
@@ -44,7 +44,7 @@ function removeFollow(iduser, server) {
 	})
 	.done(function(data) {
 		if (data === 'success') {
-			$('#add-follow-'+iduser).val('Follow').attr('class', 'btn btn-main2-color');
+			$('#add-follow-'+iduser).val('Follow').attr('class', 'btn btn-sekunder-color');
 		} else {
 			$('#add-follow-'+iduser).val('Unfollow').attr('class', 'btn btn-main3-color');
 			opAlert('open', 'Failed to Unfollow this user.');
