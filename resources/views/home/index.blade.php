@@ -86,7 +86,7 @@
 							</div>
 							<div class="ff-mid mid">
 								<div class="fl-ttl">
-									<a href="{{ url('/user/'.$p->id) }}">{{ explode(' ', $p->name)[0] }}</a>
+									<a href="{{ url('/user/'.$p->id) }}">{{ $p->username }}</a>
 								</div>
 							</div>
 							<div class="ff-bot bot">

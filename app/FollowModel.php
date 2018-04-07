@@ -54,6 +54,7 @@ class FollowModel extends Model
             'follow.idfollow',
             'users.id',
             'users.name',
+            'users.username',
             'users.foto',
             DB::raw('(select idfollow from follow where following=users.id and followers='.$id.') as is_following')
         )
@@ -68,6 +69,7 @@ class FollowModel extends Model
             'follow.idfollow',
             'users.id',
             'users.name',
+            'users.username',
             'users.foto',
             DB::raw('(select idfollow from follow where following=users.id and followers='.$id.') as is_following')
         )
