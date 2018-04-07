@@ -69,7 +69,7 @@
 					<div class="padding-10px">
 						<a href="{{ url('/compose') }}">
 							<button class="create btn btn-main3-color width-all">
-								<span class="fas fa-lg fa-pencil-alt"></span>
+								<span class="fas fa-lg fa-plus"></span>
 								<span>Create your Story</span>
 							</button>
 						</a>
