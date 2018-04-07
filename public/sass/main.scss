@@ -90,7 +90,7 @@ a {
 			@include grid_3x(120px, 1fr, 1fr);
 			@include col_all();
 			@media (max-width: $max-width) {
-				@include grid_2x(120px, 1fr);
+				@include grid_2x(100px, 1fr);
 			}
 			#main-search {
 				&.hide {
@@ -161,6 +161,9 @@ a {
 				}
 				.btn {
 					margin-left: 5px;
+					@media (max-width: $max-width) {
+						margin-left: 5px;
+					}
 					.notif-icn {
 						display: none;
 					}
@@ -180,10 +183,28 @@ a {
 					}
 				}
 				.pp {
+					padding: 0 5px;
+					height: 40px;
 					vertical-align: top;
 					text-align: center;
+					overflow: hidden;
+					@media (max-width: $max-width) {
+						width: 40px;
+						height: 40px;
+					}
 					.image {
-						margin: 0 auto;
+						position: relative;
+						top: 2.5px;
+						display: inline-block;
+						@media (max-width: $max-width) {
+							top: 5px;
+						}
+					}
+					.username {
+						position: relative;
+						top: 7.5px;
+						vertical-align: top;
+						padding: 0 5px;
 					}
 				}
 			}

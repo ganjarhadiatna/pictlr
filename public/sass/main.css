@@ -1617,8 +1617,8 @@ a {
         #header .place .menu {
           display: grid;
           display: -ms-grid;
-          grid-template-columns: 120px 1fr;
-          -ms-grid-columns: 120px 1fr; } }
+          grid-template-columns: 100px 1fr;
+          -ms-grid-columns: 100px 1fr; } }
       @media (max-width: 768px) {
         #header .place .menu #main-search.hide {
           display: none; } }
@@ -1683,6 +1683,9 @@ a {
             display: none; } }
         #header .place .menu .rig .btn {
           margin-left: 5px; }
+          @media (max-width: 768px) {
+            #header .place .menu .rig .btn {
+              margin-left: 5px; } }
           #header .place .menu .rig .btn .notif-icn {
             display: none; }
         #header .place .menu .rig .create {
@@ -1699,10 +1702,27 @@ a {
               border-radius: 100%;
               box-shadow: 0 0 10px rgba(0, 0, 0, 0.54); } }
         #header .place .menu .rig .pp {
+          padding: 0 5px;
+          height: 40px;
           vertical-align: top;
-          text-align: center; }
+          text-align: center;
+          overflow: hidden; }
+          @media (max-width: 768px) {
+            #header .place .menu .rig .pp {
+              width: 40px;
+              height: 40px; } }
           #header .place .menu .rig .pp .image {
-            margin: 0 auto; }
+            position: relative;
+            top: 2.5px;
+            display: inline-block; }
+            @media (max-width: 768px) {
+              #header .place .menu .rig .pp .image {
+                top: 5px; } }
+          #header .place .menu .rig .pp .username {
+            position: relative;
+            top: 7.5px;
+            vertical-align: top;
+            padding: 0 5px; }
 
 /*body*/
 #body {

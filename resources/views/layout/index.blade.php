@@ -227,8 +227,9 @@
 						</button>
 						@foreach (ProfileModel::UserSmallData(Auth::id()) as $dt)
 							<a href="{{ url('/user/'.$dt->id) }}">
-								<button class="btn-icn pp btn btn-circle btn-main2-color" id="profile">
+								<button class="btn-icn pp btn btn-main2-color btn-radius" id="profile">
 									<div class="image image-30px image-circle" style="background-image: url({{ asset('/profile/thumbnails/'.$dt->foto) }});" id="profile"></div>
+									<span class="username">{{ $dt->username }}</span>
 								</button>
 							</a>
 						@endforeach
