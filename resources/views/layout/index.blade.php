@@ -236,7 +236,7 @@
 					@endif
 
 					<a href="{{ url('/compose') }}">
-						<button class="create btn btn-main3-color">
+						<button class="create btn btn-circle btn-main3-color">
 							<span class="fas fa-lg fa-plus"></span>
 						</button>
 					</a>
