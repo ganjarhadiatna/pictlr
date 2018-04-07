@@ -27,15 +27,14 @@
 								<span class="fas fa-lg fa-pencil-alt"></span>
 							</button>
 						</a>
+						<a href="{{ url('/box') }}">
+							<button class="btn btn-circle btn-main2-color">
+								<span class="fas fa-lg fa-box-open"></span>
+							</button>
+						</a>
 						<a href="{{ url('/compose') }}">
 							<button class="btn btn-circle btn-main2-color">
 								<span class="fas fa-lg fa-plus"></span>
-							</button>
-						</a>
-						<a href="{{ url('/box') }}">
-							<button class="btn btn-main2-color">
-								<span class="fas fa-lg fa-box-open"></span>
-								<span>{{ $p->ttl_bookmark }}</span>
 							</button>
 						</a>
 					@else
