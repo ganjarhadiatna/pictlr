@@ -22,6 +22,12 @@ class ProfileModel extends Model
         ->where('users.id', $id)
         ->update(['users.visitor' => $no]);
     }
+    function scopeGetPass($query, $id)
+    {
+        return DB::table('users')
+        ->where('users.id', $id)
+        ->value('password');
+    }
     function scopeUserSmallData($query, $id)
     {
         return DB::table('users')

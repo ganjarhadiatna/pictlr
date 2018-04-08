@@ -30,12 +30,18 @@
 			.done(function(data) {
 				if (data == "done") {
 					opAlert('open', "Your password has been changed.");
+				} else if (data == "not_seem") {
+					opAlert('open', "New password and Re-new password not seem.");
+				} else if (data == "false") {
+					opAlert('open', "Old password is wrong.");
+					$('#old-password').select();
 				} else {
-					opAlert('open', "There is an error please try again.");
+					opAlert('open', "Please check your network or your password cridential.");
 				}
 			})
 			.fail(function(data) {
 				console.log(data.responseJSON);
+				opAlert('open', "There is an error please try again.");
 			})
 			.always(function() {
 				close_progress();

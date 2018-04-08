@@ -117,10 +117,19 @@ class ProfileController extends Controller
         $old_password = $request['old_password'];
         $new_password = $request['new_password'];
         $renew_password = $request['renew_password'];
-        $request->user()->fill([
-            'password' => Hash::make($new_password)
-        ])->save();
-        echo "done";
+        $data_password = ProfileModel::GetPass($id);
+        if (Hash::check($old_password, $data_password)) {
+            if ($new_password == $renew_password) {
+                $request->user()->fill([
+                    'password' => Hash::make($new_password)
+                ])->save();
+                echo "done";
+            } else {
+                echo "not_seem";
+            }
+        } else {
+            echo "false";
+        }
     }
     function saveProfile(Request $request)
     {
