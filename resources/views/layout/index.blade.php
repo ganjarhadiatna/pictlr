@@ -39,22 +39,31 @@
 				$('html').removeClass('set-scroll-mobile');
 			}
 		}
+		function opCompose(ctr) {
+			if (ctr == 'open') {
+				$('#compose-popup').show();
+				setScroll('hide');
+			} else {
+				$('#compose-popup').hide();
+				setScroll('show');
+			}
+		}
 		function opSearch(stt) {
 			if (stt === 'open') {
-				$('#search').fadeIn();
+				$('#search').show();
 				$('#txt-search').select();
 				setScroll('hide');
 			} else {
-				$('#search').fadeOut();
+				$('#search').hide();
 				setScroll('show');
 			}
 		}
 		function opCreateStory(stt) {
 			if (stt === 'open') {
-				$('#create').fadeIn();
+				$('#create').show();
 				setScroll('hide');
 			} else {
-				$('#create').fadeOut();
+				$('#create').hide();
 				setScroll('show');
 			}
 		}
@@ -196,7 +205,7 @@
 				</div>
 				<div class="pos mid" id="main-search">
 					<div class="main-search bdr-all">
-						<form id="place-search" action="javascript:void(0)">
+						<form id="place-search" action="javascript:void(0)" method="get">
 							<input type="text" name="q" class="txt txt-main-color" id="txt-search" placeholder="Search.." required="true">
 							<button type="submit" class="btn btn-main4-color">
 								<span class="fa fa-lg fa-search"></span>
@@ -220,11 +229,21 @@
 								<span>Login</span>
 							</button>
 						</a>
+						<a href="{{ url('/register') }}">
+							<button class="create btn btn-circle btn-main3-color">
+								<span class="fas fa-lg fa-plus"></span>
+							</button>
+						</a>
 					@else
 						<button class="btn-icn btn btn-circle btn-main2-color" id="op-notif" key="hide">
 							<div class="notif-icn absolute fas fa-lg fa-circle" id="main-notif-sign"></div>
 							<span class="fas fa-lg fa-bell"></span>
 						</button>
+						<a href="{{ url('/box') }}">
+							<button class="btn btn-circle btn-main2-color" id="box">
+								<span class="fas fa-lg fa-box-open"></span>
+							</button>
+						</a>
 						@foreach (ProfileModel::UserSmallData(Auth::id()) as $dt)
 							<a href="{{ url('/user/'.$dt->id) }}">
 								<button class="btn-icn pp btn btn-main2-color btn-radius" id="profile">
@@ -233,13 +252,10 @@
 								</button>
 							</a>
 						@endforeach
-					@endif
-
-					<a href="{{ url('/compose') }}">
-						<button class="create btn btn-circle btn-main3-color">
+						<button class="create btn btn-circle btn-main3-color" onclick="opCompose('open');">
 							<span class="fas fa-lg fa-plus"></span>
 						</button>
-					</a>
+					@endif
 				</div>
 				@include('main.category')
 				@include('main.notifications')
@@ -290,7 +306,9 @@
 			</li>
 		</ul>
 	</div>
-
+	@if (Auth::id())
+		@include('main.compose')
+	@endif
 	@include('main.loading-bar')
 	@include('main.post-menu')
 	@include('main.question-menu')

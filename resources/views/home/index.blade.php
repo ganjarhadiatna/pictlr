@@ -29,24 +29,22 @@
 	<div class="post-home post-grid post-grid-2x">
 		<div class="lef post-grid-1" id="home-main-object">
 			@foreach (ProfileModel::UserSmallData(Auth::id()) as $dt)
-				<a href="{{ url('/compose') }}">
-					<div class="frame-post">
-						<div class="mid padding-5px">
-							<div class="pos top-tool">
-								<div class="grid grid-3x">
-									<div class="grid-1">
-										<div class="image image-35px image-circle" style="background-image: url({{ asset('/profile/thumbnails/'.$dt->foto) }});"></div>
-									</div>
-									<div class="grid-2">
-										<div class="main-ttl">
-											Create Your Story
-										</div>
+				<div class="frame-post" onclick="opCompose('open');">
+					<div class="mid padding-5px">
+						<div class="pos top-tool">
+							<div class="grid grid-3x">
+								<div class="grid-1">
+									<div class="image image-35px image-circle" style="background-image: url({{ asset('/profile/thumbnails/'.$dt->foto) }});"></div>
+								</div>
+								<div class="grid-2">
+									<div class="main-ttl">
+										Create Your Story
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</a>
+				</div>
 			@endforeach
 			@if (count($topStory) == 0)
 				<div class="frame-empty">
@@ -67,12 +65,10 @@
 					<strong class="ttl">Create your Story</strong>
 					<p>Let's start to posting something, you can post picture and save it to your box. It's easy to use and that's all free for you...</p>
 					<div class="padding-10px">
-						<a href="{{ url('/compose') }}">
-							<button class="create btn btn-main3-color width-all">
-								<span class="fas fa-lg fa-plus"></span>
-								<span>Create your Story</span>
-							</button>
-						</a>
+						<button class="create btn btn-main3-color width-all" onclick="opCompose('open');">
+							<span class="fas fa-lg fa-plus"></span>
+							<span>Create your Story</span>
+						</button>
 					</div>
 				</div>
 				<div class="frame-other">

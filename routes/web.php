@@ -19,6 +19,7 @@ Route::get('/popular', 'MainController@popular');
 Route::get('/fresh', 'MainController@fresh');
 Route::get('/trending', 'MainController@trending');
 Route::get('/search/{ctr}', 'MainController@search');
+Route::get('/search', 'MainController@searchNormal');
 Route::get('/story/{id}', 'StoryController@story')->where(['id' => '[0-9]+']);
 Route::get('/story/{id}/{title}', 'StoryController@story')->where(['id' => '[0-9]+']);
 Route::get('/s/{id}', 'StoryController@story')->where(['id' => '[0-9]+']);

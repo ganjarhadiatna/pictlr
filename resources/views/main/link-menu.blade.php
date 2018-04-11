@@ -1,24 +1,15 @@
 <script type="text/javascript">
 	function opToLink(stt, msg='', target='') {
 		if (stt === 'open') {
-			$('#question-popup').fadeIn();
-			$('#question-popup #message').html(msg);
-			$('#question-popup #btn-yes').attr('onclick', 'toLink("'+target+'")');
+			$('#link-popup').fadeIn();
+			$('#link-popup #message').html(msg);
+			$('#link-popup #btn-yes').attr('onclick', 'toLink("'+target+'")');
 		} else {
-			$('#question-popup').fadeOut();
-		}
-	}
-	function opQuestion(stt, msg='', target='') {
-		if (stt === 'open') {
-			$('#question-popup').fadeIn();
-			$('#question-popup #message').html(msg);
-			$('#question-popup #btn-yes').attr('onclick', target);
-		} else {
-			$('#question-popup').fadeOut();
+			$('#link-popup').fadeOut();
 		}
 	}
 </script>
-<div class="content-popup" id="question-popup">
+<div class="content-popup" id="link-popup">
 	<div class="place-popup question-popup">
 		<div class="pos top">
 			Message

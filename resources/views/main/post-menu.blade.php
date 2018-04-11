@@ -37,7 +37,7 @@
 	function opCommentPopup(stt, path, idcomment, title = '') {
 		var id = '{{ Auth::id() }}';
 		if (stt === 'open') {
-			$('#'+path).fadeIn();
+			$('#'+path).show();
 			if (id === iduser) {
 				var menu = '<li onclick="opQuestion('+"'open'"+','+"'Delete this comment ?'"+','+"'deleteComment("+idcomment+")'"+')">Delete Comment</li>';
 			} else {
@@ -45,13 +45,13 @@
 			}
 			$('.content-popup .place-popup #val').html(menu);
 		} else {
-			$('#'+path).fadeOut();
+			$('#'+path).hide();
 		}
 	}
 	function opPostPopup(stt, path, idstory, iduser, title = '') {
 		var id = '{{ Auth::id() }}';
 		if (stt === 'open') {
-			$('#'+path).fadeIn();
+			$('#'+path).show();
 			if (id === iduser) {
 				var menu = '<li onclick="viewPost('+"'"+idstory+"'"+', '+"'"+title+"'"+')">View Story</li><li onclick="editPost('+idstory+','+iduser+')">Edit Story</li><li onclick="opQuestionPost('+idstory+')">Delete Story</li>';
 			} else {
@@ -59,7 +59,7 @@
 			}
 			$('.content-popup .place-popup #val').html(menu);
 		} else {
-			$('#'+path).fadeOut();
+			$('#'+path).hide();
 		}
 	}
 	$(document).ready(function() {

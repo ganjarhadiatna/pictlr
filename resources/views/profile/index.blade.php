@@ -32,11 +32,9 @@
 								<span class="fas fa-lg fa-box-open"></span>
 							</button>
 						</a>
-						<a href="{{ url('/compose') }}">
-							<button class="btn btn-circle btn-main2-color">
-								<span class="fas fa-lg fa-plus"></span>
-							</button>
-						</a>
+						<button class="btn btn-circle btn-main2-color" onclick="opCompose('open');">
+							<span class="fas fa-lg fa-plus"></span>
+						</button>
 					@else
 						<h3 class="ttl-head-2 ttl-sekunder-color">
 							{{ $p->username }}

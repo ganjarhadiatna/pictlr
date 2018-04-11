@@ -147,6 +147,25 @@ class MainController extends Controller
             'topTags' => $topTags
         ]);
     }
+    function searchNormal()
+    {
+        if (Auth::id()) {
+            $id = Auth::id();   
+        } else {
+            $id = 0;
+        }
+        $ctr = $_GET['q'];
+        $topStory = StoryModel::PagSearchStory($ctr, 20);
+        $topUsers = ProfileModel::SearchUsers($ctr, $id);
+        $topTags = TagModel::SearchTags($ctr);
+        return view('search.index', [
+            'title' => $ctr,
+            'path' => 'home-search',
+            'topStory' => $topStory,
+            'topUsers' => $topUsers,
+            'topTags' => $topTags
+        ]);
+    }
     function login()
     {
         return view('sign.in', ['title' => 'Login', 'path' => 'none']);

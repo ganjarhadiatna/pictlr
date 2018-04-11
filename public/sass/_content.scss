@@ -492,3 +492,101 @@
 	color: $txt-sek-color;
 	font-size: 10px;
 }
+
+#compose-popup {
+	overflow-y: auto;
+	.compose {
+		@include post_center();
+		@include col_set(600px);
+		@include grid_2x(1fr, 1fr);
+		background-color: #fff;
+		border-radius: 5px;
+		overflow: hidden;
+		@media (max-width: $max-width) {
+			@include grid_none();
+			@include post_none();
+			margin-top: 20px;
+			margin-bottom: 20px;
+		}
+		.grid-1 {
+			@include column_1();
+			width: 100%;
+			background-color: #f0f0f0;
+			#cover {
+				display: none;
+			}
+			.cover-icn {
+				position: relative;
+				width: 100%;
+				padding-bottom: 100%;
+				cursor: pointer;
+				@media (max-width: $max-width) {
+					padding-bottom: 50%;
+				}
+				&:hover {
+					.icn {
+						color: $txt-min-color;
+					}
+				}
+				.icn {
+					@include post_center();
+					color: $txt-sek-color;
+					font-size: 22px;
+				}
+			}
+			.image-icn {
+				position: relative;
+				width: 100%;
+				padding-bottom: 100%;
+				background-size: 100%;
+				background-position: center;
+				background-repeat: no-repeat;
+				cursor: pointer;
+				display: none;
+				.change-cover {
+					@include post_top();
+					width: calc(100% - 20px);
+					padding: 10px;
+					text-align: center;
+					background-color: rgba(0,0,0,0.54);
+					color: #fff;
+					font-size: 14px;
+				}
+			}
+		}
+		.grid-2 {
+			position: relative;			
+			width: calc(100% - 30px);
+			height: calc(300px - 30px);
+			padding: 15px;
+			@include column_2();
+			.block-field {
+				position: relative;	
+				width: 100%;
+				.pan {
+					height: 20px;
+					font-size: 14px;
+					color: $txt-sek-color;
+					@include grid_2x(1fr, 50px);
+					.left {
+						@include column_1();
+					}
+					.right {
+						@include column_2();
+						text-align: right;
+					}
+				}
+				.edit-text {
+					min-height: 85px;
+					max-height: 85px;
+				}
+			}
+			.place-button {
+				text-align: right;
+				.btn {
+					margin-left: 10px;
+				}
+			}
+		}
+	}
+}
