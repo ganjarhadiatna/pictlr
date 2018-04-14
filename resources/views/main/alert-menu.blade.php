@@ -1,10 +1,10 @@
 <script type="text/javascript">
 	function opAlert(stt, msg='') {
 		if (stt === 'open') {
-			$('#alert-popup').fadeIn();
+			$('#alert-popup').show();
 			$('#alert-popup #message').html(msg);
 		} else {
-			$('#alert-popup').fadeOut();
+			$('#alert-popup').hide();
 		}
 	}
 </script>

@@ -14,7 +14,7 @@
 <div class="sc-header">
 	<div class="sc-place pos-fix">
 		<div class="col-small">
-			<div class="sc-grid sc-grid-2x">
+			<div class="sc-grid sc-grid-3x">
 				<div class="sc-col-1">
 					@if (Auth::id() == $p->id)
 						<a href="{{ url('/me/setting') }}">
@@ -27,21 +27,18 @@
 								<span class="fas fa-lg fa-pencil-alt"></span>
 							</button>
 						</a>
-						<a href="{{ url('/box') }}">
-							<button class="btn btn-circle btn-main2-color">
-								<span class="fas fa-lg fa-box-open"></span>
-							</button>
-						</a>
-						<button class="btn btn-circle btn-main2-color" onclick="opCompose('open');">
-							<span class="fas fa-lg fa-plus"></span>
-						</button>
 					@else
 						<h3 class="ttl-head-2 ttl-sekunder-color">
 							{{ $p->username }}
 						</h3>
 					@endif
 				</div>
-				<div class="sc-col-2 txt-right">
+				<div class="sc-col-2 txt-center">
+					<h3 class="ttl ttl-head-2 ttl-sekunder-color">
+						Profile
+					</h3>
+				</div>
+				<div class="sc-col-3 txt-right">
 					@if (Auth::id() == $p->id)
 						<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
 							{{ csrf_field() }}

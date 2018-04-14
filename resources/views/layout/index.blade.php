@@ -39,15 +39,6 @@
 				$('html').removeClass('set-scroll-mobile');
 			}
 		}
-		function opCompose(ctr) {
-			if (ctr == 'open') {
-				$('#compose-popup').show();
-				setScroll('hide');
-			} else {
-				$('#compose-popup').hide();
-				setScroll('show');
-			}
-		}
 		function opSearch(stt) {
 			if (stt === 'open') {
 				$('#search').show();
@@ -73,38 +64,6 @@
 				$('#'+stt).attr('class', 'toggle tgl-active fa fa-lg fa-toggle-on');
 			} else {
 				$('#'+stt).attr('class', 'toggle fa fa-lg fa-toggle-off');
-			}
-		}
-		function addBookmark(idstory) {
-			if (iduser === '') {
-				opAlert('open', 'Please login berfore you can save this story.');
-			} else {
-				$.ajax({
-					url: '{{ url("/add/bookmark") }}',
-					type: 'post',
-					data: {'idstory': idstory},
-				})
-				.done(function(data) {
-					if (data === 'bookmark') {
-						opAlert('open', 'Story has been saved to Box.');
-						$('#bookmark-'+idstory).attr('class', 'fas fa-lg fa-bookmark');
-					} else if (data === 'unbookmark') {
-						opAlert('open', 'Story removed from Box.');
-						$('#bookmark-'+idstory).attr('class', 'far fa-lg fa-bookmark');
-					} else if (data === 'failedadd') {
-						opAlert('open', 'Failed to save story to Box.');
-						$('#bookmark-'+idstory).attr('class', 'far fa-lg fa-bookmark');
-					} else if (data === 'failedremove') {
-						opAlert('open', 'Failed to remove story from Box.');
-						$('#bookmark-'+idstory).attr('class', 'fas fa-lg fa-bookmark');
-					} else {
-						opAlert('open', 'There is an error, please try again.');
-					}
-				})
-				.fail(function(data) {
-					//console.log(data.responseJSON);
-					opAlert('open', 'There is an error, please try again.');
-				});
 			}
 		}
 		function pictZoom(idstory) {
@@ -157,6 +116,7 @@
 				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 			}
 		});
+
 		$(document).ready(function() {
 			var pth = "@yield('path')";
 
@@ -240,7 +200,7 @@
 							<span class="fas fa-lg fa-bell"></span>
 						</button>
 						<a href="{{ url('/box') }}">
-							<button class="btn btn-circle btn-main2-color" id="box">
+							<button class="btn-icn btn btn-circle btn-main2-color" id="box" key="hide">
 								<span class="fas fa-lg fa-box-open"></span>
 							</button>
 						</a>
@@ -252,11 +212,12 @@
 								</button>
 							</a>
 						@endforeach
-						<button class="create btn btn-circle btn-main3-color" onclick="opCompose('open');">
+						<button class="create btn btn-circle btn-main3-color" id="op-add" key="hide">
 							<span class="fas fa-lg fa-plus"></span>
 						</button>
 					@endif
 				</div>
+				@include('main.add-menu')
 				@include('main.category')
 				@include('main.notifications')
 			</div>
@@ -306,13 +267,10 @@
 			</li>
 		</ul>
 	</div>
-	@if (Auth::id())
-		@include('main.compose')
-	@endif
 	@include('main.loading-bar')
 	@include('main.post-menu')
 	@include('main.question-menu')
 	@include('main.alert-menu')
-
+	@include('main.save')
 </body>
 </html>

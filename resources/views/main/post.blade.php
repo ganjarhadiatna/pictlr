@@ -22,14 +22,9 @@
 			</div>
 		</div>
 		<div class="mid-tool">
-			<!--
-			<button class="zoom btn btn-circle" onclick="pictZoom({{ $story->idstory }})">
-				<span class="fas fa-lg fa-search-plus"></span>
-			</button>
-			-->
 			<a href="{{ url('/story/'.$story->idstory) }}">
 				<div class="cover"></div>
-				<img src="{{ asset('/story/thumbnails/'.$story->cover) }}" alt="pict" id="pict-{{ $story->idstory }}">
+				<img src="{{ asset('/story/thumbnails/'.$story->cover) }}" alt="pict" id="pict-{{ $story->idstory }}" key="{{ $story->idstory }}">
 			</a>
 		</div>
 	</div>
@@ -47,13 +42,22 @@
 			<button class="btn btn-circle btn-sekunder-color btn-no-border" onclick="pictZoom({{ $story->idstory }})">
 				<span class="fas fa-lg fa-search-plus"></span>
 			</button>
+			<button class="btn btn-circle btn-sekunder-color btn-no-border" onclick="pictZoom({{ $story->idstory }})">
+				<span class="fas fa-lg fa-check"></span>
+			</button>
 			@if (is_int($story->is_save))
-				<button class="btn btn-circle btn-main4-color btn-no-border" title="Remove from box?" onclick="addBookmark('{{ $story->idstory }}')">
-					<span class="fas fa-lg fa-bookmark" id="bookmark-{{ $story->idstory }}"></span>
+				<button class="btn btn-circle btn-main4-color btn-no-border"
+					id="bookmark-{{ $story->idstory }}" 
+					title="Remove from box?" 
+					onclick="removeBookmark('{{ $story->is_save }}','{{ $story->idstory }}')">
+					<span class="fas fa-lg fa-bookmark" id="ic"></span>
 				</button>
 			@else
-				<button class="btn btn-circle btn-main4-color btn-no-border" title="Save to box?" onclick="addBookmark('{{ $story->idstory }}')">
-					<span class="far fa-lg fa-bookmark" id="bookmark-{{ $story->idstory }}"></span>
+				<button class="btn btn-circle btn-main4-color btn-no-border" 
+					id="bookmark-{{ $story->idstory }}"
+					title="Save to box?" 
+					onclick="opSave('open','{{ $story->idstory }}')">
+					<span class="far fa-lg fa-bookmark" id="ic"></span>
 				</button>
 			@endif
 		</div>

@@ -41,19 +41,6 @@
 		<div class="column">
 			<div class="frame-more-menu">
 				<div class="fm-side">
-					<a href="{{ url('/box') }}">
-						<div class="icn btn btn-circle btn-main-color">
-							<span class="fas fa-lg fa-box-open"></span>
-						</div>
-					</a>
-				</div>
-				<div class="fm-main">
-					<div class="ttl">My Box</div>
-				</div>
-			</div>
-
-			<div class="frame-more-menu">
-				<div class="fm-side">
 					<a href="{{ url('/fresh') }}">
 						<div class="icn btn btn-circle btn-main-color">
 							<span class="fas fa-lg fa-clock"></span>

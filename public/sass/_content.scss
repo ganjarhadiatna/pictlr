@@ -88,7 +88,7 @@
 .more-menu {
 	position: absolute;
 	top: 55px;
-	right: 15px;
+	right: 0;
 	width: 400px;
 	background-color: $sek-color;
 	border-radius: 5px;
@@ -159,7 +159,7 @@
 .notifications {
 	position: absolute;
 	top: 55px;
-	right: 15px;
+	right: 0;
 	width: 400px;
 	z-index: 100;
 	display: none;
@@ -203,6 +203,42 @@
 		position: absolute;
 		top: 5px;
 		right: 5px;
+	}
+}
+
+.add-menu {
+	position: absolute;
+	top: 55px;
+	right: 0;
+	width: 200px;
+	background-color: $sek-color;
+	border-radius: 5px;
+	border: 1px rgba(0,0,0,0.1) solid;
+	z-index: 100;
+	display: none;
+	ul {
+		li {
+			position: relative;
+			width: calc(100% - 30px);
+			padding: 15px;
+			list-style: none;
+			color: $txt-min-color;
+			cursor: pointer;
+			&:hover {
+				background-color: #f0f0f0;
+				color: $min-color;
+			}
+			&.bdr-bottom {
+				@include bdr_bottom();
+			}
+			.icn {
+				width: 30px;
+			}
+			.ttl {
+				font-size: 14px;
+				font-weight: 600;
+			}
+		}
 	}
 }
 
@@ -493,11 +529,47 @@
 	font-size: 10px;
 }
 
+#save-popup {
+	display: none;
+	overflow-y: auto;
+	.save {
+		@include post_center();
+		@include col_set(400px);
+		background-color: #fff;
+		border-radius: 5px;
+		overflow: hidden;
+		.pos {
+			position: relative;
+			widows: calc(100% - 20px);
+			padding: 10px;
+		}
+		.top {
+			height: 40px;
+			@include grid_2x(1fr, 50px);
+			.lef {
+				@include column_1();
+				.ttl {
+					@include post_top();
+				}
+			}
+			.rig {
+				@include column_2();
+			}
+		}
+		.mid {
+			position: relative;
+			max-height: calc(100vh - 150px);
+			overflow-y: auto;
+		}
+	}
+}
+
 #compose-popup {
+	display: none;
 	overflow-y: auto;
 	.compose {
 		@include post_center();
-		@include col_set(600px);
+		@include col_set(800px);
 		@include grid_2x(1fr, 1fr);
 		background-color: #fff;
 		border-radius: 5px;
@@ -509,9 +581,14 @@
 			margin-bottom: 20px;
 		}
 		.grid-1 {
+			position: relative;
+			width: calc(100% - 2px);
+			border-right: 2px rgba(0,0,0,0.1) dashed;
 			@include column_1();
-			width: 100%;
-			background-color: #f0f0f0;
+			@media (max-width: $max-width) {
+				width: 100%;
+				border-right: 0 rgba(0,0,0,0.1) dashed;
+			}
 			#cover {
 				display: none;
 			}
@@ -520,10 +597,8 @@
 				width: 100%;
 				padding-bottom: 100%;
 				cursor: pointer;
-				@media (max-width: $max-width) {
-					padding-bottom: 50%;
-				}
 				&:hover {
+					background-color: #f0f0f0;
 					.icn {
 						color: $txt-min-color;
 					}
@@ -531,7 +606,7 @@
 				.icn {
 					@include post_center();
 					color: $txt-sek-color;
-					font-size: 22px;
+					font-size: 24px;
 				}
 			}
 			.image-icn {
@@ -541,8 +616,8 @@
 				background-size: 100%;
 				background-position: center;
 				background-repeat: no-repeat;
-				cursor: pointer;
 				display: none;
+				cursor: pointer;
 				.change-cover {
 					@include post_top();
 					width: calc(100% - 20px);
@@ -555,7 +630,7 @@
 			}
 		}
 		.grid-2 {
-			position: relative;			
+			position: relative;	
 			width: calc(100% - 30px);
 			height: calc(300px - 30px);
 			padding: 15px;
@@ -563,9 +638,10 @@
 			.block-field {
 				position: relative;	
 				width: 100%;
+				height: auto;
 				.pan {
 					height: 20px;
-					font-size: 14px;
+					font-size: 12px;
 					color: $txt-sek-color;
 					@include grid_2x(1fr, 50px);
 					.left {

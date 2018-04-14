@@ -88,16 +88,6 @@ class MainController extends Controller
             'topStory' => $topStory
         ]);
     }
-    function box()
-    {
-        $id = Auth::id();
-        $topStory = StoryModel::PagUserBookmark(20, $id);
-        return view('others.index', [
-            'title' => 'My Box',
-            'path' => 'box',
-            'topStory' => $topStory
-        ]);
-    }
     function popular()
     {
         $topStory = StoryModel::PagPopularStory(20);
@@ -107,9 +97,13 @@ class MainController extends Controller
             'topStory' => $topStory
         ]);
     }
-    function compose()
+    function composeStory()
     {
-        return view('compose.index', ['title' => 'New Story', 'path' => 'compose']);
+        return view('compose.story', ['title' => 'New Story', 'path' => 'compose']);
+    }
+    function composeBox()
+    {
+        return view('compose.box', ['title' => 'New Box', 'path' => 'compose']);
     }
     function fresh()
     {

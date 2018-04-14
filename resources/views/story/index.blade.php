@@ -164,19 +164,31 @@
 							</button>
 						</a>
 					@endif
+					<button class="btn btn-circle btn-main2-color btn-focus">
+						<span class="fas fa-lg fa-check"></span>
+					</button>
 					<button class="btn btn-circle btn-main2-color btn-focus" onclick="opPostPopup('open', 'menu-popup', '{{ $story->idstory }}', '{{ $story->id }}', '{{ $title }}')">
-						<span class="fa fa-lg fa-ellipsis-h"></span>
+						<span class="fas fa-lg fa-ellipsis-h"></span>
 					</button>
 				</div>
 				<div class="sc-col-2 txt-right">
-					<button class="btn btn-main3-color" onclick="addBookmark('{{ $story->idstory }}')">
-						@if (is_int($check))
-							<span class="fas fa-lg fa-bookmark" id="bookmark-{{ $story->idstory }}"></span>
-						@else
-							<span class="far fa-lg fa-bookmark" id="bookmark-{{ $story->idstory }}"></span>
-						@endif
-						<span class="ttl">Save</span>
-					</button>
+					@if (is_int($story->is_save))
+						<button class="btn btn-main3-color btn-no-border"
+							id="bookmark-{{ $story->idstory }}" 
+							title="Remove from box?" 
+							onclick="removeBookmark('{{ $story->is_save }}','{{ $story->idstory }}')">
+							<span class="fas fa-lg fa-bookmark" id="ic"></span>
+							<span>Save</span>
+						</button>
+					@else
+						<button class="btn btn-main3-color btn-no-border" 
+							id="bookmark-{{ $story->idstory }}"
+							title="Save to box?" 
+							onclick="opSave('open','{{ $story->idstory }}')">
+							<span class="far fa-lg fa-bookmark" id="ic"></span>
+							<span>Save</span>
+						</button>
+					@endif
 				</div>
 			</div>
 		</div>
@@ -230,7 +242,7 @@
 										<span class="ttl-loves">{{ $story->ttl_comment }}</span>
 									</button>
 									<button class="btn btn-main4-color">
-										<span class="fas fa-lg fa-bookmark"></span>
+										<span class="far fa-lg fa-bookmark"></span>
 										<span class="ttl-loves">{{ $story->ttl_save }}</span>
 									</button>
 								</div>

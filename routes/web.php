@@ -37,6 +37,9 @@ Route::post('/loves/add', 'StoryController@addLoves');
 /*comment*/
 Route::get('/get/comment/{idstory}/{offset}/{limit}', 'CommentController@get')->where(['idstory' => '[0-9]+']);
 
+/*boxs*/
+Route::get('/box/{idbox}', 'BoxController@view')->where(['idbox' => '[0-9]+']);
+
 Auth::routes();
 Route::middleware('auth')->group(function() {
     /*user*/
@@ -52,17 +55,26 @@ Route::middleware('auth')->group(function() {
     Route::get('/me/setting/profile', 'ProfileController@profileSettingProfile');
     Route::get('/me/setting/password', 'ProfileController@profileSettingPassword');
     Route::get('/timelines', 'MainController@timelines');
-    Route::get('/box', 'MainController@box');
     Route::post('/save/profile', 'ProfileController@saveProfile');
     Route::post('/save/password', 'ProfileController@savePassword');
 
     /*compose*/
-    Route::get('/compose', 'MainController@compose');
+    Route::get('/compose/story', 'MainController@composeStory');
+    Route::get('/compose/box', 'MainController@composeBox');
     Route::post('/story/image/upload', 'ImageController@upload');
     Route::post('/story/publish', 'StoryController@publish');
     Route::get('/story/{idstory}/edit/{iduser}/{token}', 'StoryController@storyEdit');
     Route::post('/story/save/editting', 'StoryController@saveEditting');
     Route::post('/story/delete', 'StoryController@deleteStory');
+
+    /*boxs*/
+    Route::get('/box', 'BoxController@index');
+    Route::post('/box/publish', 'BoxController@publish');
+    Route::post('/box/delete', 'BoxController@deleteBox');
+    Route::get('/box/{idboxs}/edit/{iduser}/{token}', 'BoxController@editBox');
+    Route::post('/box/save/editing', 'BoxController@saveEditing');
+    Route::post('/box/save/story', 'BookmarkController@save');
+    Route::post('/box/remove/story', 'BookmarkController@remove');
 
     /*Follow*/
     Route::post('/follow/add', 'FollowController@add');

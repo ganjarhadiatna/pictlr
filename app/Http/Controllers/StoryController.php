@@ -48,7 +48,7 @@ class StoryController extends Controller
                 array_push($temp, $tag->tag);
             }
             $tags = implode(", ", $temp);
-            return view('story.edit', [
+            return view('compose.edit-story', [
                 'title' => 'Edit Story',
                 'path' => 'none',
                 'getStory' => $getStory,
@@ -114,8 +114,6 @@ class StoryController extends Controller
 
     	$data = array(
     		'description' => $content,
-    		'adult' => $adult,
-    		'commenting' => $commenting,
     		'cover' => $filename,
     		'id' => $id
     	);

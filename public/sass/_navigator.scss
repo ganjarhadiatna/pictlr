@@ -45,7 +45,7 @@
 		padding: 10px 0;
 		background-color: $min-color;
 		.sc-grid-3x {
-			@include grid_3x(1fr, 200px, 1fr);
+			@include grid_3x(1fr, 1fr, 1fr);
 		}
 		.sc-grid-2x {
 			@include grid_2x(1fr, 100px);
@@ -67,10 +67,17 @@
 			.icn {
 				padding: 0 5px;
 			}
+			.txt-center {
+				text-align: center;
+				.ttl {
+					position: relative;
+					margin: auto;
+				}
+			}
 			.txt-right {
 				text-align: right;
 				.btn {
-					width: 90px;
+					width: 100px;
 					padding: 0 0;
 					float: right;
 				}

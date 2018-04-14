@@ -47,14 +47,18 @@ class StoryModel extends Model
     }
     function scopeGetStory($query, $idstory)
     {
+        if (Auth::id()) {
+            $id = Auth::id();
+        } else {
+            $id = 0;
+        }
         return DB::table('story')
         ->select(
             'story.idstory',
-            'story.description',
             'story.cover',
             'story.created',
-            'story.views',
             'story.description',
+            'story.views',
             'users.id',
             'users.name',
             'users.username',
@@ -64,7 +68,8 @@ class StoryModel extends Model
             'users.foto',
             DB::raw('(select count(story.idstory) from story where story.id = users.id) as ttl_story'),
             DB::raw('(select count(comment.idcomment) from comment where comment.idstory = story.idstory) as ttl_comment'),
-            DB::raw('(select count(bookmark.idbookmark) from bookmark where bookmark.idstory = story.idstory) as ttl_save')
+            DB::raw('(select count(bookmark.idbookmark) from bookmark where bookmark.idstory = story.idstory) as ttl_save'),
+            DB::raw('(select bookmark.idbookmark from bookmark where bookmark.idstory = story.idstory and bookmark.id = '.$id.' limit 1) as is_save')
         )
         ->join('users','users.id', '=', 'story.id')
         ->where('story.idstory', $idstory)
@@ -82,8 +87,8 @@ class StoryModel extends Model
             'story.idstory',
             'story.cover',
             'story.created',
-            'story.views',
             'story.description',
+            'story.views',
             'users.id',
             'users.name',
             'users.username',
@@ -92,7 +97,7 @@ class StoryModel extends Model
             DB::raw('(select count(story.idstory) from story where story.id = users.id) as ttl_story'),
             DB::raw('(select count(comment.idcomment) from comment where comment.idstory = story.idstory) as ttl_comment'),
             DB::raw('(select count(bookmark.idbookmark) from bookmark where bookmark.idstory = story.idstory) as ttl_save'),
-            DB::raw('(select bookmark.idbookmark from bookmark where bookmark.idstory = story.idstory and bookmark.id = '.$id.') as is_save')
+            DB::raw('(select bookmark.idbookmark from bookmark where bookmark.idstory = story.idstory and bookmark.id = '.$id.' limit 1) as is_save')
         )
         ->join('users','users.id', '=', 'story.id')
         ->orderBy('story.idstory', 'desc')
@@ -110,8 +115,8 @@ class StoryModel extends Model
             'story.idstory',
             'story.cover',
             'story.created',
-            'story.views',
             'story.description',
+            'story.views',
             'users.id',
             'users.name',
             'users.username',
@@ -120,7 +125,7 @@ class StoryModel extends Model
             DB::raw('(select count(story.idstory) from story where story.id = users.id) as ttl_story'),
             DB::raw('(select count(comment.idcomment) from comment where comment.idstory = story.idstory) as ttl_comment'),
             DB::raw('(select count(bookmark.idbookmark) from bookmark where bookmark.idstory = story.idstory) as ttl_save'),
-            DB::raw('(select bookmark.idbookmark from bookmark where bookmark.idstory = story.idstory and bookmark.id = '.$id.') as is_save')
+            DB::raw('(select bookmark.idbookmark from bookmark where bookmark.idstory = story.idstory and bookmark.id = '.$id.' limit 1) as is_save')
         )
         ->join('users','users.id', '=', 'story.id')
         ->where('story.idstory','!=',$idstory)
@@ -139,8 +144,8 @@ class StoryModel extends Model
             'story.idstory',
             'story.cover',
             'story.created',
-            'story.views',
             'story.description',
+            'story.views',
             'users.id',
             'users.name',
             'users.username',
@@ -149,7 +154,7 @@ class StoryModel extends Model
             DB::raw('(select count(story.idstory) from story where story.id = users.id) as ttl_story'),
             DB::raw('(select count(comment.idcomment) from comment where comment.idstory = story.idstory) as ttl_comment'),
             DB::raw('(select count(bookmark.idbookmark) from bookmark where bookmark.idstory = story.idstory) as ttl_save'),
-            DB::raw('(select bookmark.idbookmark from bookmark where bookmark.idstory = story.idstory and bookmark.id = '.$id.') as is_save')
+            DB::raw('(select bookmark.idbookmark from bookmark where bookmark.idstory = story.idstory and bookmark.id = '.$id.' limit 1) as is_save')
         )
         ->join('users','users.id', '=', 'story.id')
         ->orderBy('ttl_comment', 'desc')
@@ -168,8 +173,8 @@ class StoryModel extends Model
             'story.idstory',
             'story.cover',
             'story.created',
-            'story.views',
             'story.description',
+            'story.views',
             'users.id',
             'users.name',
             'users.username',
@@ -178,7 +183,7 @@ class StoryModel extends Model
             DB::raw('(select count(story.idstory) from story where story.id = users.id) as ttl_story'),
             DB::raw('(select count(comment.idcomment) from comment where comment.idstory = story.idstory) as ttl_comment'),
             DB::raw('(select count(bookmark.idbookmark) from bookmark where bookmark.idstory = story.idstory) as ttl_save'),
-            DB::raw('(select bookmark.idbookmark from bookmark where bookmark.idstory = story.idstory and bookmark.id = '.$id.') as is_save')
+            DB::raw('(select bookmark.idbookmark from bookmark where bookmark.idstory = story.idstory and bookmark.id = '.$id.' limit 1) as is_save')
         )
         ->join('users','users.id', '=', 'story.id')
         ->orderBy('ttl_comment', 'desc')
@@ -197,8 +202,8 @@ class StoryModel extends Model
             'story.idstory',
             'story.cover',
             'story.created',
-            'story.views',
             'story.description',
+            'story.views',
             'users.id',
             'users.name',
             'users.username',
@@ -207,7 +212,7 @@ class StoryModel extends Model
             DB::raw('(select count(story.idstory) from story where story.id = users.id) as ttl_story'),
             DB::raw('(select count(comment.idcomment) from comment where comment.idstory = story.idstory) as ttl_comment'),
             DB::raw('(select count(bookmark.idbookmark) from bookmark where bookmark.idstory = story.idstory) as ttl_save'),
-            DB::raw('(select bookmark.idbookmark from bookmark where bookmark.idstory = story.idstory and bookmark.id = '.$id.') as is_save')
+            DB::raw('(select bookmark.idbookmark from bookmark where bookmark.idstory = story.idstory and bookmark.id = '.$id.' limit 1) as is_save')
         )
         ->join('users','users.id', '=', 'story.id')
         ->where('story.description','like',"%$ctr%")
@@ -233,8 +238,8 @@ class StoryModel extends Model
             'story.idstory',
             'story.cover',
             'story.created',
-            'story.views',
             'story.description',
+            'story.views',
             'users.id',
             'users.name',
             'users.username',
@@ -243,7 +248,7 @@ class StoryModel extends Model
             DB::raw('(select count(story.idstory) from story where story.id = users.id) as ttl_story'),
             DB::raw('(select count(comment.idcomment) from comment where comment.idstory = story.idstory) as ttl_comment'),
             DB::raw('(select count(bookmark.idbookmark) from bookmark where bookmark.idstory = story.idstory) as ttl_save'),
-            DB::raw('(select bookmark.idbookmark from bookmark where bookmark.idstory = story.idstory and bookmark.id = '.$id.') as is_save')
+            DB::raw('(select bookmark.idbookmark from bookmark where bookmark.idstory = story.idstory and bookmark.id = '.$id.' limit 1) as is_save')
         )
         ->join('story','story.idstory', '=', 'tags.idstory')
         ->join('users','users.id', '=', 'story.id')
@@ -265,8 +270,8 @@ class StoryModel extends Model
             'story.idstory',
             'story.cover',
             'story.created',
-            'story.views',
             'story.description',
+            'story.views',
             'users.id',
             'users.name',
             'users.username',
@@ -275,7 +280,7 @@ class StoryModel extends Model
             DB::raw('(select count(story.idstory) from story where story.id = users.id) as ttl_story'),
             DB::raw('(select count(comment.idcomment) from comment where comment.idstory = story.idstory) as ttl_comment'),
             DB::raw('(select count(bookmark.idbookmark) from bookmark where bookmark.idstory = story.idstory) as ttl_save'),
-            DB::raw('(select bookmark.idbookmark from bookmark where bookmark.idstory = story.idstory and bookmark.id = '.$id.') as is_save')
+            DB::raw('(select bookmark.idbookmark from bookmark where bookmark.idstory = story.idstory and bookmark.id = '.$id.' limit 1) as is_save')
         )
         ->join('story','story.idcategory', '=', 'category.idcategory')
         ->join('users','users.id', '=', 'story.id')
@@ -283,7 +288,7 @@ class StoryModel extends Model
         ->orderBy('story.idstory', 'desc')
         ->paginate($limit);
     }
-    function scopePagTimelinesStory($query, $limit, $profile, $id)
+    function scopePagTimelinesStory($query, $limit, $profile)
     {
         if (Auth::id()) {
             $id = Auth::id();
@@ -295,8 +300,8 @@ class StoryModel extends Model
             'story.idstory',
             'story.cover',
             'story.created',
-            'story.views',
             'story.description',
+            'story.views',
             'users.id',
             'users.name',
             'users.username',
@@ -305,7 +310,7 @@ class StoryModel extends Model
             DB::raw('(select count(story.idstory) from story where story.id = users.id) as ttl_story'),
             DB::raw('(select count(comment.idcomment) from comment where comment.idstory = story.idstory) as ttl_comment'),
             DB::raw('(select count(bookmark.idbookmark) from bookmark where bookmark.idstory = story.idstory) as ttl_save'),
-            DB::raw('(select bookmark.idbookmark from bookmark where bookmark.idstory = story.idstory and bookmark.id = '.$id.') as is_save')
+            DB::raw('(select bookmark.idbookmark from bookmark where bookmark.idstory = story.idstory and bookmark.id = '.$id.' limit 1) as is_save')
         )
         ->join('users','users.id', '=', 'story.id')
         ->where('story.id', $id)
@@ -330,8 +335,8 @@ class StoryModel extends Model
             'story.idstory',
             'story.cover',
             'story.created',
-            'story.views',
             'story.description',
+            'story.views',
             'users.id',
             'users.name',
             'users.username',
@@ -340,14 +345,14 @@ class StoryModel extends Model
             DB::raw('(select count(story.idstory) from story where story.id = users.id) as ttl_story'),
             DB::raw('(select count(comment.idcomment) from comment where comment.idstory = story.idstory) as ttl_comment'),
             DB::raw('(select count(bookmark.idbookmark) from bookmark where bookmark.idstory = story.idstory) as ttl_save'),
-            DB::raw('(select bookmark.idbookmark from bookmark where bookmark.idstory = story.idstory and bookmark.id = '.$id.') as is_save')
+            DB::raw('(select bookmark.idbookmark from bookmark where bookmark.idstory = story.idstory and bookmark.id = '.$id.' limit 1) as is_save')
         )
         ->join('users','users.id', '=', 'story.id')
         ->where('story.id', $iduser)
         ->orderBy('story.idstory', 'desc')
         ->paginate($limit);
     }
-    function scopePagUserBookmark($query, $limit, $iduser)
+    function scopePagUserBoxs($query, $limit, $idboxs)
     {
         if (Auth::id()) {
             $id = Auth::id();
@@ -360,8 +365,8 @@ class StoryModel extends Model
             'story.idstory',
             'story.cover',
             'story.created',
-            'story.views',
             'story.description',
+            'story.views',
             'users.id',
             'users.name',
             'users.username',
@@ -370,11 +375,11 @@ class StoryModel extends Model
             DB::raw('(select count(story.idstory) from story where story.id = users.id) as ttl_story'),
             DB::raw('(select count(comment.idcomment) from comment where comment.idstory = story.idstory) as ttl_comment'),
             DB::raw('(select count(bookmark.idbookmark) from bookmark where bookmark.idstory = story.idstory) as ttl_save'),
-            DB::raw('(select bookmark.idbookmark from bookmark where bookmark.idstory = story.idstory and bookmark.id = '.$id.') as is_save')
+            DB::raw('(select bookmark.idbookmark from bookmark where bookmark.idstory = story.idstory and bookmark.id = '.$id.' limit 1) as is_save')
         )
         ->join('story','story.idstory', '=', 'bookmark.idstory')
         ->join('users','users.id', '=', 'story.id')
-        ->where('bookmark.id', $iduser)
+        ->where('bookmark.idboxs', $idboxs)
         ->orderBy('bookmark.idbookmark', 'desc')
         ->paginate($limit);
     }

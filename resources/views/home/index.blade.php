@@ -25,11 +25,12 @@
 </script>
 @endif
 
-<div class="col-full">
+<div>
 	<div class="post-home post-grid post-grid-2x">
 		<div class="lef post-grid-1" id="home-main-object">
 			@foreach (ProfileModel::UserSmallData(Auth::id()) as $dt)
-				<div class="frame-post" onclick="opCompose('open');">
+			<a href="{{ url('/compose/story') }}">
+				<div class="frame-post">
 					<div class="mid padding-5px">
 						<div class="pos top-tool">
 							<div class="grid grid-3x">
@@ -45,6 +46,7 @@
 						</div>
 					</div>
 				</div>
+			</a>
 			@endforeach
 			@if (count($topStory) == 0)
 				<div class="frame-empty">
@@ -65,10 +67,12 @@
 					<strong class="ttl">Create your Story</strong>
 					<p>Let's start to posting something, you can post picture and save it to your box. It's easy to use and that's all free for you...</p>
 					<div class="padding-10px">
-						<button class="create btn btn-main3-color width-all" onclick="opCompose('open');">
-							<span class="fas fa-lg fa-plus"></span>
-							<span>Create your Story</span>
-						</button>
+						<a href="{{ url('/compose/story') }}">
+							<button class="create btn btn-main3-color width-all" onclick="opCompose('open');">
+								<span class="fas fa-lg fa-plus"></span>
+								<span>Create your Story</span>
+							</button>
+						</a>
 					</div>
 				</div>
 				<div class="frame-other">

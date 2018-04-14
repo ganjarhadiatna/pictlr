@@ -2,14 +2,14 @@
 
 //method
 @mixin col_full() {
-	width: 1250px;
+	width: $col-full;
 	margin: 0 auto;
 	@media (max-width: $max-width) {
 		width: calc(100% - 20px);
 	}
 }
 @mixin col_all() {
-	width: calc(100% - 20px);
+	width: calc(100% - 30px);
 	margin: 0 auto;
 }
 @mixin col_set($width) {
