@@ -164,9 +164,6 @@
 							</button>
 						</a>
 					@endif
-					<button class="btn btn-circle btn-main2-color btn-focus">
-						<span class="fas fa-lg fa-check"></span>
-					</button>
 					<button class="btn btn-circle btn-main2-color btn-focus" onclick="opPostPopup('open', 'menu-popup', '{{ $story->idstory }}', '{{ $story->id }}', '{{ $title }}')">
 						<span class="fas fa-lg fa-ellipsis-h"></span>
 					</button>
