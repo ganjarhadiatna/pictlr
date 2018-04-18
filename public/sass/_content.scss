@@ -545,7 +545,7 @@
 		}
 		.top {
 			height: 40px;
-			@include grid_2x(1fr, 50px);
+			@include grid_2x(1fr, 40px);
 			.lef {
 				@include column_1();
 				.ttl {

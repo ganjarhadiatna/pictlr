@@ -94,7 +94,7 @@
 	<div class="save">
 		<div class="pos top">
 			<div class="lef">
-				<strong class="ttl">Choose Box</strong>
+				<strong class="ttl ctn-main-font ctn-14px ctn-sek-color">Choose Box</strong>
 			</div>
 			<div class="rig">
 				<button class="btn btn-circle btn-primary-color btn-no-border" onclick="opSave('hide')">
@@ -107,7 +107,7 @@
 				<div class="frame-empty">
 					<div class="ctn-main-font ctn-big ctn-mikro ctn-sek-color padding-15px">Box empty, try to create one.</div>
 					<a href="{{ url('/compose/box') }}">
-						<button class="create btn btn-main3-color width-all" onclick="opCompose('open');">
+						<button class="create btn btn-sekunder-color btn-no-border width-all" onclick="opCompose('open');">
 							<span class="fas fa-lg fa-plus"></span>
 							<span>Create Your First Box</span>
 						</button>

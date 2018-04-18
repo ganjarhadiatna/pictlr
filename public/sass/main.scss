@@ -165,19 +165,34 @@ a {
 					width: 450px;
 					height: 40px;
 					overflow: hidden;
-					background-color: $sek-color;
+					background-color: rgba(0,0,0,0.2);
 					border-radius: 5px;
 					@media (max-width: $max-width) {
 						width: 100%;
 					}
+					&.select {
+						background-color: $sek-color;
+						.txt {
+							background-color: #fff;
+							color: rgba(0,0,0,0.84);
+						}
+						.btn {
+							background-color: $sek-color;
+							color: $min-color;
+						}
+					}
 					.txt {
-						width: calc(100% - 90px);
-						float: left;
+						width: calc(100% - 70px);
+						float: right;
+						background-color: rgba(0,0,0,0);
+						color: #f0f0f0;
 					}
 					.btn {
-						width: 60px;
+						width: 40px;
 						padding: 0 0;
-						float: right;
+						float: left;
+						background-color: rgba(0,0,0,0);
+						color: #f0f0f0;
 					}
 				}
 			}

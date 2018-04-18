@@ -134,6 +134,12 @@
 				}
 			});
 
+			$('#txt-search').focusin(function (){
+				$('#main-search .main-search').addClass('select');
+			}).focusout(function () {
+				$('#main-search .main-search').removeClass('select');
+			});
+
 			$('#close-zoom, #zoom-pict').on('click',function () {
 				$('#zoom-pict').hide();
 				setScroll('show');
@@ -166,10 +172,10 @@
 				<div class="pos mid" id="main-search">
 					<div class="main-search bdr-all">
 						<form id="place-search" action="javascript:void(0)" method="get">
-							<input type="text" name="q" class="txt txt-main-color" id="txt-search" placeholder="Search.." required="true">
 							<button type="submit" class="btn btn-main4-color">
 								<span class="fa fa-lg fa-search"></span>
 							</button>
+							<input type="text" name="q" class="txt txt-main-color txt-no-shadow" id="txt-search" placeholder="Search.." required="true">
 						</form>
 					</div>
 				</div>
