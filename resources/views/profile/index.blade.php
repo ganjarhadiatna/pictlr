@@ -107,7 +107,7 @@
 	</div>
 </div>
 @endforeach
-<div class="block pp-bot col-full">
+<div class="block pp-bot">
 	@if (count($userStory) == 0)
 		@include('main.post-empty')	
 	@else
