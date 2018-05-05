@@ -57,8 +57,8 @@
 	</div>
 	<div class="block bdr-bottom">
 		<div class="ttl ctn-main-font ctn-small ctn-center padding-20px">What would you get?</div>
-		<div class="place-info">
-			<div class="frame-info width-all">
+		<div>
+			<div class="frame-info">
 				<div class="pos top">
 					<div class="icn fas fa-lg fa-lightbulb"></div>
 				</div>
@@ -66,7 +66,7 @@
 					Finding Ideas.
 				</div>
 			</div>
-			<div class="frame-info width-all">
+			<div class="frame-info">
 				<div class="pos top">
 					<div class="icn fas fa-lg fa-images"></div>
 				</div>
@@ -74,7 +74,7 @@
 					Collecting Images.
 				</div>
 			</div>
-			<div class="frame-info width-all">
+			<div class="frame-info">
 				<div class="pos top">
 					<div class="icn fas fa-lg fa-newspaper"></div>
 				</div>
@@ -82,7 +82,7 @@
 					Geting News Feeds.
 				</div>
 			</div>
-			<div class="frame-info width-all">
+			<div class="frame-info">
 				<div class="pos top">
 					<div class="icn fas fa-lg fa-users"></div>
 				</div>
@@ -153,8 +153,8 @@
 	</div>
 	<div class="block bdr-top bdr-bottom">
 		<div class="ttl ctn-main-font ctn-small ctn-center padding-20px">Find Us on.</div>
-		<div class="place-info">
-			<div class="frame-info width-all">
+		<div>
+			<div class="frame-info">
 				<div class="pos top">
 					<div class="icn fab fa-lg fa-facebook-f"></div>
 				</div>
@@ -162,7 +162,7 @@
 					Facebook
 				</div>
 			</div>
-			<div class="frame-info width-all">
+			<div class="frame-info">
 				<div class="pos top">
 					<div class="icn fab fa-lg fa-instagram"></div>
 				</div>
@@ -170,7 +170,7 @@
 					Instagram
 				</div>
 			</div>
-			<div class="frame-info width-all">
+			<div class="frame-info">
 				<div class="pos top">
 					<div class="icn fab fa-lg fa-twitter"></div>
 				</div>
@@ -178,7 +178,7 @@
 					Twitter
 				</div>
 			</div>
-			<div class="frame-info width-all">
+			<div class="frame-info">
 				<div class="pos top">
 					<div class="icn fab fa-lg fa-google"></div>
 				</div>

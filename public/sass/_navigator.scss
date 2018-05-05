@@ -36,7 +36,7 @@
 	position: relative;
 	top: 0;
 	left: 0;
-	min-height: 60px;
+	min-height: 65px;
 	width: 100%;
 	cursor: default;
 	.sc-place {
@@ -99,9 +99,9 @@
 	}
 	.sc-place.pos-fix {
 		position: fixed;
-		top: 60px;
+		top: 65px;
 		z-index: 50;
-		border-bottom: 1px rgba(0,0,0,0.1) solid;
+		opacity: 0.9;
 		@media (max-width: $max-width) {
 			position: relative;
 			top: 0;
@@ -203,10 +203,153 @@
 	.btn {
 		position: relative;
 		width: 40px;
-		height: 45px;
-		line-height: 45px;
+		height: 50px;
+		line-height: 50px;
 		border-radius: 0;
 
 		font-size: 20px;
+	}
+}
+
+/*navigator*/
+.navigator {
+	position: relative;
+	margin: auto;
+    overflow: auto;
+    ul {
+        li {
+            list-style: none;
+            float: left;
+            text-align: center;
+            line-height: 45px;
+            font-weight: 600;
+            font-size: $txt-size-desc;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+    &.nav-2x {
+        ul {
+            li {
+                width: 50%;
+            }
+        }
+    }
+    &.nav-3x {
+        ul {
+            li {
+                width: 33.33%;
+            }
+        }
+    }
+    &.nav-4x {
+        ul {
+            li {
+                width: 25%;
+            }
+        }
+    }
+    &.nav-5x {
+        ul {
+            li {
+                width: 20%;
+            }
+        }
+    }
+}
+
+.nav-theme-1 {
+	box-shadow: 0 0 0 2px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    ul {
+        li {
+            background-color: rgba(225,225,225,0.54);
+            color: $txt-sek-color;
+            &:hover {
+                color: $txt-min-color;
+            }
+            &.active {
+                background-color: #fff;
+	            color: $txt-min-color;
+            }
+        }
+    }
+}
+.nav-theme-2 {
+    background-color: rgba(0,0,0,0);
+    ul {
+        li {
+            color: $txt-sek-color;
+            &:hover {
+                color: $txt-min-color;
+            }
+            &.active {
+                background-color: #fff;
+                color: $txt-min-color;
+                border-bottom: 2px $txt-min-color solid;
+            }
+        }
+    }
+}
+.nav-theme-3 {
+    background-color: rgba(0,0,0,0);
+    ul {
+        li {
+            color: $sek-color;
+            border-radius: 35px;
+            &:hover {
+                color: $sek-color;
+            }
+            &.active {
+                background-color: #fff;
+	            color: $txt-min-color;
+            }
+        }
+    }
+}
+
+.menu-val {
+	a {
+		color: $txt-sek-color;
+		font-weight: 600;
+	}
+	.link {
+		color: $pos-color;
+		font-weight: 600;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+	ul {
+		position: relative;
+		width: 100%;
+		padding: 10px 0;
+		cursor: default;
+		li {
+			position: relative;
+			padding: 5px;
+			display: inline-block;
+			vertical-align: middle;
+			text-align: left;
+			color: $txt-sek-color;
+			font-weight: 600;
+			&.right {
+				float: right;
+				display: block;
+			}
+			.val {
+				font-size: $txt-size-desc;
+			}
+			.ttl {
+				color: rgba(0,0,0,0.34);
+				font-weight: 500;
+				font-size: 14px;
+			}
+			.image {
+				display: inline-block;
+				vertical-align: middle;
+			}
+		}
 	}
 }

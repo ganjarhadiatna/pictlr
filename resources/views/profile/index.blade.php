@@ -4,7 +4,7 @@
 @section('content')
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('#post-nav ol li').each(function(index, el) {
+		$('#post-nav ul li').each(function(index, el) {
 			$(this).removeClass('active');
 			$('#{{ $nav }}').addClass('active');
 		});
@@ -89,6 +89,12 @@
 							</a>
 						</li>
 						<li>
+							<a href="{{ url('/user/'.$p->id.'/save') }}">
+								<div class="val">{{ $p->ttl_save }}</div>
+								<div class="ttl">Saves</div>
+							</a>
+						</li>
+						<li>
 							<a href="{{ url('/user/'.$p->id.'/following') }}">
 								<div class="val">{{ $p->ttl_following }}</div>
 								<div class="ttl">Following</div>
@@ -104,6 +110,17 @@
 				</div>
 			</div>
 		</div>
+	</div>
+	<div class="padding-5px"></div>
+	<div class="navigator nav-2x nav-theme-3 col-400px" id="post-nav">
+		<ul>
+			<a href="{{ url('/user/'.$p->id.'/story') }}">
+				<li id="story">Stories</li>
+			</a>
+			<a href="{{ url('/user/'.$p->id.'/save') }}">
+				<li id="bookmark">Saves</li>
+			</a>
+		</ul>
 	</div>
 </div>
 @endforeach

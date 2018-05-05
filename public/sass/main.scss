@@ -54,6 +54,21 @@ a {
 .col-800px {
 	@include col_set(800px);
 }
+.col-700px {
+	@include col_set(700px);
+}
+.col-600px {
+	@include col_set(600px);
+}
+.col-500px {
+	@include col_set(500px);
+}
+.col-400px {
+	@include col_set(400px);
+}
+.col-300px {
+	@include col_set(300px);
+}
 
 .ctn-main-font {
 	font-family: "FontFirst", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -142,7 +157,7 @@ a {
 				.logo {
 					position: relative;
 					width: 120px;
-					height: 40px;
+					height: 45px;
 					overflow: hidden;
 					img {
 						@include post_top();
@@ -163,7 +178,7 @@ a {
 				}
 				.main-search {
 					width: 450px;
-					height: 40px;
+					height: 45px;
 					overflow: hidden;
 					background-color: rgba(0,0,0,0.2);
 					border-radius: 5px;
@@ -231,13 +246,13 @@ a {
 				}
 				.pp {
 					padding: 0 5px;
-					height: 40px;
+					height: 45px;
 					vertical-align: top;
 					text-align: center;
 					overflow: hidden;
 					@media (max-width: $max-width) {
-						width: 40px;
-						height: 40px;
+						width: 45px;
+						height: 45px;
 					}
 					.image {
 						position: relative;
@@ -249,7 +264,7 @@ a {
 					}
 					.username {
 						position: relative;
-						top: 7.5px;
+						top: 10px;
 						vertical-align: top;
 						padding: 0 5px;
 					}

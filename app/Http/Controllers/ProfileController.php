@@ -47,7 +47,7 @@ class ProfileController extends Controller
             'statusFolow' => $statusFolow
         ]);
 	}
-	function bookmark($id)
+	function save($id)
 	{
 		$iduser = Auth::id();
 		if ($iduser == $id) {

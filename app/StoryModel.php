@@ -352,7 +352,7 @@ class StoryModel extends Model
         ->orderBy('story.idstory', 'desc')
         ->paginate($limit);
     }
-    function scopePagUserBoxs($query, $limit, $idboxs)
+    function scopePagUserBookmark($query, $limit, $iduser)
     {
         if (Auth::id()) {
             $id = Auth::id();
@@ -379,7 +379,7 @@ class StoryModel extends Model
         )
         ->join('story','story.idstory', '=', 'bookmark.idstory')
         ->join('users','users.id', '=', 'story.id')
-        ->where('bookmark.idboxs', $idboxs)
+        ->where('bookmark.id', $iduser)
         ->orderBy('bookmark.idbookmark', 'desc')
         ->paginate($limit);
     }

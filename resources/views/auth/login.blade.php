@@ -37,7 +37,7 @@
                     @endif
                 </div>
                 <div class="block">
-                    <div class="checkbox">
+                    <div class="checkbox padding-10px">
                         <label class="btn btn-main4-color">
                             <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
                         </label>

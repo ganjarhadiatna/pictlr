@@ -41,6 +41,19 @@
 		<div class="column">
 			<div class="frame-more-menu">
 				<div class="fm-side">
+					<a href="{{ url('/timelines') }}">
+						<div class="icn btn btn-circle btn-main-color">
+							<span class="fas fa-lg fa-newspaper"></span>
+						</div>
+					</a>
+				</div>
+				<div class="fm-main">
+					<div class="ttl">Timelines</div>
+				</div>
+			</div>
+
+			<div class="frame-more-menu">
+				<div class="fm-side">
 					<a href="{{ url('/fresh') }}">
 						<div class="icn btn btn-circle btn-main-color">
 							<span class="fas fa-lg fa-clock"></span>

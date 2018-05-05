@@ -6,7 +6,7 @@
 @if (count($topTags) != 0)
 <div class="sc-header">
 	<div class="sc-place pos-fix">
-		<div class="col-full">
+		<div>
 			<div class="place-search-tag col-full">
 				<div class="st-lef">
 					<div class="btn btn-circle btn-main-color" onclick="toLeft()">

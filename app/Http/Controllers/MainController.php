@@ -101,10 +101,6 @@ class MainController extends Controller
     {
         return view('compose.story', ['title' => 'New Story', 'path' => 'compose']);
     }
-    function composeBox()
-    {
-        return view('compose.box', ['title' => 'New Box', 'path' => 'compose']);
-    }
     function fresh()
     {
         $topStory = StoryModel::PagAllStory(20);

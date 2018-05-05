@@ -234,7 +234,8 @@
 								</div>
 							</div>
 						</div>
-						<div class="create-bot">
+						<div class="padding-5px"></div>
+						<div class="create-bot padding-bottom-5px">
 							<input type="button" name="edit-save" class="btn btn-primary-color" value="Cancel" onclick="goBack()">
 							<input type="submit" name="save" class="btn btn-main-color" value="Save" id="btn-publish">
 						</div>

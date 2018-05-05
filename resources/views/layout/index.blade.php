@@ -107,6 +107,40 @@
 			}
 		}
 
+		function addBookmark(idstory) {
+			if (iduser === '') {
+				opAlert('open', 'Please login berfore you can save this story.');
+			} else {
+				$.ajax({
+					url: '{{ url("/add/bookmark") }}',
+					type: 'post',
+					data: {'idstory': idstory},
+				})
+				.done(function(data) {
+					if (data === 'bookmark') {
+						//opAlert('open', 'Story has been saved to bookmark.');
+						$('.bookmark-'+idstory).attr('class', 'bookmark-'+idstory+' fas fa-lg fa-bookmark');
+					} else if (data === 'unbookmark') {
+						//opAlert('open', 'Story removed from bookmark.');
+						$('.bookmark-'+idstory).attr('class', 'bookmark-'+idstory+' far fa-lg fa-bookmark');
+					} else if (data === 'failedadd') {
+						opAlert('open', 'Failed to save story to bookmark.');
+						$('.bookmark-'+idstory).attr('class', 'bookmark-'+idstory+' far fa-lg fa-bookmark');
+					} else if (data === 'failedremove') {
+						opAlert('open', 'Failed to remove story from bookmark.');
+						$('.bookmark-'+idstory).attr('class', 'bookmark-'+idstory+' fas fa-lg fa-bookmark');
+					} else {
+						opAlert('open', 'There is an error, please try again.');
+					}
+					//console.log(data);
+				})
+				.fail(function(data) {
+					//console.log(data.responseJSON);
+					opAlert('open', 'There is an error, please try again.');
+				});
+			}
+		}
+
 		window.Laravel = {!! json_encode([
             'csrfToken' => csrf_token(),
         ]) !!};
@@ -134,7 +168,7 @@
 				}
 			});
 
-			$('#txt-search').focusin(function (){
+			$('#txt-search').focusin(function () {
 				$('#main-search .main-search').addClass('select');
 			}).focusout(function () {
 				$('#main-search .main-search').removeClass('select');
@@ -205,25 +239,21 @@
 							<div class="notif-icn absolute fas fa-lg fa-circle" id="main-notif-sign"></div>
 							<span class="fas fa-lg fa-bell"></span>
 						</button>
-						<a href="{{ url('/box') }}">
-							<button class="btn-icn btn btn-circle btn-main2-color" id="box" key="hide">
-								<span class="fas fa-lg fa-box-open"></span>
-							</button>
-						</a>
 						@foreach (ProfileModel::UserSmallData(Auth::id()) as $dt)
 							<a href="{{ url('/user/'.$dt->id) }}">
 								<button class="btn-icn pp btn btn-main2-color btn-radius" id="profile">
-									<div class="image image-30px image-circle" style="background-image: url({{ asset('/profile/thumbnails/'.$dt->foto) }});" id="profile"></div>
+									<div class="image image-35px image-circle" style="background-image: url({{ asset('/profile/thumbnails/'.$dt->foto) }});" id="profile"></div>
 									<span class="username">{{ $dt->username }}</span>
 								</button>
 							</a>
 						@endforeach
-						<button class="create btn btn-circle btn-main3-color" id="op-add" key="hide">
-							<span class="fas fa-lg fa-plus"></span>
-						</button>
+						<a href="{{ url('/compose') }}">
+							<button class="create btn btn-circle btn-main3-color" id="op-add" key="hide">
+								<span class="fas fa-lg fa-plus"></span>
+							</button>
+						</a>
 					@endif
 				</div>
-				@include('main.add-menu')
 				@include('main.category')
 				@include('main.notifications')
 			</div>
@@ -277,6 +307,5 @@
 	@include('main.post-menu')
 	@include('main.question-menu')
 	@include('main.alert-menu')
-	@include('main.save')
 </body>
 </html>

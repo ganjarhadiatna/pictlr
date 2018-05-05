@@ -22,4 +22,10 @@
 @mixin col_masonry($val) {
 	column-count: $val;
 	column-gap: 0;
+	-webkit-column-count: $val;
+	-webkit-column-gap: 0;
+	-moz-column-count: $val;
+	-moz-column-gap: 0;
+	-ms-column-count: $val;
+	-ms-column-gap: 0;
 }

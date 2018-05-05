@@ -97,9 +97,12 @@
 	.bot-tool {
 		position: relative;
 		width: 100%;
-		height: 40px;
+		padding-bottom: 5px;
 		@include grid_2x(1fr, 130px);
 		.nts {
+			position: relative;
+			width: 100%;
+			height: 30px;
 			@include column_1();
 			.icn {
 				@include post_top();
@@ -114,6 +117,8 @@
 			cursor: default;
 			.btn {
 				width: 30px;
+				height: 30px;
+				line-height: 0;
 				padding: 0 0;
 			}
 		}
@@ -730,8 +735,8 @@
 	position: relative;
 
 	padding: 0 15px;
-	height: 40px;
-	line-height: 40px;
+	height: 45px;
+	line-height: 45px;
 	margin: 2.5px;
 	display: inline-block;
 

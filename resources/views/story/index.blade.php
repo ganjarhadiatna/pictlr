@@ -169,23 +169,16 @@
 					</button>
 				</div>
 				<div class="sc-col-2 txt-right">
-					@if (is_int($story->is_save))
-						<button class="btn btn-main3-color btn-no-border"
-							id="bookmark-{{ $story->idstory }}" 
-							title="Remove from box?" 
-							onclick="removeBookmark('{{ $story->is_save }}','{{ $story->idstory }}')">
-							<span class="fas fa-lg fa-bookmark" id="ic"></span>
-							<span>Save</span>
-						</button>
-					@else
-						<button class="btn btn-main3-color btn-no-border" 
-							id="bookmark-{{ $story->idstory }}"
-							title="Save to box?" 
-							onclick="opSave('open','{{ $story->idstory }}')">
-							<span class="far fa-lg fa-bookmark" id="ic"></span>
-							<span>Save</span>
-						</button>
-					@endif
+					<button class="btn btn-main3-color btn-no-border"
+						key="{{ $story->idstory }}" 
+						onclick="addBookmark('{{ $story->idstory }}')">
+						@if (is_int($story->is_save))
+							<span class="bookmark-{{ $story->idstory }} fas fa-lg fa-bookmark" id="bookmark-{{ $story->idstory }}"></span>
+						@else
+							<span class="bookmark-{{ $story->idstory }} far fa-lg fa-bookmark" id="bookmark-{{ $story->idstory }}"></span>
+						@endif
+						<span>Save</span>
+					</button>
 				</div>
 			</div>
 		</div>
