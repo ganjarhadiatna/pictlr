@@ -122,11 +122,13 @@
 	}
 	function publish() {
 		var fd = new FormData();
-		var cover = $('#cover')[0].files[0];
 		var content = $('#write-story').val();
 		var tags = $('#tags-story').val();
 
-		fd.append('cover', cover);
+		var ctn = $('#cover')[0].files.length;
+		for (let i = 0; i < ctn; i++) {
+			fd.append('image[]', $('#cover')[0].files[i]);
+		}
 		fd.append('content', content);
 		fd.append('tags', tags);
 		$.each($('#form-publish').serializeArray(), function(a, b) {
@@ -144,22 +146,23 @@
 			}
 		})
 		.done(function(data) {
-		   	if (data === 'failed') {
+		   	if (data == 'failed') {
 		   		opAlert('open', 'failed to publish story.');
-		   		close_progress();
+		   	} else if (data == 'no-login') {
+		   		opAlert('open', 'you must login berfore can publish story.');
+		   	} else if (data == 'no-file') {
+		   		opAlert('open', 'you must select files.');
 		   	} else {
-		   		$('#cover').val('');
-				$('#write-story').val('');
-				opCreateStory('close');
-				close_progress();
 				window.location = '{{ url("/story/") }}'+'/'+data;
 		   	}
 		   	//console.log(data);
 		})
 		.fail(function(data) {
 		  	opAlert('open', "there is an error, please try again.");
-		   	close_progress();
 		   	//console.log(data.responseJSON);
+		})
+		.always(function () {
+			close_progress();
 		});
 
 		return false;
@@ -221,22 +224,27 @@
 							<!--progress bar-->
 							<div class="loading mrg-bottom" id="progressbar"></div>
 
-							<div class="mrg-bottom">
-								<input type="file" name="cover" id="cover" required="required" autofocus="autofocus" onchange="loadCover()">
+							<div class="block-field mrg-bottom">
+								<div class="pan">
+									<div class="left">
+										<p class="ttl">Choose Picture</p>
+									</div>
+									<div class="right"></div>
+								</div>
+								<p class="padding-bottom-5px">To change picture, just click it here again.</p>
+								<input type="file" name="cover" id="cover" required="required" autofocus="autofocus" onchange="loadCover()" accept="image/*" multiple>
+								<!--
 								<label for="cover">
 									<div class="cover-icon">
 										<div class="icn">
-											<span class="fa fa-lg fa-camera"></span>
-											<span class="ttl-head">Choose Picture</span>
+											<span class="fa fa-lg fa-plus"></span>
 										</div>
 										<div class="img">
-											<div class="change-cover">
-												<span>To change Picture just click again.</span>
-											</div>
 											<img src="" alt="image" id="image-preview">
 										</div>
 									</div>
 								</label>
+								-->
 							</div>
 
 							<div class="block-field">

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\StoryModel;
 use App\ProfileModel;
 use App\TagModel;
+use App\ImageModel;
 use App\FollowModel;
 use App\BookmarkModel;
 

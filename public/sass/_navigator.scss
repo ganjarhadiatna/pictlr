@@ -196,6 +196,12 @@
 		@include column_2();
 		white-space: nowrap;
 		overflow: hidden;
+		.image {
+			display: inline-block;
+			margin: 0 2.5px;
+			border-radius: 7.5px;
+			cursor: pointer;
+		}
 	}
 	.st-rig {
 		@include column_3();
@@ -206,8 +212,11 @@
 		height: 50px;
 		line-height: 50px;
 		border-radius: 0;
-
 		font-size: 20px;
+		&.hg-100px {
+			height: 100px;
+			line-height: 100px;
+		}
 	}
 }
 

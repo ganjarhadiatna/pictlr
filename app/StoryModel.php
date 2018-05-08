@@ -55,7 +55,6 @@ class StoryModel extends Model
         return DB::table('story')
         ->select(
             'story.idstory',
-            'story.cover',
             'story.created',
             'story.description',
             'story.views',
@@ -66,6 +65,8 @@ class StoryModel extends Model
             'users.created_at',
             'users.visitor',
             'users.foto',
+            DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 0) as cover'),
+            DB::raw('(select count(image.image) from image where image.idstory = story.idstory ) as ttl_image'),
             DB::raw('(select count(story.idstory) from story where story.id = users.id) as ttl_story'),
             DB::raw('(select count(comment.idcomment) from comment where comment.idstory = story.idstory) as ttl_comment'),
             DB::raw('(select count(bookmark.idbookmark) from bookmark where bookmark.idstory = story.idstory) as ttl_save'),
@@ -85,7 +86,6 @@ class StoryModel extends Model
         return DB::table('story')
         ->select(
             'story.idstory',
-            'story.cover',
             'story.created',
             'story.description',
             'story.views',
@@ -94,6 +94,11 @@ class StoryModel extends Model
             'users.username',
             'users.visitor',
             'users.foto',
+            DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 0) as cover1'),
+            DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 1) as cover2'),
+            DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 2) as cover3'),
+            DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 3) as cover4'),
+            DB::raw('(select count(image.image) from image where image.idstory = story.idstory ) as ttl_image'),
             DB::raw('(select count(story.idstory) from story where story.id = users.id) as ttl_story'),
             DB::raw('(select count(comment.idcomment) from comment where comment.idstory = story.idstory) as ttl_comment'),
             DB::raw('(select count(bookmark.idbookmark) from bookmark where bookmark.idstory = story.idstory) as ttl_save'),
@@ -113,7 +118,6 @@ class StoryModel extends Model
         return DB::table('story')
         ->select(
             'story.idstory',
-            'story.cover',
             'story.created',
             'story.description',
             'story.views',
@@ -122,6 +126,11 @@ class StoryModel extends Model
             'users.username',
             'users.visitor',
             'users.foto',
+            DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 0) as cover1'),
+            DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 1) as cover2'),
+            DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 2) as cover3'),
+            DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 3) as cover4'),
+            DB::raw('(select count(image.image) from image where image.idstory = story.idstory ) as ttl_image'),
             DB::raw('(select count(story.idstory) from story where story.id = users.id) as ttl_story'),
             DB::raw('(select count(comment.idcomment) from comment where comment.idstory = story.idstory) as ttl_comment'),
             DB::raw('(select count(bookmark.idbookmark) from bookmark where bookmark.idstory = story.idstory) as ttl_save'),
@@ -142,7 +151,6 @@ class StoryModel extends Model
         return DB::table('story')
         ->select(
             'story.idstory',
-            'story.cover',
             'story.created',
             'story.description',
             'story.views',
@@ -151,6 +159,11 @@ class StoryModel extends Model
             'users.username',
             'users.visitor',
             'users.foto',
+            DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 0) as cover1'),
+            DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 1) as cover2'),
+            DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 2) as cover3'),
+            DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 3) as cover4'),
+            DB::raw('(select count(image.image) from image where image.idstory = story.idstory ) as ttl_image'),
             DB::raw('(select count(story.idstory) from story where story.id = users.id) as ttl_story'),
             DB::raw('(select count(comment.idcomment) from comment where comment.idstory = story.idstory) as ttl_comment'),
             DB::raw('(select count(bookmark.idbookmark) from bookmark where bookmark.idstory = story.idstory) as ttl_save'),
@@ -171,7 +184,6 @@ class StoryModel extends Model
         return DB::table('story')
         ->select(
             'story.idstory',
-            'story.cover',
             'story.created',
             'story.description',
             'story.views',
@@ -180,6 +192,11 @@ class StoryModel extends Model
             'users.username',
             'users.visitor',
             'users.foto',
+            DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 0) as cover1'),
+            DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 1) as cover2'),
+            DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 2) as cover3'),
+            DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 3) as cover4'),
+            DB::raw('(select count(image.image) from image where image.idstory = story.idstory ) as ttl_image'),
             DB::raw('(select count(story.idstory) from story where story.id = users.id) as ttl_story'),
             DB::raw('(select count(comment.idcomment) from comment where comment.idstory = story.idstory) as ttl_comment'),
             DB::raw('(select count(bookmark.idbookmark) from bookmark where bookmark.idstory = story.idstory) as ttl_save'),
@@ -200,7 +217,6 @@ class StoryModel extends Model
         return DB::table('story')
         ->select(
             'story.idstory',
-            'story.cover',
             'story.created',
             'story.description',
             'story.views',
@@ -209,6 +225,11 @@ class StoryModel extends Model
             'users.username',
             'users.visitor',
             'users.foto',
+            DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 0) as cover1'),
+            DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 1) as cover2'),
+            DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 2) as cover3'),
+            DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 3) as cover4'),
+            DB::raw('(select count(image.image) from image where image.idstory = story.idstory ) as ttl_image'),
             DB::raw('(select count(story.idstory) from story where story.id = users.id) as ttl_story'),
             DB::raw('(select count(comment.idcomment) from comment where comment.idstory = story.idstory) as ttl_comment'),
             DB::raw('(select count(bookmark.idbookmark) from bookmark where bookmark.idstory = story.idstory) as ttl_save'),
@@ -236,7 +257,6 @@ class StoryModel extends Model
         ->select(
             'tags.idtags',
             'story.idstory',
-            'story.cover',
             'story.created',
             'story.description',
             'story.views',
@@ -245,6 +265,11 @@ class StoryModel extends Model
             'users.username',
             'users.visitor',
             'users.foto',
+            DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 0) as cover1'),
+            DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 1) as cover2'),
+            DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 2) as cover3'),
+            DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 3) as cover4'),
+            DB::raw('(select count(image.image) from image where image.idstory = story.idstory ) as ttl_image'),
             DB::raw('(select count(story.idstory) from story where story.id = users.id) as ttl_story'),
             DB::raw('(select count(comment.idcomment) from comment where comment.idstory = story.idstory) as ttl_comment'),
             DB::raw('(select count(bookmark.idbookmark) from bookmark where bookmark.idstory = story.idstory) as ttl_save'),
@@ -268,7 +293,6 @@ class StoryModel extends Model
         ->select(
             'category.idcategory',
             'story.idstory',
-            'story.cover',
             'story.created',
             'story.description',
             'story.views',
@@ -277,6 +301,11 @@ class StoryModel extends Model
             'users.username',
             'users.visitor',
             'users.foto',
+            DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 0) as cover1'),
+            DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 1) as cover2'),
+            DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 2) as cover3'),
+            DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 3) as cover4'),
+            DB::raw('(select count(image.image) from image where image.idstory = story.idstory ) as ttl_image'),
             DB::raw('(select count(story.idstory) from story where story.id = users.id) as ttl_story'),
             DB::raw('(select count(comment.idcomment) from comment where comment.idstory = story.idstory) as ttl_comment'),
             DB::raw('(select count(bookmark.idbookmark) from bookmark where bookmark.idstory = story.idstory) as ttl_save'),
@@ -298,7 +327,6 @@ class StoryModel extends Model
         return DB::table('story')
         ->select(
             'story.idstory',
-            'story.cover',
             'story.created',
             'story.description',
             'story.views',
@@ -307,6 +335,11 @@ class StoryModel extends Model
             'users.username',
             'users.visitor',
             'users.foto',
+            DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 0) as cover1'),
+            DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 1) as cover2'),
+            DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 2) as cover3'),
+            DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 3) as cover4'),
+            DB::raw('(select count(image.image) from image where image.idstory = story.idstory ) as ttl_image'),
             DB::raw('(select count(story.idstory) from story where story.id = users.id) as ttl_story'),
             DB::raw('(select count(comment.idcomment) from comment where comment.idstory = story.idstory) as ttl_comment'),
             DB::raw('(select count(bookmark.idbookmark) from bookmark where bookmark.idstory = story.idstory) as ttl_save'),
@@ -333,7 +366,6 @@ class StoryModel extends Model
         return DB::table('story')
         ->select(
             'story.idstory',
-            'story.cover',
             'story.created',
             'story.description',
             'story.views',
@@ -342,6 +374,11 @@ class StoryModel extends Model
             'users.username',
             'users.visitor',
             'users.foto',
+            DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 0) as cover1'),
+            DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 1) as cover2'),
+            DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 2) as cover3'),
+            DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 3) as cover4'),
+            DB::raw('(select count(image.image) from image where image.idstory = story.idstory ) as ttl_image'),
             DB::raw('(select count(story.idstory) from story where story.id = users.id) as ttl_story'),
             DB::raw('(select count(comment.idcomment) from comment where comment.idstory = story.idstory) as ttl_comment'),
             DB::raw('(select count(bookmark.idbookmark) from bookmark where bookmark.idstory = story.idstory) as ttl_save'),
@@ -363,7 +400,6 @@ class StoryModel extends Model
         ->select(
             'bookmark.idbookmark',
             'story.idstory',
-            'story.cover',
             'story.created',
             'story.description',
             'story.views',
@@ -372,6 +408,11 @@ class StoryModel extends Model
             'users.username',
             'users.visitor',
             'users.foto',
+            DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 0) as cover1'),
+            DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 1) as cover2'),
+            DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 2) as cover3'),
+            DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 3) as cover4'),
+            DB::raw('(select count(image.image) from image where image.idstory = story.idstory ) as ttl_image'),
             DB::raw('(select count(story.idstory) from story where story.id = users.id) as ttl_story'),
             DB::raw('(select count(comment.idcomment) from comment where comment.idstory = story.idstory) as ttl_comment'),
             DB::raw('(select count(bookmark.idbookmark) from bookmark where bookmark.idstory = story.idstory) as ttl_save'),
@@ -383,4 +424,5 @@ class StoryModel extends Model
         ->orderBy('bookmark.idbookmark', 'desc')
         ->paginate($limit);
     }
+
 }

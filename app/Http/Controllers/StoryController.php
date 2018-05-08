@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Image;
 
 use App\StoryModel;
+use App\ImageModel;
 use App\TagModel;
 use App\FollowModel;
 use App\BookmarkModel;
@@ -28,6 +29,7 @@ class StoryController extends Controller
         $tags = TagModel::GetTags($id);
         $statusFolow = FollowModel::Check($iduser, $iduserMe);
         $check = BookmarkModel::Check($id, $iduserMe);
+        $images = ImageModel::GetAllImage($id);
         return view('story.index', [
             'title' => 'Story',
             'path' => 'none',
@@ -35,7 +37,8 @@ class StoryController extends Controller
             'newStory' => $newStory,
             'tags' => $tags,
             'check' => $check,
-            'statusFolow' => $statusFolow
+            'statusFolow' => $statusFolow,
+            'images' => $images
         ]);
     }
     function storyEdit($idstory, $iduser, $token)
@@ -88,44 +91,57 @@ class StoryController extends Controller
     function publish(Request $request)
     {
     	$id = Auth::id();
-    	$cover = $request['cover'];
-    	$content = $request['content'];
-    	$adult = 0;
-    	$commenting = 0;
+        $content = $request['content'];
+        if ($id) {
+            if ($request->hasFile('image')) {
+                $data = array(
+                    'description' => $content,
+                    'id' => $id
+                );
+                $rest = StoryModel::AddStory($data);
+                if ($rest) {
 
-    	//setting cover
-    	$this->validate($request, [
-    		'cover' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10048',
-    	]);
-    	$image = $request->file('cover');
-    	$chrc = array('[',']','@',' ','+','-','#','*','<','>','_','(',')',';',',','&','%','$','!','`','~','=','{','}','/',':','?','"',"'",'^');
-	    $filename = $id.time().str_replace($chrc, '', $image->getClientOriginalName());
+                    $idstory = StoryModel::GetID();
 
-	    //create thumbnail
-	    $destination = public_path('story/thumbnails/'.$filename);
-	    $img = Image::make($image->getRealPath());
-	    $img->resize(400, 400, function ($constraint) {
-	    	$constraint->aspectRatio();
-	    })->save($destination);
+                    $this->mentions($request['tags'], $idstory);
 
-	    //create image real
-	    $destination = public_path('story/covers/');
-	    $image->move($destination, $filename);
+                    $image = $request->file('image');
+                    for ($i=0; $i < count($image); $i++) {
+                        //rename file
+                        $chrc = array('[',']','@',' ','+','-','#','*','<','>','_','(',')',';',',','&','%','$','!','`','~','=','{','}','/',':','?','"',"'",'^');
+                        $filename = $id.time().str_replace($chrc, '', $image[$i]->getClientOriginalName());
 
-    	$data = array(
-    		'description' => $content,
-    		'cover' => $filename,
-    		'id' => $id
-    	);
+                        $dtImage = array(
+                            'image' => $filename, 
+                            'id' => $id,
+                            'idstory' => $idstory
+                        );
 
-    	$rest = StoryModel::AddStory($data);
-    	if ($rest) {
-    		$dt = StoryModel::GetID();
-            $this->mentions($request['tags'], $dt);
-    		echo $dt;
-    	} else {
-    		echo "failed";
-    	}
+                        $rest = ImageModel::AddImage($dtImage);
+                        if ($rest) {
+                            //save image to server
+                            //creating thumbnail and save to server
+                            $destination = public_path('story/thumbnails/'.$filename);
+                            $img = Image::make($image[$i]->getRealPath());
+                            $img->resize(400, 400, function ($constraint) {
+                                $constraint->aspectRatio();
+                            })->save($destination);
+
+                            //saving image real to server
+                            $destination = public_path('story/covers/');
+                            $image[$i]->move($destination, $filename);
+                        }
+                    }
+                    echo $idstory;
+                } else {
+                    echo 'failed';
+                }
+            } else {
+                echo 'no-file';
+            }
+        } else {
+            echo 'no-login';
+        }
     }
     function saveEditting(Request $request)
     {
@@ -154,6 +170,11 @@ class StoryController extends Controller
         $idstory = $request['idstory'];
 
         //deleting cover
+        $image = ImageModel::GetAllImage($idstory);
+        foreach ($image as $dt) {
+            unlink(public_path('story/covers/'.$dt->image));
+            unlink(public_path('story/thumbnails/'.$dt->image));
+        }
 
         //deleting like
 
@@ -161,7 +182,6 @@ class StoryController extends Controller
 
         //deleting story
         $rest = StoryModel::DeleteStory($idstory, $iduser);
-
         if ($rest) {
             echo "success";
         } else {

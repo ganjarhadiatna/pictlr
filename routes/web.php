@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'MainController@index');
+Route::get('/test', 'MainController@test');
 Route::get('/home', 'MainController@index');
 Route::get('/tags/{ctr}', 'MainController@tagsId');
 Route::get('/category/{ctr}', 'MainController@ctrId');

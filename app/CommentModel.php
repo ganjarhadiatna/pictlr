@@ -36,6 +36,7 @@ class CommentModel extends Model
     		'comment.created',
     		'comment.id',
     		'users.name',
+            'users.username',
     		'users.foto'
     	)
     	->where('comment.idstory',$idstory)

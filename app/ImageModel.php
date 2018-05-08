@@ -14,4 +14,23 @@ class ImageModel extends Model
         return DB::table('image')
         ->insert($data);
     }
+    function scopeGetImage($query, $idstory)
+    {
+        return DB::table('image')
+        ->select('image')
+        ->where('idstory', $idstory)
+        ->get();
+    }
+    function scopeGetAllImage($query, $idstory)
+    {
+        return DB::table('image')
+        ->select(
+            'idimage',
+            'image',
+            'id',
+            'idstory'
+        )
+        ->where('idstory', $idstory)
+        ->get();
+    }
 }

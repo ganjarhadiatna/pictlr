@@ -24,7 +24,41 @@
 		<div class="mid-tool">
 			<a href="{{ url('/story/'.$story->idstory) }}">
 				<div class="cover"></div>
-				<img src="{{ asset('/story/thumbnails/'.$story->cover) }}" alt="pict" id="pict-{{ $story->idstory }}" key="{{ $story->idstory }}">
+				@if ($story->ttl_image == 1)
+					<div class="cover-theme-1">
+						<img src="{{ asset('/story/thumbnails/'.$story->cover1) }}" alt="pict" id="pict-{{ $story->idstory }}" key="{{ $story->idstory }}">
+					</div>
+				@elseif ($story->ttl_image <= 4)
+					<div class="cover-theme-2">
+						<div class="fr-image">
+							<img src="{{ asset('/story/thumbnails/'.$story->cover1) }}" alt="pict" id="pict-{{ $story->idstory }}" key="{{ $story->idstory }}">
+						</div>
+						<div class="fr-image">
+							<img src="{{ asset('/story/thumbnails/'.$story->cover2) }}" alt="pict" id="pict-{{ $story->idstory }}" key="{{ $story->idstory }}">
+						</div>
+					</div>
+				@else
+					<div class="cover-theme-2">
+						<div class="fr-image">
+							<img src="{{ asset('/story/thumbnails/'.$story->cover1) }}" alt="pict" id="pict-{{ $story->idstory }}" key="{{ $story->idstory }}">
+						</div>
+						<div class="fr-image">
+							<img src="{{ asset('/story/thumbnails/'.$story->cover2) }}" alt="pict" id="pict-{{ $story->idstory }}" key="{{ $story->idstory }}">
+						</div>
+						<div class="fr-image">
+							<img src="{{ asset('/story/thumbnails/'.$story->cover3) }}" alt="pict" id="pict-{{ $story->idstory }}" key="{{ $story->idstory }}">
+						</div>
+						<div class="fr-image">
+							<img src="{{ asset('/story/thumbnails/'.$story->cover4) }}" alt="pict" id="pict-{{ $story->idstory }}" key="{{ $story->idstory }}">
+						</div>
+					</div>
+				@endif
+				@if ($story->ttl_image != 1)
+					<div class="icn-image">
+						<span class="fa fa-lg fa-camera"></span>
+						<span>{{ $story->ttl_image }}</span>
+					</div>
+				@endif
 			</a>
 		</div>
 	</div>

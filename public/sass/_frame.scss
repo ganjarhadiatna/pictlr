@@ -75,11 +75,40 @@
 				z-index: 1;
 				display: none;
 			}
+			.icn-image {
+				position: absolute;
+				right: 0;
+				bottom: 5px;
+				background-color: rgba(0,0,0,0.84);
+				color: $sek-color;
+				padding: 10px;
+				margin: 10px;
+				border-radius: 5px;
+			}
 			.cover {
 				position: absolute;
 				top: 0;
 				width: 100%;
 				height: 100%;
+			}
+			.cover-theme-2 {
+				position: relative;
+				width: 100%;
+				overflow: hidden;
+				border-radius: 7.5px;
+				@include col_masonry(2);
+				.fr-image {
+					position: relative;
+					width: 100%;
+					padding-bottom: 100%;
+					overflow: hidden;
+					border-radius: 0;
+					float: left;
+				}
+				img {
+					@include post_center();
+					border-radius: 0;
+				}
 			}
 			img {
 				width: 100%;
@@ -98,7 +127,7 @@
 		position: relative;
 		width: 100%;
 		padding-bottom: 5px;
-		@include grid_2x(1fr, 130px);
+		@include grid_2x(1fr, 1fr);
 		.nts {
 			position: relative;
 			width: 100%;
@@ -115,8 +144,13 @@
 			@include column_2();
 			text-align: right;
 			cursor: default;
-			.btn {
+			.btn-circle {
 				width: 30px;
+				height: 30px;
+				line-height: 0;
+				padding: 0 0;
+			}
+			.btn {
 				height: 30px;
 				line-height: 0;
 				padding: 0 0;
@@ -400,13 +434,27 @@
 
 .frame-story {
 	position: relative;
-	@include col_set(680px);
+	width: calc(1000px - 20px);
+	padding: 20px 10px 5px 10px;
+	margin: auto;
 	background-color: $sek-color;
-	padding: 10px;
-	border-radius: 5px;
-	z-index: 1;
+	border-radius: 7.5px;
 	@media (max-width: $max-width) {
+		width: 100%;
+		padding: 15px 0 0 0;
 		border-radius: 0;
+	}
+	&.grid-2x {
+		@include grid_2x(1fr, 400px);
+		@media (max-width: $max-width) {
+			@include grid_none();
+		}
+		.grid-1 {
+			@include column_1();
+		}
+		.grid-2 {
+			@include column_2();
+		}
 	}
 	img {
 		width: 100%;
@@ -415,17 +463,12 @@
 		width: 100%;
 	}
 	.pos {
-		padding: 10px 10px;
-		@media (max-width: $max-width) {
-			padding: 10px 0;
-		}
+		padding: 0 10px;
 		.date {
 			font-size: $txt-size-small;
 			color: $txt-sek-color;
 		}
 		.grid {
-			padding-top: 15px;
-			@include bdr_top();
 			@include grid_2x(80px, 1fr);
 			.grid-1 {
 				@include column_1();
@@ -439,13 +482,10 @@
 			}
 		}
 	}
-	.top {
-		padding: 10px 10px 5px 10px;
-	}
 	.mid {
 		.pict {
 			img {
-				border-radius: 5px;
+				border-radius: 7.5px;
 			}
 		}
 		.content {
@@ -460,34 +500,14 @@
 			color: $txt-min-color;
 			font-size: $txt-size-title;
 		}
-		.desc {
-			line-height: 1.5;
-			font-weight: 600;
-			color: $txt-min-color;
-			font-size: $txt-size-desc;
-		}
 	}
 	.bot {
 		color: $txt-min-color;
-		.loved {
-			margin: 15px 0;
-		}
 		.top-comment {
 			.comment-head {
-				@include bdr_top_bottom();
-				padding: 20px 0;
 				.comment-text {
-					min-width: calc(100% - 30px);
-					max-width: calc(100% - 30px);
-					height: 50px;
-					min-height: 50px;
-					max-height: 300px;
-					padding: 15px;
-					color: $txt-sek-color;
-					margin-bottom: 15px;
 					&:focus {
 						color: $txt-min-color;
-						border: 1px $txt-min-color solid;
 					}
 				}
 				.place-btn {
@@ -502,9 +522,7 @@
 			}
 		}
 		.profile {
-			padding: 15px 0;
-			@include bdr_top_bottom();
-			@include grid_3x(45px, 1fr, 90px);
+			@include grid_3x(55px, 1fr, 90px);
 			.foto {
 				@include column_1();
 			}
@@ -542,7 +560,7 @@
 	width: 100%;
 	margin-top: 20px;
 	margin-bottom: 20px;
-	@include grid_2x(45px, 1fr);
+	@include grid_2x(55px, 1fr);
 	.dt-1 {
 		@include column_1();
 	}
@@ -571,12 +589,12 @@
 	}
 	.desk {
 		color: $txt-min-color;
-		font-size: $txt-size-small;
+		font-size: $txt-size-desc;
 		font-weight: 500;
 		line-height: 1.5;
 		a {
 			color: $txt-min-color;
-			font-size: $txt-size-small;
+			font-size: $txt-size-desc;
 			&:hover {
 				color: $min-color;
 			}
@@ -737,7 +755,9 @@
 	padding: 0 15px;
 	height: 45px;
 	line-height: 45px;
-	margin: 2.5px;
+	margin-top: 2.5px;
+	margin-right: 5px;
+	margin-bottom: 2.5px;
 	display: inline-block;
 
 	background-color: #f0f0f0;
