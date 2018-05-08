@@ -41,9 +41,12 @@
 	cursor: default;
 	.sc-place {
 		width: 100%;
-		min-height: 40px;
+		min-height: 45px;
 		padding: 10px 0;
 		background-color: $min-color;
+		&.no-background {
+			background-color: rgba(0,0,0,0);
+		}
 		.sc-grid-3x {
 			@include grid_3x(1fr, 1fr, 1fr);
 		}

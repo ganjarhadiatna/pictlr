@@ -435,17 +435,19 @@
 
 .frame-story {
 	position: relative;
-	width: calc(1000px - 20px);
-	padding: 20px 10px 5px 10px;
+	width: 900px;
+	padding: 5px 15px;
 	margin: auto;
 	background-color: $sek-color;
 	border-radius: 7.5px;
 	@media (max-width: $max-width) {
-		width: 100%;
-		padding: 15px 0 0 0;
+		width: calc(100% - 20px);
+		padding: 10px;
 		border-radius: 0;
 	}
-	&.grid-2x {
+	.grid-2x {
+		position: relative;
+		width: 100%;
 		@include grid_2x(1fr, 400px);
 		@media (max-width: $max-width) {
 			@include grid_none();
@@ -455,6 +457,12 @@
 		}
 		.grid-2 {
 			@include column_2();
+			width: calc(100% - 30px);
+			padding: 0 15px;
+			@media (max-width: $max-width) {
+				width: 100%;
+				padding: 0 0;
+			}
 		}
 	}
 	img {
@@ -464,7 +472,6 @@
 		width: 100%;
 	}
 	.pos {
-		padding: 0 10px;
 		.date {
 			font-size: $txt-size-small;
 			color: $txt-sek-color;
