@@ -73,9 +73,10 @@
 			</div>
 		</div>
 		<div class="bok">
+			<!--
 			<button class="btn btn-circle btn-sekunder-color btn-no-border" onclick="pictZoom({{ $story->idstory }})">
 				<span class="fas fa-lg fa-search-plus"></span>
-			</button>
+			</button>-->
 			<button class="btn btn-circle btn-main4-color btn-no-border"
 				key="{{ $story->idstory }}" 
 				onclick="addBookmark('{{ $story->idstory }}')">

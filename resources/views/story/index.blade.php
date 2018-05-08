@@ -202,14 +202,14 @@
 				</div>
 				<div class="grid-2x">
 					<div class="pos mid" key="more design">
-						<div class="ctn-main-font ctn-14px ctn-sek-color ctn-bold padding-bottom-15px">More designs</div>
+						<div class="ctn-main-font ctn-14px ctn-sek-color ctn-bold padding-bottom-15px">More images</div>
 						<div class="place-search-tag padding-bottom-15px">
 							<div class="st-lef">
 								<div class="btn btn-circle btn-sekunder-color btn-no-border hg-100px" onclick="toLeft()">
 									<span class="fa fa-lg fa-angle-left"></span>
 								</div>
 							</div>
-							<div class="st-mid" id="ctnTag">
+							<div class="st-mid ctn-main-font ctn-left" id="ctnTag">
 								@if (count($images) != 0)
 									@foreach ($images as $img)
 										<div 

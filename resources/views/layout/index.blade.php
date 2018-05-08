@@ -258,12 +258,14 @@
 				@include('main.notifications')
 			</div>
 		</div>
+		<!--
 		<div class="zoom-pict" id="zoom-pict">
 			<button class="close btn btn-circle btn-main2-color" id="close-zoom">
 				<span class="fas fa-lg fa-times"></span>
 			</button>
 			<div class="zp-main"></div>
 		</div>
+		-->
 	</div>
 	<div id="body">
 		@yield("content")

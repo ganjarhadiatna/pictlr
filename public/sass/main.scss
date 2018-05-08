@@ -112,6 +112,15 @@ a {
 	&.ctn-thin {
 		font-weight: 500;
 	}
+	&.ctn-center {
+		text-align: center;
+	}
+	&.ctn-left {
+		text-align: left;
+	}
+	&.ctn-right {
+		text-align: right;
+	}
 }
 
 /*header*/

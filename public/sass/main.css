@@ -2117,6 +2117,12 @@ a {
     line-height: 1.5; }
   .ctn-main-font.ctn-thin {
     font-weight: 500; }
+  .ctn-main-font.ctn-center {
+    text-align: center; }
+  .ctn-main-font.ctn-left {
+    text-align: left; }
+  .ctn-main-font.ctn-right {
+    text-align: right; }
 
 /*header*/
 #header {
