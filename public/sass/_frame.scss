@@ -96,6 +96,7 @@
 				width: 100%;
 				overflow: hidden;
 				border-radius: 7.5px;
+				margin-bottom: 5px;
 				@include col_masonry(2);
 				.fr-image {
 					position: relative;
