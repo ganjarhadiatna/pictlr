@@ -41,8 +41,6 @@
   font-size: 14px;
   font-weight: 600;
   cursor: pointer; }
-  .btn:focus {
-    box-shadow: 0 0 0 4px #529ecc; }
   .btn.btn-no-pad {
     padding: 0 0; }
   .btn.btn-upp {
@@ -1427,7 +1425,7 @@
     position: relative;
     text-align: right; }
     .compose .main .create-bot .btn {
-      margin: 0 5px; }
+      margin-left: 15px; }
   .compose .main .create-mn {
     position: relative;
     overflow: hidden;

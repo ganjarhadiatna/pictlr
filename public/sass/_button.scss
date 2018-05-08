@@ -8,9 +8,6 @@
 	font-size: 14px;
 	font-weight: 600;
 	cursor: pointer;
-	&:focus {
-		box-shadow: 0 0 0 4px $pos-color;
-	}
 	&.btn-no-pad {
 		padding: 0 0;
 	}
