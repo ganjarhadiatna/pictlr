@@ -66,7 +66,7 @@
 <div class="frame-profile">
 	<div class="profile">
 		<div class="foto">
-			<div class="image image-150px image-circle" id="place-picture" style="background-image: url({{ asset('/profile/photos/'.$p->foto) }});"></div>
+			<div class="image image-150px image-circle" id="place-picture" style="background-image: url({{ asset('/profile/thumbnails/'.$p->foto) }});"></div>
 		</div>
 		<div class="info">
 			<div class="user-name ctn-main-font ctn-standar" id="edit-name">{{ $p->name }}</div>
