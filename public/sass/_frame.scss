@@ -128,6 +128,7 @@
 		position: relative;
 		width: 100%;
 		padding-bottom: 5px;
+		cursor: default;
 		@include grid_2x(1fr, 1fr);
 		.nts {
 			position: relative;
@@ -144,18 +145,16 @@
 		.bok {
 			@include column_2();
 			text-align: right;
-			cursor: default;
 			.btn-circle {
 				width: 30px;
 				height: 30px;
 				line-height: 0;
 				padding: 0 0;
 			}
-			.btn {
-				height: 30px;
-				line-height: 0;
-				padding: 0 0;
-			}
+		}
+		.btn {
+			height: 30px;
+			line-height: 0;
 		}
 	}
 }
@@ -454,15 +453,15 @@
 		}
 		.grid-1 {
 			@include column_1();
-		}
-		.grid-2 {
-			@include column_2();
-			width: calc(100% - 30px);
-			padding: 0 15px;
+			width: calc(100% - 15px);
+			padding-right: 15px;
 			@media (max-width: $max-width) {
 				width: 100%;
 				padding: 0 0;
 			}
+		}
+		.grid-2 {
+			@include column_2();
 		}
 	}
 	img {
@@ -477,12 +476,9 @@
 			color: $txt-sek-color;
 		}
 		.grid {
-			@include grid_2x(80px, 1fr);
+			@include grid_2x(1fr, 1fr);
 			.grid-1 {
 				@include column_1();
-				.icn {
-					padding: 0 5px;
-				}
 			}
 			.grid-2 {
 				@include column_2();

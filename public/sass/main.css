@@ -43,10 +43,16 @@
   cursor: pointer; }
   .btn.btn-no-pad {
     padding: 0 0; }
+  .btn.btn-pad-5px {
+    padding: 0 5px; }
   .btn.btn-upp {
     text-transform: uppercase; }
   .btn.btn-radius {
     border-radius: 45px; }
+  .btn.btn-div {
+    height: 45px;
+    line-height: 45px;
+    text-align: center; }
   .btn.btn-circle {
     width: 45px;
     height: 45px;
@@ -161,6 +167,9 @@
     background-color: #fff;
     color: rgba(0, 0, 0, 0.54);
     border: 1px rgba(0, 0, 0, 0.1) solid; }
+
+.hidden {
+  display: none; }
 
 .image {
   position: relative;
@@ -339,6 +348,7 @@
     position: relative;
     width: 100%;
     padding-bottom: 5px;
+    cursor: default;
     display: grid;
     display: -ms-grid;
     grid-template-columns: 1fr 1fr;
@@ -363,17 +373,15 @@
     .frame-post .bot-tool .bok {
       grid-column: 2;
       -ms-grid-column: 2;
-      text-align: right;
-      cursor: default; }
+      text-align: right; }
       .frame-post .bot-tool .bok .btn-circle {
         width: 30px;
         height: 30px;
         line-height: 0;
         padding: 0 0; }
-      .frame-post .bot-tool .bok .btn {
-        height: 30px;
-        line-height: 0;
-        padding: 0 0; }
+    .frame-post .bot-tool .btn {
+      height: 30px;
+      line-height: 0; }
 
 .frame-guess {
   position: relative;
@@ -641,16 +649,16 @@
         display: block; } }
     .frame-story .grid-2x .grid-1 {
       grid-column: 1;
-      -ms-grid-column: 1; }
-    .frame-story .grid-2x .grid-2 {
-      grid-column: 2;
-      -ms-grid-column: 2;
-      width: calc(100% - 30px);
-      padding: 0 15px; }
+      -ms-grid-column: 1;
+      width: calc(100% - 15px);
+      padding-right: 15px; }
       @media (max-width: 768px) {
-        .frame-story .grid-2x .grid-2 {
+        .frame-story .grid-2x .grid-1 {
           width: 100%;
           padding: 0 0; } }
+    .frame-story .grid-2x .grid-2 {
+      grid-column: 2;
+      -ms-grid-column: 2; }
   .frame-story img {
     width: 100%; }
   .frame-story[width] {
@@ -661,13 +669,11 @@
   .frame-story .pos .grid {
     display: grid;
     display: -ms-grid;
-    grid-template-columns: 80px 1fr;
-    -ms-grid-columns: 80px 1fr; }
+    grid-template-columns: 1fr 1fr;
+    -ms-grid-columns: 1fr 1fr; }
     .frame-story .pos .grid .grid-1 {
       grid-column: 1;
       -ms-grid-column: 1; }
-      .frame-story .pos .grid .grid-1 .icn {
-        padding: 0 5px; }
     .frame-story .pos .grid .grid-2 {
       grid-column: 2;
       -ms-grid-column: 2;
@@ -1303,7 +1309,7 @@
 
 .compose .main {
   position: relative;
-  width: 600px;
+  width: 560px;
   margin: 0 auto;
   padding: 20px;
   border-radius: 5px;
@@ -1419,14 +1425,9 @@
               right: 0;
               font-size: 14px;
               color: rgba(0, 0, 0, 0.54); }
-        .compose .main .create-body .create-block .block-field .btn-circle {
-          width: 30px;
-          height: 30px;
-          line-height: 30px;
-          font-size: 12px; }
-          .compose .main .create-body .create-block .block-field .btn-circle.active {
-            border: 1px rgba(0, 0, 0, 0.54) solid;
-            color: rgba(0, 0, 0, 0.84); }
+        .compose .main .create-body .create-block .block-field .review-image .image {
+          display: inline-block;
+          margin: 5px; }
   .compose .main .create-bot {
     position: relative;
     text-align: right; }
@@ -1699,8 +1700,8 @@
             -ms-grid-column: 2;
             text-align: right; }
         #compose-popup .compose .grid-2 .block-field .edit-text {
-          min-height: 85px;
-          max-height: 85px; }
+          min-height: 80px;
+          max-height: 80px; }
       #compose-popup .compose .grid-2 .place-button {
         text-align: right; }
         #compose-popup .compose .grid-2 .place-button .btn {

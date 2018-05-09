@@ -5,7 +5,9 @@
 <div class="frame-guess">
 	<div class="block bdr-bottom">
 		<div class="logo" style="background-image: url('{{ asset('/img/5.png') }}')"></div>
-		<div class="ttl ctn-main-font ctn-small ctn-center padding-10px">You have a Box Now.</div>
+		<div class="ttl ctn-main-font ctn-small ctn-center padding-10px">
+			You Have New World Now.
+		</div>
 	</div>
 	<div class="banner bdr-bottom">
 		<div class="cover">
@@ -35,60 +37,23 @@
 				<div class="icn fa fa-lg fa-pencil-alt"></div>
 			</div>
 			<div class="mid">
-				Create and Share a Story.
+				Create and Share Stories.
 			</div>
 		</div>
 		<div class="frame-info">
 			<div class="pos top">
-				<div class="icn fas fa-lg fa-box-open"></div>
+				<div class="icn far fa-lg fa-thumbs-up"></div>
 			</div>
 			<div class="mid">
-				Save Much Stories on a Box.
+				Likes or Dislikes Stories.
 			</div>
 		</div>
 		<div class="frame-info">
 			<div class="pos top">
-				<div class="icn far fa-lg fa-comments"></div>
+				<div class="icn fas fa-lg fa-bookmark"></div>
 			</div>
 			<div class="mid">
-				Join the Conversations.
-			</div>
-		</div>
-	</div>
-	<div class="block bdr-bottom">
-		<div class="ttl ctn-main-font ctn-small ctn-center padding-20px">What would you get?</div>
-		<div>
-			<div class="frame-info">
-				<div class="pos top">
-					<div class="icn fas fa-lg fa-lightbulb"></div>
-				</div>
-				<div class="mid">
-					Finding Ideas.
-				</div>
-			</div>
-			<div class="frame-info">
-				<div class="pos top">
-					<div class="icn fas fa-lg fa-images"></div>
-				</div>
-				<div class="mid">
-					Collecting Images.
-				</div>
-			</div>
-			<div class="frame-info">
-				<div class="pos top">
-					<div class="icn fas fa-lg fa-newspaper"></div>
-				</div>
-				<div class="mid">
-					Geting News Feeds.
-				</div>
-			</div>
-			<div class="frame-info">
-				<div class="pos top">
-					<div class="icn fas fa-lg fa-users"></div>
-				</div>
-				<div class="mid">
-					Create Relations.
-				</div>
+				Save Much Stories.
 			</div>
 		</div>
 	</div>

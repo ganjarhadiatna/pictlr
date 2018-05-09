@@ -94,23 +94,12 @@
 	function toComment() {
 		var top = $('#tr-comment').offset().top;
 		$('html, body').animate({scrollTop : (Math.round(top) - 70)}, 300);
+		$('#comment-description').focus();
 	}
 	$(document).ready(function() {
 		$('#offset-comment').val(0);
 		$('#limit-comment').val(5);
 		getComment('{{ $story->idstory }}', 'add');
-
-
-		$('#frame-loves').on('click', function(event) {
-			$.ajax({
-				url: '{{ url("/loves/add") }}',
-				type: 'post',
-				data: {'idstory': '{{ $story->idstory }}', 'ttl-loves': 1},
-			})
-			.done(function(data) {
-				$('#ttl-loves').html(data);
-			});
-		});
 
 		$('#comment-publish').submit(function(event) {
 			var idstory = '{{ $story->idstory }}';
@@ -201,34 +190,38 @@
 						</div>
 					</div>
 					<div class="grid-2">
-						<div class="pos mid" key="more design">
-							<div class="ctn-main-font ctn-14px ctn-sek-color ctn-bold padding-bottom-15px">More images</div>
-							<div class="place-search-tag padding-bottom-15px">
-								<div class="st-lef">
-									<div class="btn btn-circle btn-sekunder-color btn-no-border hg-100px" onclick="toLeft()">
-										<span class="fa fa-lg fa-angle-left"></span>
+						@if ($story->ttl_image > 1)
+							<div class="pos mid" key="more design">
+								<div class="ctn-main-font ctn-14px ctn-sek-color ctn-bold padding-bottom-15px">
+									More {{ $story->ttl_image }} images
+								</div>
+								<div class="place-search-tag padding-bottom-15px">
+									<div class="st-lef">
+										<div class="btn btn-circle btn-sekunder-color btn-no-border hg-100px" onclick="toLeft()">
+											<span class="fa fa-lg fa-angle-left"></span>
+										</div>
 									</div>
-								</div>
-								<div class="st-mid ctn-main-font ctn-left" id="ctnTag">
-									@if (count($images) != 0)
-										@foreach ($images as $img)
-											<div 
-												class="image image-100px image-radius change-img"
-												style="background-image: url({{ asset('/story/thumbnails/'.$img->image) }})"
-												key="{{$img->image}}"
-												></div>
-										@endforeach
-									@endif
-								</div>
-								<div class="st-rig">
-									<div class="btn btn-circle btn-sekunder-color btn-no-border hg-100px" onclick="toRight()">
-										<span class="fa fa-lg fa-angle-right"></span>
+									<div class="st-mid ctn-main-font ctn-left" id="ctnTag">
+										@if (count($images) != 0)
+											@foreach ($images as $img)
+												<div 
+													class="image image-100px image-radius change-img"
+													style="background-image: url({{ asset('/story/thumbnails/'.$img->image) }})"
+													key="{{$img->image}}"
+													></div>
+											@endforeach
+										@endif
+									</div>
+									<div class="st-rig">
+										<div class="btn btn-circle btn-sekunder-color btn-no-border hg-100px" onclick="toRight()">
+											<span class="fa fa-lg fa-angle-right"></span>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
+						@endif
 						<div class="pos bot">
-							<div class="profile padding-bottom-15px">
+							<div class="profile padding-bottom-10px">
 								<div class="foto">
 									<a href="{{ url('/user/'.$story->id) }}">
 										<div class="image image-45px image-circle" style="background-image: url({{ asset('/profile/thumbnails/'.$story->foto) }});"></div>
@@ -277,25 +270,31 @@
 							@endif
 						</div>
 						<div class="pos mid">
-							<div class="grid grid-2x padding-bottom-20px">
+							<div class="grid grid-2x padding-bottom-10px">
 								<div class="grid-1">
-									<span class="btn btn-sekunder-color btn-no-border btn-no-pad">
-										<span id="ttl-view">{{ ($story->views + $story->ttl_comment) }} Notes</span>
-									</span>
+									<button class="btn btn-sekunder-color btn-no-border btn-pad-5px">
+										<span class="far fa-lg fa-thumbs-up"></span>
+										<span>{{ $story->views }}</span>
+									</button>
+									<button class="btn btn-sekunder-color btn-no-border btn-pad-5px">
+										<span class="far fa-lg fa-thumbs-down"></span>
+										<span>{{ $story->views }}</span>
+									</button>
 								</div>
 								<div class="grid-2 text-right crs-default">
-									<span class="btn btn-main4-color">
-										<span class="fas fa-lg fa-align-center"></span>
-										<span id="ttl-view">{{ $story->views }}</span>
-									</span>
-									<span class="btn btn-main4-color" onclick="toComment()">
+									<button class="btn btn-sekunder-color btn-no-border btn-pad-5px" onclick="toComment()">
 										<span class="far fa-lg fa-comment"></span>
-										<span class="ttl-loves">{{ $story->ttl_comment }}</span>
-									</span>
-									<span class="btn btn-main4-color">
-										<span class="far fa-lg fa-bookmark"></span>
-										<span class="ttl-loves">{{ $story->ttl_save }}</span>
-									</span>
+										<span>{{ $story->ttl_comment }}</span>
+									</button>
+									<button class="btn btn-circle btn-main4-color btn-no-border"
+										key="{{ $story->idstory }}" 
+										onclick="addBookmark('{{ $story->idstory }}')">
+										@if (is_int($story->is_save))
+											<span class="bookmark-{{ $story->idstory }} fas fa-lg fa-bookmark" id="bookmark-{{ $story->idstory }}"></span>
+										@else
+											<span class="bookmark-{{ $story->idstory }} far fa-lg fa-bookmark" id="bookmark-{{ $story->idstory }}"></span>
+										@endif
+									</button>
 								</div>
 							</div>
 						</div>

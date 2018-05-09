@@ -62,21 +62,27 @@
 			</a>
 		</div>
 	</div>
-	<div class="desc">
-		{{ $story->description }}
-	</div>
+	@if ($story->description)
+		<div class="desc">
+			{{ $story->description }}
+		</div>
+	@endif
 	<div class="pos bot-tool">
 		<div class="nts">
-			<div class="icn btn-grey2-color">
-				<span>{{ ($story->views + $story->ttl_comment + $story->ttl_save) }}</span>
-				<span>Notes</span>
-			</div>
+			<button class="btn btn-sekunder-color btn-no-border btn-pad-5px">
+				<span class="far fa-lg fa-thumbs-up"></span>
+				<span>{{ $story->views }}</span>
+			</button>
+			<button class="btn btn-sekunder-color btn-no-border btn-pad-5px">
+				<span class="far fa-lg fa-thumbs-down"></span>
+				<span>{{ $story->views }}</span>
+			</button>
 		</div>
 		<div class="bok">
-			<!--
-			<button class="btn btn-circle btn-sekunder-color btn-no-border" onclick="pictZoom({{ $story->idstory }})">
-				<span class="fas fa-lg fa-search-plus"></span>
-			</button>-->
+			<button class="btn btn-sekunder-color btn-no-border btn-pad-5px">
+				<span class="far fa-lg fa-comment"></span>
+				<span>{{ $story->ttl_comment }}</span>
+			</button>
 			<button class="btn btn-circle btn-main4-color btn-no-border"
 				key="{{ $story->idstory }}" 
 				onclick="addBookmark('{{ $story->idstory }}')">

@@ -248,7 +248,7 @@
 .compose {
 	.main {
 		position: relative;
-		@include col_set(600px);
+		@include col_set(560px);
 		padding: 20px;
 		border-radius: 5px;
 		overflow: hidden;
@@ -361,14 +361,10 @@
 							}
 						}
 					}
-					.btn-circle {
-						width: 30px;
-						height: 30px;
-						line-height: 30px;
-						font-size: 12px;
-						&.active {
-							border: 1px $txt-sek-color  solid;
-							color: $txt-min-color;
+					.review-image {
+						.image {
+							display: inline-block;
+							margin: 5px;
 						}
 					}
 				}
@@ -642,8 +638,8 @@
 					}
 				}
 				.edit-text {
-					min-height: 85px;
-					max-height: 85px;
+					min-height: 80px;
+					max-height: 80px;
 				}
 			}
 			.place-button {

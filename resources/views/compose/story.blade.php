@@ -167,6 +167,27 @@
 
 		return false;
 	}
+	$(function () { 
+		var imagesPreview = function (input, place) {
+			if (input.files) {
+				var filesAmount = input.files.length;
+
+				for (var i = 0; i < filesAmount; i++) {
+					var reader = new FileReader();	
+					reader.onload = function (event) {
+						$($.parseHTML('<div class="image image-100px image-radius"></div>'))
+						.css('background-image', 'url('+event.target.result+')')
+						.appendTo(place);
+					}
+
+					reader.readAsDataURL(input.files[i]);
+				}
+			}
+		};
+		$('#cover').on('change', function () {
+			imagesPreview(this, 'div.review-image');
+		});
+	});
 	$(document).ready(function() {
 		$('#progressbar').progressbar({
 			value: false,
@@ -224,7 +245,7 @@
 							<!--progress bar-->
 							<div class="loading mrg-bottom" id="progressbar"></div>
 
-							<div class="block-field mrg-bottom">
+							<div class="block-field">
 								<div class="pan">
 									<div class="left">
 										<p class="ttl">Choose Picture</p>
@@ -232,19 +253,26 @@
 									<div class="right"></div>
 								</div>
 								<p class="padding-bottom-5px">To change picture, just click it here again.</p>
-								<input type="file" name="cover" id="cover" required="required" autofocus="autofocus" onchange="loadCover()" accept="image/*" multiple>
-								<!--
+								<input 
+									type="file" 
+									name="cover" 
+									class="hidden" 
+									id="cover" 
+									required="required" 
+									autofocus="autofocus" 
+									accept="image/*" 
+									multiple>
 								<label for="cover">
-									<div class="cover-icon">
-										<div class="icn">
-											<span class="fa fa-lg fa-plus"></span>
-										</div>
-										<div class="img">
-											<img src="" alt="image" id="image-preview">
-										</div>
+									<div class="btn btn-div btn-sekunder-color">
+										<span class="fa fa-lg fa-plus"></span>
+										<span>Browse Images</span>
 									</div>
 								</label>
-								-->
+							</div>
+
+							<div class="padding-5px"></div>
+							<div class="block-field">
+								<div class="review-image"></div>
 							</div>
 
 							<div class="block-field">
