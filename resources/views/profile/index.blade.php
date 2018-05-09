@@ -14,7 +14,7 @@
 <div class="sc-header">
 	<div class="sc-place pos-fix">
 		<div class="col-small">
-			<div class="sc-grid sc-grid-3x">
+			<div class="sc-grid sc-grid-2x">
 				<div class="sc-col-1">
 					@if (Auth::id() == $p->id)
 						<a href="{{ url('/me/setting') }}">
@@ -27,18 +27,18 @@
 								<span class="fas fa-lg fa-pencil-alt"></span>
 							</button>
 						</a>
+						<a href="{{ url('/compose') }}">
+							<button class="btn btn-circle btn-main2-color">
+								<span class="fas fa-lg fa-plus"></span>
+							</button>
+						</a>
 					@else
 						<h3 class="ttl-head-2 ttl-sekunder-color">
 							{{ $p->username }}
 						</h3>
 					@endif
 				</div>
-				<div class="sc-col-2 txt-center">
-					<h3 class="ttl ttl-head-2 ttl-sekunder-color">
-						Profile
-					</h3>
-				</div>
-				<div class="sc-col-3 txt-right">
+				<div class="sc-col-2 txt-right">
 					@if (Auth::id() == $p->id)
 						<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
 							{{ csrf_field() }}
@@ -53,9 +53,21 @@
 						</a>
 					@else
 						@if (!is_int($statusFolow))
-							<input type="button" name="edit" class="btn btn-main2-color" id="add-follow-{{ $p->id }}" value="Follow" onclick="opFollow('{{ $p->id }}', '{{ url("/") }}', '{{ Auth::id() }}')">
+							<input 
+								type="button" 
+								name="edit" 
+								class="btn btn-main2-color" 
+								id="add-follow-{{ $p->id }}" 
+								value="Follow" 
+								onclick="opFollow('{{ $p->id }}', '{{ url("/") }}', '{{ Auth::id() }}')">
 						@else
-							<input type="button" name="edit" class="btn btn-main3-color" id="add-follow-{{ $p->id }}" value="Unfollow" onclick="opFollow('{{ $p->id }}', '{{ url("/") }}', '{{ Auth::id() }}')">
+							<input 
+								type="button" 
+								name="edit" 
+								class="btn btn-main3-color" 
+								id="add-follow-{{ $p->id }}" 
+								value="Unfollow" 
+								onclick="opFollow('{{ $p->id }}', '{{ url("/") }}', '{{ Auth::id() }}')">
 						@endif
 					@endif
 				</div>
@@ -66,7 +78,10 @@
 <div class="frame-profile">
 	<div class="profile">
 		<div class="foto">
-			<div class="image image-150px image-circle" id="place-picture" style="background-image: url({{ asset('/profile/thumbnails/'.$p->foto) }});"></div>
+			<div 
+				class="image image-150px image-circle" 
+				id="place-picture" 
+				style="background-image: url({{ asset('/profile/thumbnails/'.$p->foto) }});"></div>
 		</div>
 		<div class="info">
 			<div class="user-name ctn-main-font ctn-standar" id="edit-name">{{ $p->name }}</div>
