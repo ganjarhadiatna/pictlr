@@ -37,7 +37,6 @@ class CommentController extends Controller
                     'idcomment' => $idcomment,
                     'id' => $id,
                     'iduser' => $iduser,
-                    'title' => 'Commented on your Story',
                     'type' => 'comment'
                 );
                 NotifModel::AddNotifS($notif);

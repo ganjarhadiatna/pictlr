@@ -67,20 +67,6 @@ class ProfileController extends Controller
             'statusFolow' => $statusFolow
         ]);
 	}
-
-    function profileNotif()
-    {
-        $id = Auth::id();
-        $profile = ProfileModel::UserData($id);
-        $topUsers = ProfileModel::TopUsers($id, 8);
-        $topTags = TagModel::TopSmallTags();
-        return view('profile.notifications', [
-            'title' => 'Profile Notifications',
-            'path' => 'notif',
-            'topUsers' => $topUsers,
-            'topTags' => $topTags
-        ]);
-    }
 	function profileSetting()
     {
         $id = Auth::id();

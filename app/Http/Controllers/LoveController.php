@@ -4,44 +4,44 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\BookmarkModel;
+use App\LoveModel;
 use App\StoryModel;
 use App\NotifModel;
 
-class BookmarkController extends Controller
+class LoveController extends Controller
 {
-	function add(Request $request)
+    function add(Request $request)
     {
     	$id = Auth::id();
     	$idstory = $request['idstory'];
-    	$ch = BookmarkModel::Check($idstory, $id);
+    	$ch = LoveModel::Check($idstory, $id);
     	if (is_int($ch)) {
-    		$rest = BookmarkModel::Remove($idstory, $id);
+    		$rest = LoveModel::Remove($idstory, $id);
 		    if ($rest) {
-		    	echo "unbookmark";	
+		    	echo "unlove";	
 		    } else {
 		    	echo "failedremove";
 		    }
     	} else {
     		$data = array('idstory' => $idstory, 'id' => $id);
-	    	$rest = BookmarkModel::Add($data);
+	    	$rest = LoveModel::Add($data);
 	    	if ($rest) {
 	    		//get user id
 	    		$iduser = StoryModel::GetIduser($idstory);
 	    		if ($id != $iduser) {
-	    			//get bookmark id
-		    		$idbookmark = BookmarkModel::GetIduser($iduser);
-		    		//add notif bookmark
+	    			//get love id
+		    		$idlove = LoveModel::GetIduser($iduser);
+		    		//add notif love
 		    		$notif = array(
 		    			'idstory' => $idstory,
-		    			'idbookmark' => $idbookmark,
+		    			'idlove' => $idlove,
 		    			'id' => $id,
 		    			'iduser' => $iduser,
-		    			'type' => 'bookmark'
+		    			'type' => 'love'
 		    		);
 		    		NotifModel::AddNotifS($notif);
 	    		}
-	    		echo "bookmark";	
+	    		echo "love";	
 	    	} else {
 	    		echo "failedadd";
 	    	}
@@ -49,8 +49,8 @@ class BookmarkController extends Controller
     }
     function remove(Request $request)
     {
-    	$idbookmark = $request['idbookmark'];
-	    $rest = BookmarkModel::Remove($idbookmark);
+    	$idlove = $request['idlove'];
+	    $rest = LoveModel::Remove($idlove);
 	    if ($rest) {
 	    	echo 1;
 	    } else {

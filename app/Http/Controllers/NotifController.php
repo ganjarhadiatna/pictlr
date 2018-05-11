@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\NotifModel;
+use App\ProfileModel;
+use App\TagModel;
 
 class NotifController extends Controller
 {
@@ -17,19 +19,10 @@ class NotifController extends Controller
         $rest = NotifModel::GetNotifS($iduser, $limit, $offset);
         echo json_encode($rest);
     }
-    function notifFollowing(Request $req)
-    {
-        $iduser = Auth::id();
-        $limit = $req['limit'];
-        $offset = $req['offset'];
-        NotifModel::UpdateNotifF($iduser);
-        $rest = NotifModel::GetNotifF($iduser, $limit, $offset);
-        echo json_encode($rest);
-    }
     function notifCek()
     {
         $iduser = Auth::id();
-        $rest = NotifModel::CekNotifStory($iduser) + NotifModel::CekNotifFollowing($iduser);
+        $rest = NotifModel::CekNotifStory($iduser);
         echo $rest;
     }
     function notifCekStory()
@@ -38,10 +31,33 @@ class NotifController extends Controller
         $rest = NotifModel::CekNotifStory($iduser);
         echo $rest;
     }
-    function notifCekFollowing()
+
+    function getNotifStory()
     {
         $iduser = Auth::id();
-        $rest = NotifModel::CekNotifFollowing($iduser);
-        echo $rest;
+        $limit = 10;
+        NotifModel::UpdateNotifS($iduser);
+        $rest = NotifModel::GetNotifS($iduser, $limit);
+        return response()->json($rest);
+    }
+
+    function notifications()
+    {
+        if (Auth::id()) {
+            $id = Auth::id();
+        } else {
+            $id = 0;
+        }
+        NotifModel::UpdateNotifS($id);
+        $topUsers = ProfileModel::TopUsers($id, 8);
+        $topTags = TagModel::TopSmallTags();
+        $notif = NotifModel::GetNotifS($id, 10);
+        return view('profile.notifications', [
+            'title' => 'Notifications',
+            'path' => 'notif',
+            'topUsers' => $topUsers,
+            'topTags' => $topTags,
+            'notif' => $notif
+        ]);
     }
 }

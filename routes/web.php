@@ -16,6 +16,7 @@ Route::get('/test', 'MainController@test');
 Route::get('/home', 'MainController@index');
 Route::get('/tags/{ctr}', 'MainController@tagsId');
 Route::get('/category/{ctr}', 'MainController@ctrId');
+Route::get('/categories', 'MainController@ctr');
 Route::get('/popular', 'MainController@popular');
 Route::get('/fresh', 'MainController@fresh');
 Route::get('/trending', 'MainController@trending');
@@ -48,7 +49,7 @@ Route::middleware('auth')->group(function() {
 
 	/*profile*/
 	Route::get('/me', 'ProfileController@profile');
-    Route::get('/me/notifications', 'ProfileController@profileNotif');
+    Route::get('/me/notifications', 'NotifController@notifications');
     Route::get('/me/setting', 'ProfileController@profileSetting');
     Route::get('/me/setting/profile', 'ProfileController@profileSettingProfile');
     Route::get('/me/setting/password', 'ProfileController@profileSettingPassword');
@@ -73,6 +74,10 @@ Route::middleware('auth')->group(function() {
     Route::post('/add/bookmark', 'BookmarkController@add');
     Route::post('/remove/bookmark', 'BookmarkController@remove');
 
+    /*love*/
+    Route::post('/add/love', 'LoveController@add');
+    Route::post('/remove/love', 'LoveController@remove');
+
     /*comment*/
     Route::post('/add/comment', 'CommentController@add');
     Route::post('/delete/comment', 'CommentController@delete');
@@ -83,4 +88,7 @@ Route::middleware('auth')->group(function() {
     Route::get('/notif/cek', 'NotifController@notifCek');
     Route::get('/notif/cek/story', 'NotifController@notifCekStory');
     Route::get('/notif/cek/following', 'NotifController@notifCekFollowing');
+
+    /*get notif*/
+    Route::get('/get/notif/story', 'NotifController@getNotifStory');
 });

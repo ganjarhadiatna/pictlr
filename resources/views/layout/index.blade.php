@@ -107,6 +107,36 @@
 			}
 		}
 
+		function addLove(idstory) {
+			if (iduser === '') {
+				opAlert('open', 'Please login berfore you can love this story.');
+			} else {
+				$.ajax({
+					url: '{{ url("/add/love") }}',
+					type: 'post',
+					data: {'idstory': idstory},
+				})
+				.done(function(data) {
+					if (data === 'love') {
+						$('.love-'+idstory).attr('class', 'love-'+idstory+' fas fa-lg fa-heart');
+					} else if (data === 'unlove') {
+						$('.love-'+idstory).attr('class', 'love-'+idstory+' far fa-lg fa-heart');
+					} else if (data === 'failedadd') {
+						opAlert('open', 'Failed to love story.');
+						$('.love-'+idstory).attr('class', 'love-'+idstory+' far fa-lg fa-heart');
+					} else if (data === 'failedremove') {
+						opAlert('open', 'Failed to unlove story.');
+						$('.love-'+idstory).attr('class', 'love-'+idstory+' fas fa-lg fa-heart');
+					} else {
+						opAlert('open', 'There is an error, please try again.');
+					}
+				})
+				.fail(function() {
+					opAlert('open', 'There is an error, please try again.');
+				});
+			}
+		}
+
 		function addBookmark(idstory) {
 			if (iduser === '') {
 				opAlert('open', 'Please login berfore you can save this story.');
@@ -118,10 +148,8 @@
 				})
 				.done(function(data) {
 					if (data === 'bookmark') {
-						//opAlert('open', 'Story has been saved to bookmark.');
 						$('.bookmark-'+idstory).attr('class', 'bookmark-'+idstory+' fas fa-lg fa-bookmark');
 					} else if (data === 'unbookmark') {
-						//opAlert('open', 'Story removed from bookmark.');
 						$('.bookmark-'+idstory).attr('class', 'bookmark-'+idstory+' far fa-lg fa-bookmark');
 					} else if (data === 'failedadd') {
 						opAlert('open', 'Failed to save story to bookmark.');
@@ -219,10 +247,11 @@
 							<span class="ttl">Home Feeds</span>
 						</button>
 					</a>
-					<button class="btn-icn btn btn-circle btn-main2-color" id="nav-more-target" key="hide">
-						<span class="fas fa-lg fa-th"></span>
-					</button>
-
+					<a href="{{ url('/categories') }}">
+						<button class="btn-icn btn btn-circle btn-main2-color" id="category" key="hide">
+							<span class="fas fa-lg fa-th"></span>
+						</button>
+					</a>
 					@if (!Auth::id())
 						<a href="{{ url('/login') }}">
 							<button class="btn-icn btn btn-main-color ctn-up btn-radius" id="profile">
@@ -235,10 +264,12 @@
 							</button>
 						</a>
 					@else
-						<button class="btn-icn btn btn-circle btn-main2-color" id="op-notif" key="hide">
-							<div class="notif-icn absolute fas fa-lg fa-circle" id="main-notif-sign"></div>
-							<span class="fas fa-lg fa-bell"></span>
-						</button>
+						<a href="{{ url('/me/notifications') }}">
+							<button class="btn-icn btn btn-circle btn-main2-color" id="notif" key="hide">
+								<div class="notif-icn absolute fas fa-lg fa-circle" id="main-notif-sign"></div>
+								<span class="fas fa-lg fa-bell"></span>
+							</button>
+						</a>
 						@foreach (ProfileModel::UserSmallData(Auth::id()) as $dt)
 							<a href="{{ url('/user/'.$dt->id) }}">
 								<button class="btn-icn pp btn btn-main2-color btn-radius" id="profile">
@@ -254,8 +285,6 @@
 						</a>
 					@endif
 				</div>
-				@include('main.category')
-				@include('main.notifications')
 			</div>
 		</div>
 		<!--

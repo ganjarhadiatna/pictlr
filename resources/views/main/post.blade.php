@@ -30,27 +30,21 @@
 					</div>
 				@elseif ($story->ttl_image <= 4)
 					<div class="cover-theme-2">
-						<div class="fr-image">
-							<img src="{{ asset('/story/thumbnails/'.$story->cover1) }}" alt="pict" id="pict-{{ $story->idstory }}" key="{{ $story->idstory }}">
-						</div>
-						<div class="fr-image">
-							<img src="{{ asset('/story/thumbnails/'.$story->cover2) }}" alt="pict" id="pict-{{ $story->idstory }}" key="{{ $story->idstory }}">
-						</div>
+						<div class="image image-all"
+						style="background-image: url({{ asset('/story/thumbnails/'.$story->cover1) }});"></div>
+						<div class="image image-all"
+						style="background-image: url({{ asset('/story/thumbnails/'.$story->cover2) }});"></div>
 					</div>
 				@else
 					<div class="cover-theme-2">
-						<div class="fr-image">
-							<img src="{{ asset('/story/thumbnails/'.$story->cover1) }}" alt="pict" id="pict-{{ $story->idstory }}" key="{{ $story->idstory }}">
-						</div>
-						<div class="fr-image">
-							<img src="{{ asset('/story/thumbnails/'.$story->cover2) }}" alt="pict" id="pict-{{ $story->idstory }}" key="{{ $story->idstory }}">
-						</div>
-						<div class="fr-image">
-							<img src="{{ asset('/story/thumbnails/'.$story->cover3) }}" alt="pict" id="pict-{{ $story->idstory }}" key="{{ $story->idstory }}">
-						</div>
-						<div class="fr-image">
-							<img src="{{ asset('/story/thumbnails/'.$story->cover4) }}" alt="pict" id="pict-{{ $story->idstory }}" key="{{ $story->idstory }}">
-						</div>
+						<div class="image image-all"
+						style="background-image: url({{ asset('/story/thumbnails/'.$story->cover1) }});"></div>
+						<div class="image image-all"
+						style="background-image: url({{ asset('/story/thumbnails/'.$story->cover2) }});"></div>
+						<div class="image image-all"
+						style="background-image: url({{ asset('/story/thumbnails/'.$story->cover3) }});"></div>
+						<div class="image image-all"
+						style="background-image: url({{ asset('/story/thumbnails/'.$story->cover4) }});"></div>
 					</div>
 				@endif
 				@if ($story->ttl_image != 1)
@@ -69,21 +63,26 @@
 	@endif
 	<div class="pos bot-tool">
 		<div class="nts">
-			<button class="btn btn-sekunder-color btn-no-border btn-pad-5px">
-				<span class="far fa-lg fa-thumbs-up"></span>
-				<span>{{ $story->views }}</span>
-			</button>
-			<button class="btn btn-sekunder-color btn-no-border btn-pad-5px">
-				<span class="far fa-lg fa-thumbs-down"></span>
-				<span>{{ $story->views }}</span>
-			</button>
+			<div class="notes ctn-main-font ctn-14px ctn-sek-color">
+				{{ ($story->views + $story->ttl_love + $story->ttl_comment + $story->ttl_save) }} Notes
+			</div>
 		</div>
 		<div class="bok">
-			<button class="btn btn-sekunder-color btn-no-border btn-pad-5px">
-				<span class="far fa-lg fa-comment"></span>
-				<span>{{ $story->ttl_comment }}</span>
+			<button 
+				class="btn btn-sekunder-color btn-no-border btn-pad-5px love" 
+				onclick="addLove('{{ $story->idstory }}')">
+				@if (is_int($story->is_love))
+					<span class="love-{{ $story->idstory }} fas fa-lg fa-heart"></span>
+				@else
+					<span class="love-{{ $story->idstory }} far fa-lg fa-heart"></span>
+				@endif
 			</button>
-			<button class="btn btn-circle btn-main4-color btn-no-border"
+			<a href="{{ url('/story/'.$story->idstory) }}">
+				<button class="btn btn-sekunder-color btn-no-border btn-pad-5px">
+					<span class="far fa-lg fa-comment"></span>
+				</button>
+			</a>
+			<button class="btn btn-circle btn-sekunder-color btn-no-border save"
 				key="{{ $story->idstory }}" 
 				onclick="addBookmark('{{ $story->idstory }}')">
 				@if (is_int($story->is_save))

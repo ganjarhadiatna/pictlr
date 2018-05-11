@@ -42,10 +42,10 @@
 		</div>
 		<div class="frame-info">
 			<div class="pos top">
-				<div class="icn far fa-lg fa-thumbs-up"></div>
+				<div class="icn fas fa-lg fa-heart"></div>
 			</div>
 			<div class="mid">
-				Likes or Dislikes Stories.
+				Love much Stories.
 			</div>
 		</div>
 		<div class="frame-info">

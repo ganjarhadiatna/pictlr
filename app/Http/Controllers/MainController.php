@@ -78,6 +78,24 @@ class MainController extends Controller
             'topStory' => $topStory
         ]);
     }
+    function ctr()
+    {
+        if (Auth::id()) {
+            $id = Auth::id();
+        } else {
+            $id = 0;
+        }
+        $allTags = TagModel::AllTags();
+        $topUsers = ProfileModel::TopUsers($id, 8);
+        $topTags = TagModel::TopSmallTags();
+        return view('main.category', [
+            'title' => 'Categories ',
+            'path' => 'category',
+            'topUsers' => $topUsers,
+            'topTags' => $topTags,
+            'allTags' => $allTags
+        ]);
+    }
     function timelines()
     {
         $id = Auth::id();

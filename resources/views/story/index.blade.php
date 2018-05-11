@@ -272,21 +272,29 @@
 						<div class="pos mid">
 							<div class="grid grid-2x padding-bottom-10px">
 								<div class="grid-1">
-									<button class="btn btn-sekunder-color btn-no-border btn-pad-5px">
-										<span class="far fa-lg fa-thumbs-up"></span>
-										<span>{{ $story->views }}</span>
-									</button>
-									<button class="btn btn-sekunder-color btn-no-border btn-pad-5px">
-										<span class="far fa-lg fa-thumbs-down"></span>
-										<span>{{ $story->views }}</span>
-									</button>
+									<a href="{{ url('/story/'.$story->idstory) }}">
+										<button class="btn btn-sekunder-color btn-no-border btn-pad-5px">
+											<span>{{ $story->views }}</span>
+											<span>Views</span>
+										</button>
+									</a>
 								</div>
 								<div class="grid-2 text-right crs-default">
+									<button 
+										class="btn btn-sekunder-color btn-no-border btn-pad-5px love" 
+										onclick="addLove('{{ $story->idstory }}')">
+										@if (is_int($story->is_love))
+											<span class="love-{{ $story->idstory }} fas fa-lg fa-heart"></span>
+										@else
+											<span class="love-{{ $story->idstory }} far fa-lg fa-heart"></span>
+										@endif
+										<span>{{ $story->ttl_love }}</span>
+									</button>
 									<button class="btn btn-sekunder-color btn-no-border btn-pad-5px" onclick="toComment()">
 										<span class="far fa-lg fa-comment"></span>
 										<span>{{ $story->ttl_comment }}</span>
 									</button>
-									<button class="btn btn-circle btn-main4-color btn-no-border"
+									<button class="btn btn-circle btn-sekunder-color btn-no-border save"
 										key="{{ $story->idstory }}" 
 										onclick="addBookmark('{{ $story->idstory }}')">
 										@if (is_int($story->is_save))
@@ -294,6 +302,7 @@
 										@else
 											<span class="bookmark-{{ $story->idstory }} far fa-lg fa-bookmark" id="bookmark-{{ $story->idstory }}"></span>
 										@endif
+										<span>{{ $story->ttl_save }}</span>
 									</button>
 								</div>
 							</div>

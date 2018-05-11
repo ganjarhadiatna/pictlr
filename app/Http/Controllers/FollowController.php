@@ -64,9 +64,9 @@ class FollowController extends Controller
                 $notif = array(
                     'id' => $id,
                     'iduser' => $iduser,
-                    'title' => 'Started following you'
+                    'type' => 'follow'
                 );
-                NotifModel::AddNotifF($notif);
+                NotifModel::AddNotifS($notif);
                 //
 	    		echo 'success';	
 	    	} else {

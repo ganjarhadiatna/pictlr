@@ -1,117 +1,77 @@
-<?php use App\TagModel; ?>
-<script type="text/javascript">
-	$(document).on('click', function(event) {
-		$('#more-menu').hide();
-		$('#nav-more-target').removeClass('active');
-		$('#nav-more-target').attr('key', 'hide');
-		setScrollMobile('show');
-	});
-	$(document).ready(function() {
-		$('#nav-more-target').on('click', function(event) {
-			var tr = $(this).attr('key');
-			if (tr == 'hide') {
-				event.stopPropagation();
-				$('#more-menu').show();
-				$('#notifications').hide();
-				$(this).addClass('active');
-				$(this).attr('key', 'open');
-				setScrollMobile('hide');
-			} else {
-				$('#more-menu').hide();
-				$(this).removeClass('active');
-				$(this).attr('key', 'hide');
-				setScrollMobile('show');
-			}
-		});
+@extends('layout.index')
+@section('title',$title)
+@section('path', $path)
+@section('content')
 
-		$('#more-menu *').on('click', function(event) {
-			event.stopPropagation();
-			$('#more-menu').show();
-			$('#notifications').hide();
-			$('#nav-more-target').addClass('active');
-			$('#nav-more-target').attr('key', 'open');
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(window).scroll(function(event) {
+			var top = $(window).scrollTop();
+			var hg = Math.floor($('#home-main-object').height() - $('#home-side-object').height());
+			var top1 = Math.floor($('#home-side-object').height() - ($(window).height() - 100));
+			if (top >= top1) {
+				$('#home-side-object').attr('class', 'side-fixed');
+			}
+			if (top >= (hg + top1)) {
+				$('#home-side-object').attr('class', 'side-absolute');
+			}
+			if (top < top1) {
+				$('#home-side-object').attr('class', '');
+			}
 		});
 	});
 </script>
-<div class="more-menu" id="more-menu">
-	<div class="block">
-		<div class="ttl-ctr">
-			Top Choice
-		</div>
-		<div class="column">
-			<div class="frame-more-menu">
-				<div class="fm-side">
-					<a href="{{ url('/timelines') }}">
-						<div class="icn btn btn-circle btn-main-color">
-							<span class="fas fa-lg fa-newspaper"></span>
-						</div>
-					</a>
-				</div>
-				<div class="fm-main">
-					<div class="ttl">Timelines</div>
-				</div>
-			</div>
 
-			<div class="frame-more-menu">
-				<div class="fm-side">
-					<a href="{{ url('/fresh') }}">
-						<div class="icn btn btn-circle btn-main-color">
-							<span class="fas fa-lg fa-clock"></span>
-						</div>
-					</a>
+<div>
+	<div class="post-home post-grid post-grid-2x">
+		<div class="lef post-grid-1" id="home-main-object">
+			<div class="place-notif">
+				<div class="ttl-head padding-bottom-15px">
+					<div class="ctn-main-font ctn-min-color ctn-16px">
+						Categories
+					</div>
 				</div>
-				<div class="fm-main">
-					<div class="ttl">Fresh</div>
-				</div>
-			</div>
-			
-			<div class="frame-more-menu">
-				<div class="fm-side">
-					<a href="{{ url('/popular') }}">
-						<div class="icn btn btn-circle btn-main-color">
-							<span class="fas fa-lg fa-fire"></span>
-						</div>
-					</a>
-				</div>
-				<div class="fm-main">
-					<div class="ttl">Popular</div>
-				</div>
-			</div>
-			
-			<div class="frame-more-menu">
-				<div class="fm-side">
-					<a href="{{ url('/trending') }}">
-						<div class="icn btn btn-circle btn-main-color">
-							<span class="fas fa-lg fa-bolt"></span>
-						</div>
-					</a>
-				</div>
-				<div class="fm-main">
-					<div class="ttl">Trending</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="block">
-		<div class="ttl-ctr">
-			All Collections
-		</div>
-		<div class="place-collect">
-			<div class="column-2">
-				<ul class="mn">
-					@foreach (TagModel::AllTags() as $tag)
-						<?php 
-							$replace = array('[',']','@',',','.','#','+','-','*','<','>','-','(',')',';','&','%','$','!','`','~','=','{','}','/',':','?','"',"'",'^');
-							$title = str_replace($replace, '', $tag->tag); 
-						?>
+				<div class="ctr">
+					<ul>
 						<li>
-							<a href="{{ url('/tags/'.$title) }}">
-								{{ $tag->tag }}
+							<a href="{{ url('/') }}" class="ctn-main-font ctn-sek-color ctn-14px">
+								Home Feeds
 							</a>
 						</li>
-					@endforeach
-				</ul>
+						<li>
+							<a href="{{ url('/fresh') }}" class="ctn-main-font ctn-sek-color ctn-14px">
+								Fresh
+							</a>
+						</li>
+						<li>
+							<a href="{{ url('/popular') }}" class="ctn-main-font ctn-sek-color ctn-14px">
+								Popular
+							</a>
+						</li>
+						<li>
+							<a href="{{ url('/trending') }}" class="ctn-main-font ctn-sek-color ctn-14px">
+								Trending
+							</a>
+						</li>
+						@foreach ($allTags as $tag)
+							<?php 
+								$replace = array('[',']','@',',','.','#','+','-','*','<','>','-','(',')',';','&','%','$','!','`','~','=','{','}','/',':','?','"',"'",'^');
+								$title = str_replace($replace, '', $tag->tag); 
+							?>
+							<li>
+								<a href="{{ url('/tags/'.$title) }}" class="ctn-main-font ctn-sek-color ctn-14px">
+									{{ $tag->tag }}
+								</a>
+							</li>
+						@endforeach
+					</ul>
+				</div>
 			</div>
+			<div class="padding-bottom-15px"></div>
+		</div>
+		<div class="rig post-grid-2">
+			@include('main.side-menu')
 		</div>
 	</div>
 </div>
+@endsection

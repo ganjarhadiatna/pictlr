@@ -41,7 +41,7 @@
 			}
 			.ttl-story a {
 				@include post_top();
-				font-size: $txt-size-desc;
+				font-size: $txt-size-small;
 				font-weight: 600;
 				color: $txt-min-color;
 				&:hover {
@@ -141,6 +141,9 @@
 				font-weight: 600;
 				color: $txt-min-color;
 			}
+			.notes {
+				@include post_top();
+			}
 		}
 		.bok {
 			@include column_2();
@@ -155,6 +158,33 @@
 		.btn {
 			height: 30px;
 			line-height: 0;
+		}
+	}
+}
+
+.love {
+	.fas {
+		color: #9a0000;
+	}
+	.far {
+		color: $txt-sek-color;
+	}
+	&:hover {
+		.far {
+			color: $txt-min-color;
+		}
+	}
+}
+.save {
+	.fas {
+		color: $min-color;
+	}
+	.far {
+		color: $txt-sek-color;
+	}
+	&:hover {
+		.far {
+			color: $txt-min-color;
 		}
 	}
 }
@@ -406,9 +436,29 @@
 	position: relative;
 	width: calc(100% - 30px);
 	padding: 15px;
-
-	@include grid_2x(50px, 1fr);
-
+	@include bdr_bottom();
+	&.grid {
+		&.grid-2x {
+			@include grid_2x(55px, 1fr);
+		}
+		&.grid-3x {
+			@include grid_3x(55px, 1fr, 55px);
+		}
+		.grid-1 {
+			@include column_1();
+		}
+		.grid-2 {
+			@include column_2();
+		}
+		.grid-3 {
+			@include column_3();
+		}
+		.txt-right {
+			.image {
+				float: right;
+			}
+		}
+	}
 	&:hover {
 		background-color: rgba(0,0,0,0.1);
 		cursor: pointer;
@@ -416,16 +466,12 @@
 	a {
 		color: $txt-min-color;
 	}
-	.notif-sid {
-		@include column_1();
-	}
 	.notif-mid {
-		@include column_2();
 		.desc {
-			font-size: 14px;
+			font-size: 16px;
 			color: $txt-min-color;
 			&.date {
-				font-size: 12px;
+				font-size: 14px;
 				color: $txt-sek-color;
 			}
 		}
@@ -551,7 +597,7 @@
 					width: 100%;
 					padding: 0 0;
 					font-size: 14px;
-					height: 35px;
+					height: 40px;
 				}
 			}
 		}

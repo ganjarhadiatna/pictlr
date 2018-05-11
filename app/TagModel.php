@@ -50,7 +50,7 @@ class TagModel extends Model
             DB::raw('count(idtags) as ttl_tag')
         )
         ->groupBy('tag')
-        ->having('ttl_tag','>=','3')
+        ->having('ttl_tag','>=','1')
         ->orderBy('tag', 'asc')
         ->limit(35)
         ->get();
