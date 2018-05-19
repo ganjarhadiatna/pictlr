@@ -14,6 +14,12 @@ class ImageModel extends Model
         return DB::table('image')
         ->insert($data);
     }
+    function scopeUpdateImage($query, $data, $idimage)
+    {
+        return DB::table('image')
+        ->where('image.idimage',$idimage)
+        ->update($data);
+    }
     function scopeGetImage($query, $idstory)
     {
         return DB::table('image')
@@ -28,9 +34,38 @@ class ImageModel extends Model
             'idimage',
             'image',
             'id',
-            'idstory'
+            'idstory',
+            'width',
+            'height'
         )
         ->where('idstory', $idstory)
+        ->get();
+    }
+    function scopeGetAllImages($query)
+    {
+        return DB::table('image')
+        ->select(
+            'idimage',
+            'image',
+            'id',
+            'idstory',
+            'width',
+            'height'
+        )
+        ->get();
+    }
+    function scopeGetDetailImages($query, $idimage)
+    {
+        return DB::table('image')
+        ->select(
+            'idimage',
+            'image',
+            'id',
+            'idstory',
+            'width',
+            'height'
+        )
+        ->where('idimage', $idimage)
         ->get();
     }
 }

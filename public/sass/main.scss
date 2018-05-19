@@ -350,11 +350,10 @@ a {
 /*footer*/
 #footer {
 	position: relative;
-	width: calc(100% - 20px);
-	padding: 30px 10px 30px 10px;
-	text-align: center;
+	width: 100%;
+	padding: 0 0 15px 0;
+	text-align: left;
 	cursor: default;
-	@include bdr_top();
 	ul {
 		li {
 			list-style: none;

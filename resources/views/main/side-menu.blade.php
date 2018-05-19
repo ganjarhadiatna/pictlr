@@ -56,4 +56,39 @@
         @endforeach
 		</div>
 	</div>
+	<div id="footer">
+		<ul>
+			<li>
+				<a href="{{ url('/') }}">Home Feeds</a>
+			</li>
+			<li><span class="icn fa fa-lg fa-circle"></span></li>
+			<li>
+				<a href="#">About Us</a>
+			</li>
+			<li><span class="icn fa fa-lg fa-circle"></span></li>
+			<li>
+				<a href="#">Privacy</a>
+			</li>
+			<li><span class="icn fa fa-lg fa-circle"></span></li>
+			<li>
+				<a href="#">Terms</a>
+			</li>
+			<li><span class="icn fa fa-lg fa-circle"></span></li>
+			<li>
+				<a href="#">Policy</a>
+			</li>
+			<li><span class="icn fa fa-lg fa-circle"></span></li>
+			<li>
+				<a href="#">FAQ</a>
+			</li>
+			<li><span class="icn fa fa-lg fa-circle"></span></li>
+			<li>
+				<a href="#">Jobs</a>
+			</li>
+			<li><span class="icn fa fa-lg fa-circle"></span></li>
+			<li>
+				<a href="#">Help</a>
+			</li>
+		</ul>
+	</div>
 </div>

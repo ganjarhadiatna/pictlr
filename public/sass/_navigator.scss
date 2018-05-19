@@ -10,25 +10,25 @@
 		font-size: 14pt;
 		font-weight: 600;
 
-		width: 45px;
+		width: 120px;
 		height: 45px;
 		line-height: 45px;
 		text-align: center;
 		color: $sek-color;
-		border-radius: 100%;
+		border-radius: 5px;
 	}
 	li.active {
 		cursor: not-allowed;
 	}
 	a {
 		display: block;
-		width: 45px;
+		width: 120px;
 		height: 45px;
 		line-height: 45px;
 		text-align: center;
 		background-color: $pos-color;
 		color: $sek-color;
-		border-radius: 100%;
+		border-radius: 5px;
 	}
 }
 

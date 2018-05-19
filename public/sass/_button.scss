@@ -65,6 +65,11 @@
 			border: 0 #fff solid;
 		}
 	}
+	&.btn-normal-color {
+		background-color: $sek-color;
+		color: $txt-sek-color;
+		border: 1px rgba(0,0,0,0.1) solid;
+	}
 	&.btn-primary-color {
 		@include rgba_black(0, #999);
 	}

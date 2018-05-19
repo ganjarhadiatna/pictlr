@@ -110,11 +110,15 @@ class StoryController extends Controller
                         //rename file
                         $chrc = array('[',']','@',' ','+','-','#','*','<','>','_','(',')',';',',','&','%','$','!','`','~','=','{','}','/',':','?','"',"'",'^');
                         $filename = $id.time().str_replace($chrc, '', $image[$i]->getClientOriginalName());
+                        $wd = getImageSize($image[$i])[0];
+                        $hg = getImageSize($image[$i])[1];
 
                         $dtImage = array(
                             'image' => $filename, 
                             'id' => $id,
-                            'idstory' => $idstory
+                            'idstory' => $idstory,
+                            'width' => $wd,
+                            'height' => $hg
                         );
 
                         $rest = ImageModel::AddImage($dtImage);

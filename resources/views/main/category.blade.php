@@ -28,7 +28,7 @@
 			<div class="place-notif">
 				<div class="ttl-head padding-bottom-15px">
 					<div class="ctn-main-font ctn-min-color ctn-16px">
-						Categories
+						Favorite
 					</div>
 				</div>
 				<div class="ctr">
@@ -53,6 +53,18 @@
 								Trending
 							</a>
 						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="padding-bottom-15px"></div>
+			<div class="place-notif">
+				<div class="ttl-head padding-bottom-15px">
+					<div class="ctn-main-font ctn-min-color ctn-16px">
+						Collections
+					</div>
+				</div>
+				<div class="ctr">
+					<ul>
 						@foreach ($allTags as $tag)
 							<?php 
 								$replace = array('[',']','@',',','.','#','+','-','*','<','>','-','(',')',';','&','%','$','!','`','~','=','{','}','/',':','?','"',"'",'^');

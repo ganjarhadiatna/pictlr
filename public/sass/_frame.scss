@@ -91,17 +91,16 @@
 				width: 100%;
 				height: 100%;
 			}
-			.cover-theme-2 {
+			.cover-theme {
 				position: relative;
 				width: 100%;
 				overflow: hidden;
 				border-radius: 7.5px;
 				margin-bottom: 5px;
-				@include col_masonry(2);
+				background-color: #f0f0f0;
 				.fr-image {
 					position: relative;
 					width: 100%;
-					padding-bottom: 100%;
 					overflow: hidden;
 					border-radius: 0;
 					float: left;
@@ -111,9 +110,21 @@
 					border-radius: 0;
 				}
 			}
+			.cover-theme-2 {
+				@include col_masonry(2);
+				.image {
+					padding-bottom: 100%;
+				}
+			}
+			.cover-theme-4 {
+				@include col_masonry(2);
+				.image {
+					padding-bottom: 50%;
+				}
+			}
 			img {
 				width: 100%;
-				border-radius: 5px;
+				border-radius: 7.5px;
 			}
 		}
 	}
@@ -159,6 +170,39 @@
 			height: 30px;
 			line-height: 0;
 		}
+	}
+}
+
+.frame-loading-circle {
+	position: fixed;
+	top: 70px;
+	z-index: 100;
+	width: 100%;
+	height: 45px;
+	text-align: center;
+	display: none;
+	.icn {
+		position: relative;
+		margin: auto;
+		line-height: 45px;
+		.tr {
+			line-height: 45px;
+			font-size: 22pt;
+		}
+	}
+}
+
+.cover-pict {
+	position: relative;
+	width: 100%;
+	background-color: #f0f0f0;
+	border-radius: 7.5px;
+	margin-bottom: 10px;
+	.pict {
+		position: absolute;
+		top: 0;
+		width: 100%;
+		border-radius: 7.5px;
 	}
 }
 
@@ -346,7 +390,7 @@
 		@include column_2();
 		.fl-ttl {
 			@include post-top;
-			font-size: 14px;
+			font-size: 12pt;
 			font-weight: 600;
 			a {
 				color: $txt-min-color;

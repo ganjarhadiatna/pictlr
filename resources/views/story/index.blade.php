@@ -137,8 +137,31 @@
 		});
 
 		$('.change-img').on('click', function(event) {
-			var img = $(this).attr('key');
-			$('#place-img').attr('src', server+'/story/covers/'+img);
+			var idimage = $(this).attr('key');
+			$.ajax({
+				url: server+'/image/'+idimage,
+				type: 'get',
+				beforeSend: function() {
+					opLoadingCircle('open');
+				}
+			})
+			.done(function(data) {
+				if (data && data.length) {
+					for (let i = 0; i < data.length; i++) {
+						var img = '{{ asset("/story/covers/") }}'+'/'+data[i].image;
+						$('#place-img').attr('src', img);
+						$('#frame-img').css({'padding-bottom': ((data[i].height / data[i].width) * 100)+'%'});	
+					}
+				} else {
+					opAlert('open', 'Failed to load image.');
+				}
+			})
+			.fail(function(e) {
+				opAlert('open', 'There is an error, please try again.');
+			})
+			.always(function () {
+				opLoadingCircle('hide');
+			});
 		});
 
 	});
@@ -184,8 +207,10 @@
 				<div class="grid-2x">
 					<div class="grid-1">
 						<div class="mid">
-							<div class="pict padding-bottom-15px">
-								<img src="{{ asset('/story/covers/'.$story->cover) }}" id="place-img" alt="pict">
+							<div class="pict padding-bottom-5px">
+								<div class="cover-pict" style="padding-bottom: {{ (($story->height / $story->width) * 100) }}%;" id="frame-img">
+									<img src="{{ asset('/story/covers/'.$story->cover) }}" id="place-img" class="pict">
+								</div>
 							</div>
 						</div>
 					</div>
@@ -207,7 +232,7 @@
 												<div 
 													class="image image-100px image-radius change-img"
 													style="background-image: url({{ asset('/story/thumbnails/'.$img->image) }})"
-													key="{{$img->image}}"
+													key="{{$img->idimage}}"
 													></div>
 											@endforeach
 										@endif

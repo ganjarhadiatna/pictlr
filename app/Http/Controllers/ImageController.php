@@ -11,6 +11,11 @@ use App\ImageModel;
 
 class ImageController extends Controller
 {
+	function detail($idimage)
+	{
+		$rest = ImageModel::GetDetailImages($idimage);
+		return $rest;
+	}
     function upload(Request $request)
     {
     	$this->validate($request, [

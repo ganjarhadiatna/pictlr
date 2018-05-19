@@ -11,6 +11,7 @@
 |
 */
 
+Route::get('/image/all', 'MainController@imageAll');
 Route::get('/', 'MainController@index');
 Route::get('/test', 'MainController@test');
 Route::get('/home', 'MainController@index');
@@ -25,6 +26,7 @@ Route::get('/search', 'MainController@searchNormal');
 Route::get('/story/{id}', 'StoryController@story')->where(['id' => '[0-9]+']);
 Route::get('/story/{id}/{title}', 'StoryController@story')->where(['id' => '[0-9]+']);
 Route::get('/s/{id}', 'StoryController@story')->where(['id' => '[0-9]+']);
+Route::get('/image/{idimage}', 'ImageController@detail')->where(['idimage' => '[0-9]+']);
 
 /*user*/
 Route::get('/user/{iduser}', 'ProfileController@story')->where(['iduser' => '[0-9]+']);

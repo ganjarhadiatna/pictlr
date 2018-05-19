@@ -87,6 +87,14 @@
 				}
 			});
 		}
+
+		function opLoadingCircle(stt) {
+			if (stt == 'open') {
+				$('#frame-loading-circle').show();
+			} else {
+				$('#frame-loading-circle').hide();
+			}
+		}
 		
 		function goBack() {
 			window.history.back();
@@ -297,42 +305,12 @@
 		-->
 	</div>
 	<div id="body">
+		<div class="frame-loading-circle" id="frame-loading-circle">
+			<div class="icn btn btn-circle btn-normal-color">
+				<div class="tr fas fa-lg fa-spin fa-circle-notch"></div>
+			</div>
+		</div>
 		@yield("content")
-	</div>
-	<div id="footer">
-		<ul>
-			<li>
-				<a href="{{ url('/') }}">Home Feeds</a>
-			</li>
-			<li><span class="icn fa fa-lg fa-circle"></span></li>
-			<li>
-				<a href="#">About Us</a>
-			</li>
-			<li><span class="icn fa fa-lg fa-circle"></span></li>
-			<li>
-				<a href="#">Privacy</a>
-			</li>
-			<li><span class="icn fa fa-lg fa-circle"></span></li>
-			<li>
-				<a href="#">Terms</a>
-			</li>
-			<li><span class="icn fa fa-lg fa-circle"></span></li>
-			<li>
-				<a href="#">Policy</a>
-			</li>
-			<li><span class="icn fa fa-lg fa-circle"></span></li>
-			<li>
-				<a href="#">FAQ</a>
-			</li>
-			<li><span class="icn fa fa-lg fa-circle"></span></li>
-			<li>
-				<a href="#">Jobs</a>
-			</li>
-			<li><span class="icn fa fa-lg fa-circle"></span></li>
-			<li>
-				<a href="#">Help</a>
-			</li>
-		</ul>
 	</div>
 	@include('main.loading-bar')
 	@include('main.post-menu')

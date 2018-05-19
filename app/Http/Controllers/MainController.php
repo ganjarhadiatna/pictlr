@@ -14,6 +14,25 @@ use App\BookmarkModel;
 
 class MainController extends Controller
 {
+    public function imageAll()
+    {
+        $rest = ImageModel::GetAllImages();
+        foreach ($rest as $dt) {
+            $img = asset('/story/covers/'.$dt->image);
+            $wd = getImageSize($img)[0];
+            $hg = getImageSize($img)[1];
+            $data = [
+                'width' => $wd,
+                'height' => $hg
+            ];
+            $r = ImageModel::UpdateImage($data, $dt->idimage);
+            if ($r) {
+                echo "sized<br>";
+            } else {
+                echo "unsized<br>";
+            }
+        }
+    }
     function index()
     {
         if (Auth::id()) {

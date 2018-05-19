@@ -59,12 +59,12 @@
 						@include('main.post')
 					@endforeach
 				</div>
+				{{ $topStory->links() }}
 			@endif
 		</div>
 		<div class="rig post-grid-2">
 			@include('main.side-menu')
 		</div>
 	</div>
-	{{ $topStory->links() }}
 </div>
 @endsection

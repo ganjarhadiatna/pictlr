@@ -65,6 +65,8 @@ class StoryModel extends Model
             'users.created_at',
             'users.visitor',
             'users.foto',
+            DB::raw('(select image.width from image where image.idstory = story.idstory limit 1 offset 0) as width'),
+            DB::raw('(select image.height from image where image.idstory = story.idstory limit 1 offset 0) as height'),
             DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 0) as cover'),
             DB::raw('(select count(image.image) from image where image.idstory = story.idstory ) as ttl_image'),
             DB::raw('(select count(story.idstory) from story where story.id = users.id) as ttl_story'),
@@ -96,6 +98,8 @@ class StoryModel extends Model
             'users.username',
             'users.visitor',
             'users.foto',
+            DB::raw('(select image.width from image where image.idstory = story.idstory limit 1 offset 0) as width'),
+            DB::raw('(select image.height from image where image.idstory = story.idstory limit 1 offset 0) as height'),
             DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 0) as cover1'),
             DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 1) as cover2'),
             DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 2) as cover3'),
@@ -110,7 +114,7 @@ class StoryModel extends Model
         )
         ->join('users','users.id', '=', 'story.id')
         ->orderBy('story.idstory', 'desc')
-        ->paginate($limit);
+        ->simplePaginate($limit);
     }
     function scopePagRelatedStory($query, $limit, $idstory)
     {
@@ -130,6 +134,8 @@ class StoryModel extends Model
             'users.username',
             'users.visitor',
             'users.foto',
+            DB::raw('(select image.width from image where image.idstory = story.idstory limit 1 offset 0) as width'),
+            DB::raw('(select image.height from image where image.idstory = story.idstory limit 1 offset 0) as height'),
             DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 0) as cover1'),
             DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 1) as cover2'),
             DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 2) as cover3'),
@@ -145,7 +151,7 @@ class StoryModel extends Model
         ->join('users','users.id', '=', 'story.id')
         ->where('story.idstory','!=',$idstory)
         ->orderBy('story.idstory', 'desc')
-        ->paginate($limit);
+        ->simplePaginate($limit);
     }
     function scopePagPopularStory($query, $limit)
     {
@@ -165,6 +171,8 @@ class StoryModel extends Model
             'users.username',
             'users.visitor',
             'users.foto',
+            DB::raw('(select image.width from image where image.idstory = story.idstory limit 1 offset 0) as width'),
+            DB::raw('(select image.height from image where image.idstory = story.idstory limit 1 offset 0) as height'),
             DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 0) as cover1'),
             DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 1) as cover2'),
             DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 2) as cover3'),
@@ -179,7 +187,7 @@ class StoryModel extends Model
         )
         ->join('users','users.id', '=', 'story.id')
         ->orderBy('ttl_comment', 'desc')
-        ->paginate($limit);
+        ->simplePaginate($limit);
     }
     /*trending belum benar karena komentar belum ada*/
     function scopePagTrendingStory($query, $limit)
@@ -200,6 +208,8 @@ class StoryModel extends Model
             'users.username',
             'users.visitor',
             'users.foto',
+            DB::raw('(select image.width from image where image.idstory = story.idstory limit 1 offset 0) as width'),
+            DB::raw('(select image.height from image where image.idstory = story.idstory limit 1 offset 0) as height'),
             DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 0) as cover1'),
             DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 1) as cover2'),
             DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 2) as cover3'),
@@ -214,7 +224,7 @@ class StoryModel extends Model
         )
         ->join('users','users.id', '=', 'story.id')
         ->orderBy('ttl_comment', 'desc')
-        ->paginate($limit);
+        ->simplePaginate($limit);
     }
     function scopePagSearchStory($query, $ctr, $limit)
     {
@@ -235,6 +245,8 @@ class StoryModel extends Model
             'users.username',
             'users.visitor',
             'users.foto',
+            DB::raw('(select image.width from image where image.idstory = story.idstory limit 1 offset 0) as width'),
+            DB::raw('(select image.height from image where image.idstory = story.idstory limit 1 offset 0) as height'),
             DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 0) as cover1'),
             DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 1) as cover2'),
             DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 2) as cover3'),
@@ -256,7 +268,7 @@ class StoryModel extends Model
                 $q->orWhere('story.description','like',"%$value%");
             }
         })
-        ->paginate($limit);
+        ->simplePaginate($limit);
     }
     function scopePagTagStory($query, $ctr, $limit)
     {
@@ -277,6 +289,8 @@ class StoryModel extends Model
             'users.username',
             'users.visitor',
             'users.foto',
+            DB::raw('(select image.width from image where image.idstory = story.idstory limit 1 offset 0) as width'),
+            DB::raw('(select image.height from image where image.idstory = story.idstory limit 1 offset 0) as height'),
             DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 0) as cover1'),
             DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 1) as cover2'),
             DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 2) as cover3'),
@@ -294,7 +308,7 @@ class StoryModel extends Model
         ->where('tags.tag', 'like', "%{$ctr}%")
         ->orderBy('tags.idtags', 'desc')
         ->groupBy('tags.idstory')
-        ->paginate($limit);
+        ->simplePaginate($limit);
     }
     function scopePagCtrStory($query, $ctr, $limit)
     {
@@ -315,6 +329,8 @@ class StoryModel extends Model
             'users.username',
             'users.visitor',
             'users.foto',
+            DB::raw('(select image.width from image where image.idstory = story.idstory limit 1 offset 0) as width'),
+            DB::raw('(select image.height from image where image.idstory = story.idstory limit 1 offset 0) as height'),
             DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 0) as cover1'),
             DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 1) as cover2'),
             DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 2) as cover3'),
@@ -331,7 +347,7 @@ class StoryModel extends Model
         ->join('users','users.id', '=', 'story.id')
         ->where('category.title', $ctr)
         ->orderBy('story.idstory', 'desc')
-        ->paginate($limit);
+        ->simplePaginate($limit);
     }
     function scopePagTimelinesStory($query, $limit, $profile)
     {
@@ -351,6 +367,8 @@ class StoryModel extends Model
             'users.username',
             'users.visitor',
             'users.foto',
+            DB::raw('(select image.width from image where image.idstory = story.idstory limit 1 offset 0) as width'),
+            DB::raw('(select image.height from image where image.idstory = story.idstory limit 1 offset 0) as height'),
             DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 0) as cover1'),
             DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 1) as cover2'),
             DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 2) as cover3'),
@@ -372,7 +390,7 @@ class StoryModel extends Model
             }
         })
         ->orderBy('story.idstory', 'desc')
-        ->paginate($limit);
+        ->simplePaginate($limit);
     }
     function scopePagUserStory($query, $limit, $iduser)
     {
@@ -392,6 +410,8 @@ class StoryModel extends Model
             'users.username',
             'users.visitor',
             'users.foto',
+            DB::raw('(select image.width from image where image.idstory = story.idstory limit 1 offset 0) as width'),
+            DB::raw('(select image.height from image where image.idstory = story.idstory limit 1 offset 0) as height'),
             DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 0) as cover1'),
             DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 1) as cover2'),
             DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 2) as cover3'),
@@ -407,7 +427,7 @@ class StoryModel extends Model
         ->join('users','users.id', '=', 'story.id')
         ->where('story.id', $iduser)
         ->orderBy('story.idstory', 'desc')
-        ->paginate($limit);
+        ->simplePaginate($limit);
     }
     function scopePagUserBookmark($query, $limit, $iduser)
     {
@@ -428,6 +448,8 @@ class StoryModel extends Model
             'users.username',
             'users.visitor',
             'users.foto',
+            DB::raw('(select image.width from image where image.idstory = story.idstory limit 1 offset 0) as width'),
+            DB::raw('(select image.height from image where image.idstory = story.idstory limit 1 offset 0) as height'),
             DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 0) as cover1'),
             DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 1) as cover2'),
             DB::raw('(select image.image from image where image.idstory = story.idstory limit 1 offset 2) as cover3'),
@@ -444,7 +466,7 @@ class StoryModel extends Model
         ->join('users','users.id', '=', 'story.id')
         ->where('bookmark.id', $iduser)
         ->orderBy('bookmark.idbookmark', 'desc')
-        ->paginate($limit);
+        ->simplePaginate($limit);
     }
 
 }
