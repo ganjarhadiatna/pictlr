@@ -53,6 +53,6 @@ class NotifModel extends Model
         ->leftJoin('story','story.idstory','=','notif_s.idstory')
         ->leftJoin('image','image.idstory','=','story.idstory')
         ->orderBy('notif_s.idnotif_s', 'desc')
-        ->paginate($limit);
+        ->simplePaginate($limit);
     }
 }

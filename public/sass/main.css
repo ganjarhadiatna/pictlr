@@ -307,7 +307,7 @@
     .frame-post .mid .mid-tool .icn-image {
       position: absolute;
       right: 0;
-      bottom: 5px;
+      top: 0;
       background-color: rgba(0, 0, 0, 0.84);
       color: #fff;
       padding: 10px;
@@ -1832,7 +1832,7 @@
   .pagination li {
     list-style: none;
     display: inline-block;
-    font-size: 14pt;
+    font-size: 12pt;
     font-weight: 600;
     width: 120px;
     height: 45px;
@@ -2125,7 +2125,7 @@
   margin: 0;
   border: 0;
   outline: none;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  font-family: "FontFirst", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 html {
   background-color: #144753; }

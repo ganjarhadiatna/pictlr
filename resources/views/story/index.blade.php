@@ -246,7 +246,7 @@
 							</div>
 						@endif
 						<div class="pos bot">
-							<div class="profile padding-bottom-10px">
+							<div class="profile padding-bottom-15px">
 								<div class="foto">
 									<a href="{{ url('/user/'.$story->id) }}">
 										<div class="image image-45px image-circle" style="background-image: url({{ asset('/profile/thumbnails/'.$story->foto) }});"></div>

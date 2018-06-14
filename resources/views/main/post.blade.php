@@ -28,7 +28,7 @@
 					<div class="cover-theme-1 cover-pict" style="padding-bottom: {{ (($story->height / $story->width) * 100) }}%;">
 						<img src="{{ asset('/story/thumbnails/'.$story->cover1) }}" class="pict" id="pict-{{ $story->idstory }}" key="{{ $story->idstory }}">
 					</div>
-				@elseif ($story->ttl_image <= 4)
+				@elseif ($story->ttl_image <= 3)
 					<div class="cover-theme cover-theme-2">
 						<div class="image image-all"
 						style="background-image: url({{ asset('/story/thumbnails/'.$story->cover1) }});"></div>
@@ -36,7 +36,7 @@
 						style="background-image: url({{ asset('/story/thumbnails/'.$story->cover2) }});"></div>
 					</div>
 				@else
-					<div class="cover-theme cover-theme-4">
+					<div class="cover-theme cover-theme-2">
 						<div class="image image-all"
 						style="background-image: url({{ asset('/story/thumbnails/'.$story->cover1) }});"></div>
 						<div class="image image-all"
@@ -49,7 +49,7 @@
 				@endif
 				@if ($story->ttl_image != 1)
 					<div class="icn-image">
-						<span class="fa fa-lg fa-camera"></span>
+						<span class="fa fa-lg fa-images"></span>
 						<span>{{ $story->ttl_image }}</span>
 					</div>
 				@endif
