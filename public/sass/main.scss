@@ -70,6 +70,10 @@ a {
 	@include col_set(300px);
 }
 
+.bdr-bottom {
+	border-bottom: 1px rgba(0,0,0,0.1) solid;
+}
+
 .ctn-main-font {
 	font-family: "FontFirst", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-weight: 600;
@@ -99,9 +103,15 @@ a {
 	}
 	&.ctn-sek-color {
 		color: $txt-sek-color;
+		a {
+			color: $txt-min-color;
+		}
 	}
 	&.ctn-min-color {
 		color: $txt-min-color;
+		a {
+			color: $min-color;
+		}
 	}
 	&.ctn-white-color {
 		color: #fff;
@@ -139,7 +149,6 @@ a {
 		width: 100%;
 		z-index: 100;;
 		background-color: $min-color;
-		@include bdr_bottom();
 		.menu {
 			position: relative;
 			padding: 10px 0;

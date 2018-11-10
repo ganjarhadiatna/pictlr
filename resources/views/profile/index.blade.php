@@ -12,7 +12,7 @@
 </script>
 @foreach ($profile as $p)
 <div class="sc-header">
-	<div class="sc-place pos-fix">
+	<div class="sc-place">
 		<div class="col-small">
 			<div class="sc-grid sc-grid-2x">
 				<div class="sc-col-1">
@@ -46,7 +46,7 @@
 						<a href="{{ route('logout') }}" 
 							onclick="event.preventDefault();
 							document.getElementById('logout-form').submit();">
-							<button class="btn btn-main2-color">
+							<button class="btn btn-main2-color btn-radius">
 								<span class="fas fa-lg fa-power-off"></span>
 								<span class="">Logout</span>
 							</button>
@@ -127,7 +127,7 @@
 		</div>
 	</div>
 	<div class="padding-5px"></div>
-	<div class="navigator nav-2x nav-theme-3 col-400px" id="post-nav">
+	<div class="navigator nav-2x nav-theme-3 col-300px" id="post-nav">
 		<ul>
 			<a href="{{ url('/user/'.$p->id.'/story') }}">
 				<li id="story">Stories</li>

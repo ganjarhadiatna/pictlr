@@ -169,6 +169,7 @@
 	}
 	$(function () { 
 		var imagesPreview = function (input, place) {
+			$(place).html('');
 			if (input.files) {
 				var filesAmount = input.files.length;
 
@@ -182,6 +183,8 @@
 
 					reader.readAsDataURL(input.files[i]);
 				}
+
+				console.log(filesAmount);
 			}
 		};
 		$('#cover').on('change', function () {
@@ -221,23 +224,13 @@
 		});
 	});
 </script>
-<div class="sc-header">
-	<div class="sc-place pos-fix">
-		<div class="col-full">
-			<div class="sc-grid sc-grid-3x">
-				<div class="sc-col-1"></div>
-				<div class="sc-col-2">
-					<h3 class="ttl-head ttl-sekunder-color">Create New Story</h3>
-				</div>
-				<div class="sc-col-3"></div>
-			</div>
-		</div>
-	</div>
-</div>
 <div>
 	<div class="compose" id="create">
 		<div class="main">
-			<div class="create-body edit">
+			<div class="padding-5px">
+				<div class="ctn-main-font ctn-min-color ctn-bold ctn-small ctn-center">Create Story</div>
+			</div>
+			<div class="create-body">
 				<div class="create-mn">
 					<form id="form-publish" method="post" action="javascript:void(0)" enctype="multipart/form-data" onsubmit="publish()">
 						<div class="create-block">
@@ -261,18 +254,20 @@
 									required="required" 
 									autofocus="autofocus" 
 									accept="image/*" 
+									max="10" 
+									maxlength="10" 
 									multiple>
-								<label for="cover">
-									<div class="btn btn-div btn-sekunder-color">
-										<span class="fa fa-lg fa-plus"></span>
-										<span>Browse Images</span>
-									</div>
-								</label>
 							</div>
 
-							<div class="padding-5px"></div>
 							<div class="block-field">
-								<div class="review-image"></div>
+								<div class="review-image" style="display: inline-block;"></div>
+								<div style="position: relative; width: 100px; height: 100px; cursor: pointer; display: inline-block; vertical-align: top; margin: 5px;">
+										<label for="cover" style="cursor: pointer;">
+											<div class="image image-100px image-radius">
+												<span class="icn fa fa-lg fa-plus"></span>
+											</div>
+										</label>
+								</div>
 							</div>
 
 							<div class="block-field">

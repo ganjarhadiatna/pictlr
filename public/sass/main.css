@@ -713,7 +713,6 @@
 
 .frame-story {
   position: relative;
-  width: 900px;
   padding: 5px 15px;
   margin: auto;
   background-color: #fff;
@@ -1874,8 +1873,8 @@
     .sc-header .sc-place .sc-grid-2x {
       display: grid;
       display: -ms-grid;
-      grid-template-columns: 1fr 100px;
-      -ms-grid-columns: 1fr 100px; }
+      grid-template-columns: 1fr 1fr;
+      -ms-grid-columns: 1fr 1fr; }
     .sc-header .sc-place .sc-grid-1x {
       display: grid;
       display: -ms-grid;
@@ -1900,10 +1899,6 @@
         margin: auto; }
     .sc-header .sc-place .sc-grid .txt-right {
       text-align: right; }
-      .sc-header .sc-place .sc-grid .txt-right .btn {
-        width: 100px;
-        padding: 0 0;
-        float: right; }
     .sc-header .sc-place .sc-grid .ttl-head {
       position: absolute;
       top: 50%;
@@ -2212,6 +2207,9 @@ a {
     .col-300px {
       width: calc(100% - 20px); } }
 
+.bdr-bottom {
+  border-bottom: 1px rgba(0, 0, 0, 0.1) solid; }
+
 .ctn-main-font {
   font-family: "FontFirst", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 600; }
@@ -2233,8 +2231,12 @@ a {
     text-align: center; }
   .ctn-main-font.ctn-sek-color {
     color: rgba(0, 0, 0, 0.54); }
+    .ctn-main-font.ctn-sek-color a {
+      color: rgba(0, 0, 0, 0.84); }
   .ctn-main-font.ctn-min-color {
     color: rgba(0, 0, 0, 0.84); }
+    .ctn-main-font.ctn-min-color a {
+      color: #144753; }
   .ctn-main-font.ctn-white-color {
     color: #fff; }
   .ctn-main-font.ctn-line {
@@ -2263,8 +2265,7 @@ a {
     left: 0;
     width: 100%;
     z-index: 100;
-    background-color: #144753;
-    border-bottom: 1px rgba(0, 0, 0, 0.1) solid; }
+    background-color: #144753; }
     #header .place .menu {
       position: relative;
       padding: 10px 0;

@@ -230,7 +230,7 @@
 </head>
 <body>
 	<div id="header">
-		<div class="place bdr-bottom">
+		<div class="place">
 			<div class="menu col-all">
 				<div class="pos lef">
 					<div class="logo" >
@@ -252,7 +252,7 @@
 				<div class="pos rig">
 					<a href="{{ url('/') }}">
 						<button class="mobile btn-icn btn btn-main2-color btn-radius" id="home">
-							<span class="ttl">Home Feeds</span>
+							<span class="ttl">Home</span>
 						</button>
 					</a>
 					<a href="{{ url('/categories') }}">
@@ -262,13 +262,14 @@
 					</a>
 					@if (!Auth::id())
 						<a href="{{ url('/login') }}">
-							<button class="btn-icn btn btn-main-color ctn-up btn-radius" id="profile">
-								<span>Login</span>
+							<button class="btn-icn btn btn-circle btn-main2-color">
+								<span class="fas fa-lg fa-sign-in-alt"></span>
 							</button>
 						</a>
 						<a href="{{ url('/register') }}">
-							<button class="create btn btn-circle btn-main3-color">
+							<button class="create btn btn-radius btn-main3-color">
 								<span class="fas fa-lg fa-plus"></span>
+								<span>Register</span>
 							</button>
 						</a>
 					@else
@@ -282,13 +283,13 @@
 							<a href="{{ url('/user/'.$dt->id) }}">
 								<button class="btn-icn pp btn btn-main2-color btn-radius" id="profile">
 									<div class="image image-35px image-circle" style="background-image: url({{ asset('/profile/thumbnails/'.$dt->foto) }});" id="profile"></div>
-									<span class="username">{{ $dt->username }}</span>
 								</button>
 							</a>
 						@endforeach
 						<a href="{{ url('/compose') }}">
-							<button class="create btn btn-circle btn-main3-color" id="op-add" key="hide">
+							<button class="create btn btn-radius btn-main3-color" id="op-add" key="hide" style="margin-left: 20px;">
 								<span class="fas fa-lg fa-plus"></span>
+								<span>Create Story</span>
 							</button>
 						</a>
 					@endif

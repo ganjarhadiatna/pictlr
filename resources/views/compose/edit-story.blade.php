@@ -180,23 +180,13 @@
 		});
 	});
 </script>
-<div class="sc-header">
-	<div class="sc-place pos-fix">
-		<div class="col-full">
-			<div class="sc-grid sc-grid-3x">
-				<div class="sc-col-1"></div>
-				<div class="sc-col-2">
-					<h3 class="ttl-head ttl-sekunder-color">Edit Story</h3>
-				</div>
-				<div class="sc-col-3"></div>
-			</div>
-		</div>
-	</div>
-</div>
 @foreach ($getStory as $story)
-<div>
 	<div class="compose" id="create">
 		<div class="main">
+			<div class="padding-5px">
+				<div class="ctn-main-font ctn-min-color ctn-bold ctn-small ctn-center">Edit Story</div>
+			</div>
+			<div class="padding-bottom-15px"></div>
 			<div class="create-body">
 				<div class="create-mn">
 
@@ -245,6 +235,5 @@
 			</div>
 		</div>
 	</div>
-</div>
 @endforeach
 @endsection

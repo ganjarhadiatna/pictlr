@@ -30,7 +30,7 @@
 					<div class="ctn-main-font ctn-min-color ctn-16px">Notifications</div>
 				</div>
 				@foreach ($notif as $dt)
-					@if ($dt->type == 'comment')
+					@if ($dt->type == 'comment' || $dt->type == 'like')
 						<div class="frame-notif grid grid-3x">
 							<div class="grid-1">
 								<a href="{{ url('/user/'.$dt->id) }}">
@@ -48,7 +48,7 @@
 													{{ $dt->username }}
 												</strong>
 											</a>
-											{{ 'Commented "'.$dt->description.'" on your story' }}
+											{{ 'commented "'.$dt->description.'" on your story' }}
 										</div>
 										<div class="desc date">
 											{{ $dt->created }}
@@ -82,7 +82,7 @@
 													{{ $dt->username }}
 												</strong>
 											</a>
-											Started following you
+											started following you
 										</div>
 										<div class="desc date">
 											{{ $dt->created }}
@@ -92,7 +92,7 @@
 							</div>
 						</div>
 					@else
-						<div class="frame-notif grid grid-2x">
+						<div class="frame-notif grid grid-3x">
 							<div class="grid-1">
 								<a href="{{ url('/user/'.$dt->id) }}">
 									<div 
@@ -110,22 +110,23 @@
 												</strong>
 											</a>
 											@if ($dt->type == 'love')
-												Like your story
+												like your story
 											@else
-												Save your story
+												save your story
 											@endif
 										</div>
 										<div class="desc date">
 											{{ $dt->created }}
 										</div>
 									</div>
-									<div class="padding-5px"></div>
-									<a href="{{ url('/story/'.$dt->idstory) }}">
-										<div 
-											class="image image-full image-radius"
-											style="background-image: url({{ asset('/story/thumbnails/'.$dt->image) }});"></div>
-									</a>
 								</div>
+							</div>
+							<div class="grid-3 txt-right">
+								<a href="{{ url('/story/'.$dt->idstory) }}">
+									<div 
+										class="image image-40px image-radius"
+										style="background-image: url({{ asset('/story/thumbnails/'.$dt->image) }});"></div>
+								</a>
 							</div>
 						</div>
 					@endif

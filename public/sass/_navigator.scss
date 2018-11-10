@@ -51,7 +51,7 @@
 			@include grid_3x(1fr, 1fr, 1fr);
 		}
 		.sc-grid-2x {
-			@include grid_2x(1fr, 100px);
+			@include grid_2x(1fr, 1fr);
 		}
 		.sc-grid-1x {
 			@include grid_1x(1fr);
@@ -79,11 +79,6 @@
 			}
 			.txt-right {
 				text-align: right;
-				.btn {
-					width: 100px;
-					padding: 0 0;
-					float: right;
-				}
 			}
 			.ttl-head {
 				@include post_center();
